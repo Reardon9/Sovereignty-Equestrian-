@@ -227,10 +227,9 @@ const Home = () => (
             </p>
             <p className="text-sm" style={{ color: brand.gold }}>Breeding | Boarding | Performance</p>
           </div>
-          <div className="md:col-span-1 h-40 rounded-2xl border" style={{ borderColor: brand.gold }}>
-            <div className="h-full w-full flex items-center justify-center text-sm" style={{ color: brand.gold }}>
-              Featured image
-            </div>
+          <div className="md:col-span-1 h-40 rounded-2xl overflow-hidden border" style={{ borderColor: brand.gold }}>
+  <img src="/images/site/hero.jpg" alt="Sovereignty Equestrian" className="h-full w-full object-cover" />
+</div>
           </div>
         </div>
       </Container>
@@ -276,7 +275,10 @@ const Home = () => (
 
     {/* Facilities */}
     <Section title="Facilities & Property" kicker="Designed for Safety, Comfort, and Performance">
-      <TextWithPhotoRight>
+      <TextWithPhotoRight
+  imgSrc="/images/site/facilities.jpg"
+  imgAlt="Facilities and outdoor arena at Sovereignty Equestrian"
+>
         <ul className="list-disc pl-6 space-y-1">
           <li>Spacious stalls</li>
           <li>Outdoor arena (185 × 90)</li>
