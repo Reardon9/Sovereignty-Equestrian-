@@ -238,9 +238,10 @@ const Home = () => (
 
     {/* Video placeholder before Our Story */}
     <Section title="Facilities Video">
-      <div className="w-full aspect-video rounded-2xl border flex items-center justify-center" style={{ borderColor: brand.gold, color: brand.gold }}>
-        Property video placeholder — your promo video will appear here.
-      </div>
+      <video controls className="w-full aspect-video rounded-2xl">
+  <source src="/video/facility-tour.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
     </Section>
 
     {/* Our Story */}
