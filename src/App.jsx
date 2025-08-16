@@ -245,7 +245,6 @@ const Home = () => (
     </div>
   </div>
 </section>
-    </section>
 
     {/* Video placeholder before Our Story */}
     <Section title="Facilities Video">
