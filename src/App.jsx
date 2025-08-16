@@ -189,13 +189,18 @@ const Section = ({ title, kicker, children }) => (
   </section>
 );
 
-const TextWithPhotoRight = ({ children }) => (
+// Shows text with a photo on the RIGHT
+const TextWithPhotoRight = ({ children, imgSrc, imgAlt = "" }) => (
   <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
     <div className="md:col-span-3 order-2 md:order-none">{children}</div>
-    <aside className="md:col-span-2 h-56 rounded-2xl border" style={{ borderColor: brand.gold }}>
-      <div className="h-full w-full flex items-center justify-center text-sm" style={{ color: brand.gold }}>
-        Photo placeholder
-      </div>
+    <aside className="md:col-span-2 h-56 rounded-2xl border overflow-hidden" style={{ borderColor: brand.gold }}>
+      {imgSrc ? (
+        <img src={imgSrc} alt={imgAlt} className="h-full w-full object-cover" />
+      ) : (
+        <div className="h-full w-full flex items-center justify-center text-sm" style={{ color: brand.gold }}>
+          Photo placeholder
+        </div>
+      )}
     </aside>
   </div>
 );
