@@ -221,23 +221,30 @@ const Home = () => (
   <main>
     {/* Hero */}
     <section className="pt-12 sm:pt-20 pb-10" style={{ background: brand.navy }}>
-      <Container>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-          <div className="md:col-span-2">
-            <h1 className="text-4xl sm:text-5xl font-semibold mb-4" style={{ color: brand.white }}>
-              Welcome to Sovereignty Equestrian — Kelowna’s newest equestrian facility.
-            </h1>
-            <p className="text-lg mb-4" style={{ color: "#c9d1d9" }}>
-              We specialise in equine breeding, boarding, and performance!
-            </p>
-            <p className="text-sm" style={{ color: brand.gold }}>Breeding | Boarding | Performance</p>
-          </div>
-          <div className="md:col-span-1 h-40 rounded-2xl overflow-hidden border" style={{ borderColor: brand.gold }}>
-  <img src="/images/site/hero.jpg" alt="Sovereignty Equestrian" className="h-full w-full object-cover" />
-</div>
-          </div>
-        </div>
-      </Container>
+  <div className="max-w-7xl mx-auto px-6 sm:px-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+      <div className="col-span-2">
+        <h1 className="text-4xl sm:text-5xl font-semibold mb-4" style={{ color: brand.white }}>
+          Welcome to Sovereignty Equestrian – Kelowna’s newest equestrian facility.
+        </h1>
+        <p className="text-lg mb-4" style={{ color: "#c9d1d9" }}>
+          We specialise in equine breeding, boarding, and performance!
+        </p>
+        <p className="text-sm" style={{ color: brand.gold }}>
+          Breeding | Boarding | Performance
+        </p>
+      </div>
+      <div>
+        <img
+          src="/images/site/hero.jpg"
+          alt="Sovereignty Equestrian"
+          className="w-full h-full object-cover rounded-2xl overflow-hidden border"
+          style={{ borderColor: brand.gold }}
+        />
+      </div>
+    </div>
+  </div>
+</section>
     </section>
 
     {/* Video placeholder before Our Story */}
