@@ -349,25 +349,15 @@ const MeetTheTeam = () => (
 
     <Section title="Meet the Horses (Our Workers)">
       <div className="space-y-10">
-        <TextWithPhotoLeft>
-  <div>
-    <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>
-      Driftwoods Bellanca – “Bee”
-    </h4>
-    <p>
-      The heart of our brand. A retired endurance Arabian whose stamina and spirit
-      inspired our dream. Soon to share her wisdom as a lesson horse.
-    </p>
-    <img
-      src="/images/team/bee.jpg"
-      alt="Driftwoods Bellanca – Bee"
-      className="rounded-lg mt-4 w-80"
-      loading="lazy"
-    />
-  </div>
+        <TextWithPhotoLeft photo="/images/team/bee.jpg" alt="Driftwoods Bellanca — Bee">
+  <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>
+    Driftwoods Bellanca – “Bee”
+  </h4>
+  <p>
+    The heart of our brand. A retired endurance Arabian whose stamina and spirit
+    inspired our dream. Soon to share her wisdom as a lesson horse.
+  </p>
 </TextWithPhotoLeft>
-        <TextWithPhotoLeft>
-          <div>
             <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>Driftwoods Dark Melody — “Mel”</h4>
             <p>
               Our graceful matriarch. A retired endurance mare and broodmare who still enjoys trail rides and will be
