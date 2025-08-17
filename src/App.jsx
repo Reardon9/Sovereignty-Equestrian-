@@ -236,7 +236,7 @@ const Home = () => (
       </div>
       <div>
         <img
-          src="/images/site/hero.jpg"
+          src="/images/home/hero.jpg"
           alt="Sovereignty Equestrian"
           className="w-full h-full object-cover rounded-2xl overflow-hidden border"
           style={{ borderColor: brand.gold }}
@@ -287,7 +287,7 @@ const Home = () => (
     {/* Facilities */}
     <Section title="Facilities & Property" kicker="Designed for Safety, Comfort, and Performance">
       <TextWithPhotoRight
-  imgSrc="/images/site/facilities.jpg"
+  src="/images/home/facilities-1.jpg"
   imgAlt="Facilities and outdoor arena at Sovereignty Equestrian"
 >
         <ul className="list-disc pl-6 space-y-1">
