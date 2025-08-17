@@ -309,6 +309,9 @@ const Home = () => (
     </ul>
   </div>
 </Section>
+    
+</main>
+);
 
 const MeetTheTeam = () => (
   <main>
