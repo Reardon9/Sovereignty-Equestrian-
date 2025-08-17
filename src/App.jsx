@@ -284,26 +284,31 @@ const Home = () => (
       </TextWithPhotoRight>
     </Section>
 
-    {/* Facilities */}
-    <Section title="Facilities & Property" kicker="Designed for Safety, Comfort, and Performance">
-      <img
-  src="/images/home/facilities-1.jpg"
-  alt="Facilities and outdoor arena at Sovereignty Equestrian"
-  className="w-full h-[260px] sm:h-[360px] object-cover rounded-lg mb-6"
-  loading="lazy"
-/>
+   {/* Facilities */}
+<Section
+  title="Facilities & Property"
+  kicker="Designed for Safety, Comfort, and Performance"
+>
+  <div className="space-y-6">
+    <img
+      src="/images/home/facilities-1.jpg"
+      alt="Facilities and outdoor arena at Sovereignty Equestrian"
+      className="w-full h-[300px] sm:h-[400px] object-cover rounded-lg shadow-md"
+      loading="lazy"
+    />
 
-<ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-white/90 list-disc pl-5">
-  <li>Spacious stalls</li>
-  <li>Outdoor arena (185 × 90)</li>
-  <li>Round pen</li>
-  <li>Tack room</li>
-  <li>Wash bay</li>
-  <li>Turnout fields</li>
-  <li>On-property trails & access to local routes</li>
-  <li>Secure fencing & surveillance</li>
-</ul>
-);
+    <ul className="list-disc pl-6 space-y-2 text-lg">
+      <li>Spacious stalls</li>
+      <li>Outdoor arena (185 × 90)</li>
+      <li>Round pens</li>
+      <li>Tack room</li>
+      <li>Wash bays</li>
+      <li>Turnout fields</li>
+      <li>On-property trails & access to local routes</li>
+      <li>Secure fencing & surveillance</li>
+    </ul>
+  </div>
+</Section>
 
 const MeetTheTeam = () => (
   <main>
