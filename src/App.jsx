@@ -347,36 +347,45 @@ const MeetTheTeam = () => (
       </TextWithPhotoLeft>
     </Section>
 
-    {/* Meet the Horses (Our Workers) */}
-<Section title="Meet the Horses (Our Workers)">
-  <div className="space-y-10">
-    <TextWithPhotoLeft
-      photo="/images/team/bee.jpg"
-      alt="Driftwoods Bellanca (Bee)"
-    >
-      <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>
-        Driftwoods Bellanca — “Bee”
-      </h4>
-      <p>
-        The heart of our brand. A retired endurance Arabian whose stamina and spirit inspired our dream.
-        Soon to share her wisdom as a lesson horse.
-      </p>
-    </TextWithPhotoLeft>
-
-    <TextWithPhotoLeft
-      photo="/images/team/mel.jpg"
-      alt="Driftwoods Dark Melody (Mel)"
-    >
-      <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>
-        Driftwoods Dark Melody — “Mel”
-      </h4>
-      <p>
-        Our graceful matriarch. A retired endurance mare and broodmare who still enjoys trail rides
-        and will be available for steady lesson support.
-      </p>
-    </TextWithPhotoLeft>
-  </div>
-</Section>
+    <Section title="Meet the Horses (Our Workers)">
+      <div className="space-y-10">
+        <TextWithPhotoLeft>
+          <div>
+            <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>Driftwoods Bellanca — “Bee”</h4>
+            <p>
+              The heart of our brand. A retired endurance Arabian whose stamina and spirit inspired our dream. Soon to
+              share her wisdom as a lesson horse.
+            </p>
+          </div>
+        </TextWithPhotoLeft>
+        <TextWithPhotoLeft>
+          <div>
+            <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>Driftwoods Dark Melody — “Mel”</h4>
+            <p>
+              Our graceful matriarch. A retired endurance mare and broodmare who still enjoys trail rides and will be
+              available for steady lesson support.
+            </p>
+          </div>
+        </TextWithPhotoLeft>
+        <TextWithPhotoLeft>
+          <div>
+            <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>Zorros Flying Dutchman — “Dutch”</h4>
+            <p>
+              A big, gentle Arabian and former endurance competitor who qualified for the 2016 World Championships in Spain.
+              Retired from competition, perfect for confidence-building lessons.
+            </p>
+          </div>
+        </TextWithPhotoLeft>
+        <TextWithPhotoLeft>
+          <div>
+            <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>Driftwoods Blk Medina — “Medina”</h4>
+            <p>
+              Spirited broodmare joining Sovereignty as our new mama. Bred to Zorros Dreamcatcher and in foal for next year.
+            </p>
+          </div>
+        </TextWithPhotoLeft>
+      </div>
+    </Section>
   </main>
 );
 
