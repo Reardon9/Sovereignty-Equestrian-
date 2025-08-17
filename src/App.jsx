@@ -350,14 +350,20 @@ const MeetTheTeam = () => (
     <Section title="Meet the Horses (Our Workers)">
       <div className="space-y-10">
         <TextWithPhotoLeft>
-          <div>
-            <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>Driftwoods Bellanca — “Bee”</h4>
-            <p>
-              The heart of our brand. A retired endurance Arabian whose stamina and spirit inspired our dream. Soon to
-              share her wisdom as a lesson horse.
-            </p>
-          </div>
-        </TextWithPhotoLeft>
+          <TextWithPhotoLeft
+  photo="/bee.jpg"
+  alt="Driftwoods Bellanca (Bee)"
+>
+  <div>
+    <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>
+      Driftwoods Bellanca — “Bee”
+    </h4>
+    <p>
+      The heart of our brand. A retired endurance Arabian whose stamina and
+      spirit inspired our dream. Soon to share her wisdom as a lesson horse.
+    </p>
+  </div>
+</TextWithPhotoLeft>
         <TextWithPhotoLeft>
           <div>
             <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>Driftwoods Dark Melody — “Mel”</h4>
