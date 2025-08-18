@@ -267,35 +267,40 @@ const TextWithPhotoLeft = ({ children, imgSrc, imgAlt = "" }) => (
 const Home = () => (
   <main>
     {/* Hero */}
-    <section className="pt-12 sm:pt-20 pb-10" style={{ background: brand.navy }}>
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-          <div className="col-span-2">
-            <h1
-              className="text-4xl sm:text-5xl font-semibold mb-4"
-              style={{ color: brand.white }}
-            >
-              Welcome to Sovereignty Equestrian – Kelowna’s newest equestrian
-              facility.
-            </h1>
-            <p className="text-lg mb-4" style={{ color: "#c9d1d9" }}>
-              We specialise in equine breeding, boarding, and performance!
-            </p>
-            <p className="text-sm" style={{ color: brand.gold }}>
-              Breeding | Boarding | Performance
-            </p>
-          </div>
-          <div>
-            <img
-              src="/images/home/hero.jpg"
-              alt="Sovereignty Equestrian"
-              className="w-full h-full object-cover rounded-2xl overflow-hidden border"
-              style={{ borderColor: brand.gold }}
-            />
-          </div>
-        </div>
+    {/* Hero */}
+<section className="pt-10 sm:pt-16 pb-10" style={{ background: brand.navy }}>
+  <div className="max-w-7xl mx-auto px-6 sm:px-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+      <div className="md:col-span-2">
+        <h1
+          className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight mb-3"
+          style={{ color: brand.white }}
+        >
+          Welcome to Sovereignty Equestrian – Kelowna’s newest equestrian facility.
+        </h1>
+        <p className="text-base sm:text-lg mb-4" style={{ color: "#c9d1d9" }}>
+          We specialise in equine breeding, boarding, and performance!
+        </p>
+        <p className="text-sm sm:text-base" style={{ color: brand.gold }}>
+          Breeding | Boarding | Performance
+        </p>
       </div>
-    </section>
+
+      {/* Image column — intentionally smaller than Facilities image */}
+      <div
+        className="h-[240px] sm:h-[320px] md:h-[360px] lg:h-[380px] rounded-2xl overflow-hidden border"
+        style={{ borderColor: brand.gold }}
+      >
+        <img
+          src="/images/home/hero.jpg"
+          alt="Sovereignty Equestrian"
+          className="w-full h-full object-cover"
+          style={{ objectPosition: "50% 45%" }}  // tweak if you want the focal point higher/lower
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
     {/* Video placeholder before Our Story */}
     <Section title="Facilities Video">
@@ -358,14 +363,14 @@ const Home = () => (
         />
 
         <ul className="list-disc pl-6 space-y-2 text-lg">
-          <li>Spacious stalls</li>
-          <li>Outdoor arena (185 × 90)</li>
-          <li>Round pens</li>
-          <li>Tack room</li>
-          <li>Wash bays</li>
-          <li>Turnout fields</li>
-          <li>On-property trails & access to local routes</li>
-          <li>Secure fencing & surveillance</li>
+          <li>Spacious Stalls</li>
+          <li>Outdoor Arena (185 × 90)</li>
+          <li>Round Pen</li>
+          <li>Tack Room</li>
+          <li>Wash Bay</li>
+          <li>Turnout Fields</li>
+          <li>On-Property Trails & Access to Local Routes</li>
+          <li>Secure Fencing & Surveillance</li>
         </ul>
       </div>
     </Section>
