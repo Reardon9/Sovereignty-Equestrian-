@@ -430,7 +430,7 @@ const MeetTheTeam = () => (
       </TextWithPhotoLeft>
     </Section>
 
-    <Section title="Meet the Horses (Our Workers)">
+        <Section title="Meet the Horses (Our Workers)">
       <div className="space-y-10">
         <TextWithPhotoLeft
           imgSrc="/images/team/bee.jpg"
@@ -446,6 +446,9 @@ const MeetTheTeam = () => (
             <p>
               The heart of our brand. A retired endurance Arabian whose stamina and
               spirit inspired our dream. Soon to share her wisdom as a lesson horse.
+              Once an international competitor covering 100-mile races, Bee is now
+              enjoying retirement while preparing to guide the next generation of
+              riders with her gentle wisdom.
             </p>
           </div>
         </TextWithPhotoLeft>
@@ -464,6 +467,9 @@ const MeetTheTeam = () => (
             <p>
               Our graceful matriarch. A retired endurance mare and broodmare who
               still enjoys trail rides and will be available for steady lesson support.
+              A former endurance competitor and broodmare, Mel now shines as our calm,
+              steady teacher — a gentle partner for beginners and a queenly presence
+              in the herd.
             </p>
           </div>
         </TextWithPhotoLeft>
@@ -482,7 +488,9 @@ const MeetTheTeam = () => (
             <p>
               A big, gentle Arabian and former endurance competitor who qualified for
               the 2016 World Championships in Spain. Retired from competition, perfect
-              for confidence-building lessons.
+              for confidence-building lessons. Known as our gentle giant, Dutch carries
+              the spirit of a world-class athlete while offering steady confidence to
+              every rider he meets.
             </p>
           </div>
         </TextWithPhotoLeft>
@@ -500,7 +508,9 @@ const MeetTheTeam = () => (
             </h4>
             <p>
               Spirited broodmare joining Sovereignty as our new mama. Bred to Zorros
-              Dreamcatcher and in foal for next year.
+              Dreamcatcher and in foal for next year. A fiery broodmare with a
+              competitive endurance past, Medina brings elegance, strength, and a bright
+              future of foals to Sovereignty Equestrian.
             </p>
           </div>
         </TextWithPhotoLeft>
