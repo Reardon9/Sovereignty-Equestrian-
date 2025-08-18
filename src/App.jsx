@@ -544,7 +544,7 @@ const Boarding = () => (
             <p>
               Complete daily care: stall cleaning & fresh bedding, premium hay & custom feed plan,
               turnout, blanketing/seasonal care, scheduling for farrier & vet, and regular wellness checks.
-              <em> Priority for clients choosing full board.</em>
+              <em> *Priority is given to clients choosing full board.*</em>
             </p>
           </div>
         </TextWithPhotoRight>
@@ -555,7 +555,7 @@ const Boarding = () => (
               Semi-Board — Shared Care, Full Support
             </h4>
             <p>
-              Hands-on owners with professional backup. Includes stall/paddock, 24/7 hay, and full facility access;
+              Hands-on owners with professional backup. Includes stall, 24/7 hay, and full facility access;
               you manage grooming, exercise, and selected care tasks.
             </p>
           </div>
