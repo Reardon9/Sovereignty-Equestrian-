@@ -467,8 +467,7 @@ const MeetTheTeam = () => (
             <p>
               Our graceful matriarch. A retired endurance mare and broodmare who
               still enjoys trail rides and will be available for steady lesson support.
-              A former endurance competitor and broodmare, Mel now shines as our calm,
-              steady teacher — a gentle partner for beginners and a queenly presence
+              Mel now shines as our calm, steady teacher — a gentle partner for beginners and a queenly presence
               in the herd.
             </p>
           </div>
