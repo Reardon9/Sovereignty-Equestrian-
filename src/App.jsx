@@ -602,7 +602,12 @@ const Lessons = () => (
             <li>Weekly Riding Lessons — consistent 45-minute sessions (billed monthly)</li>
             <li>Private Booked Lesson — focused 60-minute one-on-one coaching</li>
           </ul>
-        </div>
+    <p className="italic mt-6">
+      *There may also be opportunities for arena rental. Our outdoor arena may be
+      available for private use, group lessons, or hosted events — perfect for
+      trainers, clubs, or independent riders looking for a quality space to work.
+    </p>
+  </div>
       </TextWithPhotoRight>
     </Section>
   </main>
