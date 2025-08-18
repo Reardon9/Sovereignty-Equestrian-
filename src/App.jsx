@@ -787,16 +787,50 @@ const BirthdayParties = () => (
 
 const LayoverStays = () => (
   <main>
-    <Section title="Layover Stays" kicker="Rest, recharge, and ride on">
-      <TextWithPhotoRight imgSrc="/images/services/layover.jpg" imgAlt="Layover stays" objPos="center 50%">
-        <div>
-          <p>
-            Safe, comfortable overnights for travelers with horses: stalls or turnout, fresh water & hay,
-            secure facilities, and options for trailer parking or a cozy onsite suite.
-          </p>
-        </div>
-      </TextWithPhotoRight>
-    </Section>
+    <Section title="Layover Stays" kicker="Rest, Recharge, and Ride On">
+  <TextWithPhotoRight
+    imgSrc="/images/services/layover-stays.jpg"   // put your photo here
+    imgAlt="Layover Stays at Sovereignty Equestrian"
+    objPos="center"
+  >
+    <div>
+      <p>
+        Traveling long distances with your horse? We offer overnight layover stays for
+        travelers passing through the Okanagan, providing a safe and comfortable place
+        for both you and your horse to rest and recharge.
+      </p>
+      <p className="mt-4">
+        Our facility is the perfect stopover — with everything you need to feel at home
+        on the road.
+      </p>
+
+      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+        For the Horse
+      </h5>
+      <ul className="list-disc pl-6 mt-2 space-y-1">
+        <li>Clean, spacious stalls or turnout paddocks (with fresh bedding available)</li>
+        <li>Fresh water, hay, and calm surroundings</li>
+        <li>Secure, well-maintained facilities with easy trailer access</li>
+      </ul>
+
+      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+        For the Rider
+      </h5>
+      <ul className="list-disc pl-6 mt-2 space-y-1">
+        <li>Trailer parking with optional hook-ups</li>
+        <li>Stay in your own travel trailer, or book our cozy on-site basement suite</li>
+        <li>Access to washrooms, Wi-Fi, and basic amenities</li>
+        <li>Use of arena or space to stretch your horse’s legs (on request)</li>
+      </ul>
+
+      <p className="mt-6">
+        Whether you’re heading to a show, relocating, or on an adventure — our layover
+        service gives you and your horse the break you deserve, with peace of mind and a
+        welcoming place to rest.
+      </p>
+    </div>
+  </TextWithPhotoRight>
+</Section>
   </main>
 );
 
