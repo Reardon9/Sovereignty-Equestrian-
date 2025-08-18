@@ -856,55 +856,65 @@ const LayoverStays = () => (
 const HorsePurchasing = () => (
   <main>
     <Section title="Horse Purchasing Program" kicker="Sovereignty Equestrian × Gone with the Wind Arabians">
-  <TextWithPhotoLeft
-    imgSrc="/images/services/purchasing.jpg"   
-    imgAlt="Horse Purchasing Program"
-    objPos="center"
-  >
-    <div>
-      <p>
-        At Sovereignty Equestrian, we’re proud to partner with Gone with the Wind Arabians,
-        a highly respected and internationally recognized breeding farm based in Fort St.
-        John, BC. This partnership is a cornerstone of our Horse Purchasing Program, giving
-        clients access to some of the finest Egyptian-influenced Arabian bloodlines in
-        North America.
-      </p>
+      {/* Custom grid to move photo right and make it taller */}
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+        {/* Text (left) */}
+        <div className="md:col-span-3">
+          <p>
+            At Sovereignty Equestrian, we’re proud to partner with Gone with the Wind Arabians,
+            a highly respected and internationally recognized breeding farm based in Fort St.
+            John, BC. This partnership is a cornerstone of our Horse Purchasing Program, giving
+            clients access to some of the finest Egyptian-influenced Arabian bloodlines in
+            North America.
+          </p>
 
-      <p className="mt-4">
-        Gone with the Wind Arabians has been producing world-class Arabians for over
-        25 years, with more than 100 purebreds sold across Canada, the United States,
-        and Dubai. Their foundation lines are celebrated for elegance, athleticism, and
-        exceptional temperament — qualities that make them equally suited for the show
-        ring, breeding programs, or lifelong companionship.
-      </p>
+          <p className="mt-4">
+            Gone with the Wind Arabians has been producing world-class Arabians for over
+            25 years, with more than 100 purebreds sold across Canada, the United States,
+            and Dubai. Their foundation lines are celebrated for elegance, athleticism, and
+            exceptional temperament — qualities that make them equally suited for the show
+            ring, breeding programs, or lifelong companionship.
+          </p>
 
-      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
-        What We Offer
-      </h5>
-      <ul className="list-disc pl-6 mt-2 space-y-1">
-        <li><strong>Competitive Prospects</strong> — endurance, performance, and show-quality Arabians</li>
-        <li><strong>Breeding-Quality Mares</strong> — exceptional bloodlines for future programs</li>
-        <li><strong>Lifelong Companions</strong> — gentle, versatile partners for riders of all levels</li>
-      </ul>
+          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+            What We Offer
+          </h5>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li><strong>Competitive Prospects</strong> — endurance, performance, and show-quality Arabians</li>
+            <li><strong>Breeding-Quality Mares</strong> — exceptional bloodlines for future programs</li>
+            <li><strong>Lifelong Companions</strong> — gentle, versatile partners for riders of all levels</li>
+          </ul>
 
-      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
-        Buyer Support
-      </h5>
-      <ul className="list-disc pl-6 mt-2 space-y-1">
-        <li>Access to photos, videos, and pedigrees upon request</li>
-        <li>Guidance in matching the right horse to your goals and lifestyle</li>
-        <li>Viewing opportunities (on-site or virtual)</li>
-        <li>Assistance with transport recommendations and next steps</li>
-      </ul>
+          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+            Buyer Support
+          </h5>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>Access to photos, videos, and pedigrees upon request</li>
+            <li>Guidance in matching the right horse to your goals and lifestyle</li>
+            <li>Viewing opportunities (on-site or virtual)</li>
+            <li>Assistance with transport recommendations and next steps</li>
+          </ul>
 
-      <p className="mt-6">
-        Through this collaboration, our clients don’t just purchase a horse — they become
-        part of a trusted community dedicated to the care, development, and celebration of
-        the Arabian breed.
-      </p>
-    </div>
-  </TextWithPhotoLeft>
-</Section>
+          <p className="mt-6">
+            Through this collaboration, our clients don’t just purchase a horse — they become
+            part of a trusted community dedicated to the care, development, and celebration of
+            the Arabian breed.
+          </p>
+        </div>
+
+        {/* Image (right) — taller (about 2× old size) */}
+        <aside
+          className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
+          style={{ borderColor: brand.gold }}
+        >
+          <img
+            src="/images/services/purchasing.jpg"
+            alt="Horse Purchasing Program"
+            className="h-full w-full object-cover"
+          />
+        </aside>
+      </div>
+    </Section>
   </main>
 );
 
