@@ -875,7 +875,17 @@ const HorsePurchasing = () => (
         <li>Access to photos, videos, and pedigrees upon request</li>
         <li>Guidance in matching the right horse to your goals and lifestyle</li>
         <li>Viewing opportunities (on-site or virtual)</li>
-        <li>Assistance with tra
+        <li>Assistance with transport recommendations and next steps</li>
+      </ul>
+
+      <p className="mt-6">
+        Through this collaboration, our clients don’t just purchase a horse — they become
+        part of a trusted community dedicated to the care, development, and celebration of
+        the Arabian breed.
+      </p>
+    </div>
+  </TextWithPhotoLeft>
+</Section>
   </main>
 );
 
