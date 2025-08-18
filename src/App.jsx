@@ -747,16 +747,40 @@ const Therapy = () => (
 
 const BirthdayParties = () => (
   <main>
-    <Section title="Birthday Parties">
-      <TextWithPhotoRight imgSrc="/images/services/parties.jpg" imgAlt="Birthday parties" objPos="center 45%">
-        <div>
-          <p>
-            Celebrate barn-side with horse meet-and-greets, grooming demos, photo moments, and optional
-            leadline/pony rides (age-appropriate). Reserved picnic area available.
-          </p>
-        </div>
-      </TextWithPhotoRight>
-    </Section>
+   <Section title="Birthday Parties" kicker="Celebrate with Horses, Laughter, and Lasting Memories">
+  <TextWithPhotoLeft
+    imgSrc="/images/services/parties.jpg"   // update if your filename differs
+    imgAlt="Birthday Parties at Sovereignty Equestrian"
+    objPos="center"
+  >
+    <div>
+      <p>
+        Make your special day unforgettable with a barn-side birthday party at Sovereignty Equestrian!
+        Our parties combine hands-on horse experiences with plenty of fun and photo-worthy moments.
+      </p>
+
+      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+        What’s Included
+      </h5>
+      <ul className="list-disc pl-6 mt-2 space-y-1">
+        <li><strong>Horse Meet-and-Greets</strong> — get up close with our friendly horses and ponies</li>
+        <li><strong>Grooming Demos &amp; Hands-On Fun</strong> — learn how to brush, care for, and bond with our horses</li>
+        <li><strong>Leadline &amp; Pony Rides</strong> — age-appropriate rides for kids, guided safely by our team</li>
+        <li><strong>Reserved Picnic Area</strong> — perfect for cake, presents, and relaxing with friends and family</li>
+        <li><strong>Photo Opportunities</strong> — capture memories with our beautiful horses and rustic backdrop</li>
+      </ul>
+
+      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+        Add-On Options
+      </h5>
+      <ul className="list-disc pl-6 mt-2 space-y-1">
+        <li>BBQ rental for your group</li>
+        <li>Horse dress-up package (fun costumes &amp; themed photo ops)</li>
+        <li>Themed decorations or party setups</li>
+      </ul>
+    </div>
+  </TextWithPhotoLeft>
+</Section>
   </main>
 );
 
