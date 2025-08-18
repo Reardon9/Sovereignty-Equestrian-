@@ -593,16 +593,35 @@ const Lessons = () => (
     <Section title="Lessons & Arabian Knights Riding Club">
       <TextWithPhotoRight imgSrc="/images/services/lessons.jpg" imgAlt="Riding lessons" objPos="center 35%">
         <div>
-          <p>
-            Personalized lessons building strong foundations, confidence, and a deep rider–horse connection.
-            From first ride to advanced, with the option to choose your mount and grow together.
-          </p>
-          <ul className="list-disc pl-6 mt-4 space-y-1">
-            <li>Discover Riding — 45-minute intro for first-timers & kids</li>
-            <li>Weekly Riding Lessons — consistent 45-minute sessions (billed monthly)</li>
-            <li>Private Booked Lesson — focused 60-minute one-on-one coaching</li>
-          </ul>
+  <p className="text-base text-white/80 leading-relaxed">
+    At Sovereignty Equestrian, we offer personalized riding lessons that focus on building strong
+    foundations, rider confidence, and a deep connection between horse and rider. Whether it’s your
+    first ride or you’re refining advanced technique, our experienced instructors provide patient,
+    professional guidance in a supportive environment.
+  </p>
+
+  <div className="mt-6 space-y-4">
+    <p className="text-base text-white/80 leading-relaxed">
+      <span className="font-semibold">Discover Riding —</span> 45-minute intro for first-timers & kids.
+      Learn the basics of horse safety, grooming, and handling while building comfort and confidence
+      around our gentle Arabian horses.
+    </p>
+
+    <p className="text-base text-white/80 leading-relaxed">
+      <span className="font-semibold">Weekly Riding Lessons —</span> consistent 45-minute sessions
+      (billed monthly). Regular lessons build skill, confidence, and a lasting bond with your mount.
+    </p>
+
+    <p className="text-base text-white/80 leading-relaxed">
+      <span className="font-semibold">Private Booked Lesson —</span> focused 60-minute one-on-one
+      coaching. Flexible scheduling and tailored instruction help riders meet their personal goals.
+    </p>
   </div>
+
+  <p className="text-base text-white/80 leading-relaxed mt-6 italic">
+    Join our Arabian Knights Riding Club and begin your journey toward confident, connected riding.
+  </p>
+</div>
       </TextWithPhotoRight>
     </Section>
   </main>
