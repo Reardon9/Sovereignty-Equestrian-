@@ -1,5 +1,68 @@
 import React, { useEffect, useState } from "react";
 
+// === SEO helpers ===
+import { useEffect as __useEffectSEO } from "react";
+
+/** Sets document <title>, <meta name="description"> and <link rel="canonical"> */
+const SEO = ({ title, description, canonical = "https://www.sovereigntyequestrian.com/" }) => {
+  __useEffectSEO(() => {
+    // Title
+    document.title = title;
+
+    // Meta description
+    let desc = document.querySelector('meta[name="description"]');
+    if (!desc) {
+      desc = document.createElement('meta');
+      desc.setAttribute('name', 'description');
+      document.head.appendChild(desc);
+    }
+    desc.setAttribute('content', description);
+
+    // Canonical (hash router -> keep root canonical)
+    let canon = document.querySelector('link[rel="canonical"]');
+    if (!canon) {
+      canon = document.createElement('link');
+      canon.setAttribute('rel', 'canonical');
+      document.head.appendChild(canon);
+    }
+    canon.setAttribute('href', canonical);
+  }, [title, description, canonical]);
+
+  return null;
+};
+
+/** Inject LocalBusiness JSON-LD for brand/entity recognition */
+const LocalBusinessSchema = () => {
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "Sovereignty Equestrian",
+    "description": "Equine breeding, boarding, lessons, trail rides, and equine-assisted therapy in Kelowna, BC.",
+    "url": "https://www.sovereigntyequestrian.com/",
+    "image": "https://www.sovereigntyequestrian.com/logo.png",
+    "telephone": "+1-250-793-5191",
+    "email": "sovereigntyequestrian@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3990 Senger Road",
+      "addressLocality": "Kelowna",
+      "addressRegion": "BC",
+      "postalCode": "V1W 4S8",
+      "addressCountry": "CA"
+    },
+    "areaServed": "Kelowna"
+  };
+  __useEffectSEO(() => {
+    const s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.text = JSON.stringify(json);
+    document.head.appendChild(s);
+    return () => document.head.removeChild(s);
+  }, []);
+  return null;
+};
+
+
 // ===== Brand & Assets =====
 const LOGO = "/logo.png";
 const brand = {
@@ -266,6 +329,7 @@ const TextWithPhotoLeft = ({ children, imgSrc, imgAlt = "" }) => (
 // ===== Pages =====
 const Home = () => (
   <main>
+    <SEO title="Sovereignty Equestrian | Kelowna Horse Boarding, Lessons & Trail Rides" description="Sovereignty Equestrian in Kelowna, BC — equine boarding, riding lessons, trail rides, equine-assisted therapy, birthday parties and more." />
     {/* Hero */}
 <section className="pt-12 sm:pt-20 pb-10" style={{ background: brand.navy }}>
   <div className="max-w-7xl mx-auto px-6 sm:px-8">
@@ -377,6 +441,7 @@ const Home = () => (
 
 const MeetTheTeam = () => (
   <main>
+    <SEO title="Meet the Team | Sovereignty Equestrian Kelowna" description="Meet the team behind Sovereignty Equestrian—care, connection, and community in Kelowna, BC." />
     <Section
       title="People who care, experience that counts"
       kicker="Meet the Owners"
@@ -522,6 +587,7 @@ const MeetTheTeam = () => (
 // ---- Services pages ----
 const ServicesLanding = () => (
   <main>
+    <SEO title="Services | Sovereignty Equestrian Kelowna" description="Explore boarding, lessons, camps & clinics, guided trail rides, equine-assisted therapy, birthday parties, layover stays, and our horse purchasing program." />
     <Section title="Services">
       <p>
         Explore our dedicated pages using the Services menu: Boarding, Lessons & Arabian Knights Riding Club,
@@ -534,6 +600,7 @@ const ServicesLanding = () => (
 
 const Boarding = () => (
   <main>
+    <SEO title="Horse Boarding in Kelowna | Sovereignty Equestrian" description="Full board and layover options with daily care, premium hay, turnout, and wellness checks." />
     <Section title="Boarding" kicker="Care that’s consistent, safe, and horse-first">
       <div className="space-y-10">
         <TextWithPhotoRight imgSrc="/images/services/boarding-1.jpg" imgAlt="Full board" objPos="center 35%">
@@ -590,98 +657,73 @@ const Boarding = () => (
 
 const Lessons = () => (
   <main>
+    <SEO title="Riding Lessons in Kelowna | Sovereignty Equestrian" description="Personalized riding lessons—foundations, confidence, and a deep rider–horse bond from first ride to advanced." />
     <Section title="Lessons & Arabian Knights Riding Club">
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
-        {/* Text (left) */}
-        <div className="md:col-span-3">
-          <div>
-            <p className="text-base text-white/80 leading-relaxed">
-              At Sovereignty Equestrian, we offer personalized riding lessons that focus on building strong
-              foundations, rider confidence, and a deep connection between horse and rider. Whether it’s your
-              first ride or you’re refining advanced technique, our experienced instructors provide patient,
-              professional guidance in a supportive environment.
-            </p>
+      <TextWithPhotoRight imgSrc="/images/services/lessons.jpg" imgAlt="Riding lessons" objPos="center 35%">
+        <div>
+  <p className="text-base text-white/80 leading-relaxed">
+    At Sovereignty Equestrian, we offer personalized riding lessons that focus on building strong
+    foundations, rider confidence, and a deep connection between horse and rider. Whether it’s your
+    first ride or you’re refining advanced technique, our experienced instructors provide patient,
+    professional guidance in a supportive environment.
+  </p>
 
-            <div className="mt-6 space-y-4">
-              <p className="text-base text-white/80 leading-relaxed">
-                <span className="font-semibold">Discover Riding —</span> 45-minute intro for first-timers & kids.
-                Learn the basics of horse safety, grooming, and handling while building comfort and confidence
-                around our gentle Arabian horses.
-              </p>
+  <div className="mt-6 space-y-4">
+    <p className="text-base text-white/80 leading-relaxed">
+      <span className="font-semibold">Discover Riding —</span> 45-minute intro for first-timers & kids.
+      Learn the basics of horse safety, grooming, and handling while building comfort and confidence
+      around our gentle Arabian horses.
+    </p>
 
-              <p className="text-base text-white/80 leading-relaxed">
-                <span className="font-semibold">Weekly Riding Lessons —</span> consistent 45-minute sessions
-                (billed monthly). Regular lessons build skill, confidence, and a lasting bond with your mount.
-              </p>
+    <p className="text-base text-white/80 leading-relaxed">
+      <span className="font-semibold">Weekly Riding Lessons —</span> consistent 45-minute sessions
+      (billed monthly). Regular lessons build skill, confidence, and a lasting bond with your mount.
+    </p>
 
-              <p className="text-base text-white/80 leading-relaxed">
-                <span className="font-semibold">Private Booked Lesson —</span> focused 60-minute one-on-one
-                coaching. Flexible scheduling and tailored instruction help riders meet their personal goals.
-              </p>
-            </div>
+    <p className="text-base text-white/80 leading-relaxed">
+      <span className="font-semibold">Private Booked Lesson —</span> focused 60-minute one-on-one
+      coaching. Flexible scheduling and tailored instruction help riders meet their personal goals.
+    </p>
+  </div>
 
-            <p className="text-base text-white/80 leading-relaxed mt-6 italic">
-              Join our Arabian Knights Riding Club and begin your journey toward confident, connected riding.
-            </p>
-          </div>
-        </div>
-
-        {/* Image (right) — bigger/taller */}
-        <aside
-          className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
-          style={{ borderColor: brand.gold }}
-        >
-          <img
-            src="/images/services/lessons.jpg"
-            alt="Riding lessons"
-            className="h-full w-full object-cover"
-          />
-        </aside>
-      </div>
+  <p className="text-base text-white/80 leading-relaxed mt-6 italic">
+    Join our Arabian Knights Riding Club and begin your journey toward confident, connected riding.
+  </p>
+</div>
+      </TextWithPhotoRight>
     </Section>
   </main>
 );
 
 const CampsClinics = () => (
   <main>
+    <SEO title="Camps & Clinics | Sovereignty Equestrian Kelowna" description="Seasonal youth camps and focused clinics in groundwork, riding technique, and equine wellness." />
     <Section title="Camps & Clinics">
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
-        {/* Text (left) */}
-        <div className="md:col-span-3">
+      <TextWithPhotoRight imgSrc="/images/services/camps-clinics.jpg" imgAlt="Camps and clinics" objPos="center 40%">
+        <div>
           <p>
-            Seasonal camps give younger riders hands-on experience in horse care,
-            riding skills, and confidence building—all in a fun, safe, and supportive
-            environment. Our clinics provide focused instruction in areas such as
-            groundwork, riding technique, and equine wellness, often led by our team
-            and guest instructors. Together, these experiences create meaningful
-            opportunities to learn, grow, and connect with both horses and the riding
-            community.
+           Seasonal camps give younger riders hands-on experience in horse care,
+      riding skills, and confidence building—all in a fun, safe, and supportive
+      environment. Our clinics provide focused instruction in areas such as
+      groundwork, riding technique, and equine wellness, often led by our team
+      and guest instructors. Together, these experiences create meaningful
+      opportunities to learn, grow, and connect with both horses and the riding
+      community.
           </p>
           <p className="italic mt-6">
-            *There may also be opportunities for arena rental. Our outdoor arena may be
-            available for private use, group lessons, or hosted events — perfect for
-            trainers, clubs, or independent riders looking for a quality space to work.
-          </p>
+      *There may also be opportunities for arena rental. Our outdoor arena may be
+      available for private use, group lessons, or hosted events — perfect for
+      trainers, clubs, or independent riders looking for a quality space to work.
+    </p>
         </div>
-
-        {/* Image (right) — bigger/taller */}
-        <aside
-          className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
-          style={{ borderColor: brand.gold }}
-        >
-          <img
-            src="/images/services/camps-clinics.jpg"
-            alt="Camps and clinics"
-            className="h-full w-full object-cover"
-          />
-        </aside>
-      </div>
+      </TextWithPhotoRight>
     </Section>
   </main>
 );
 
 const TrailRides = () => (
   <main>
+    <SEO title="Guided Trail Rides in Kelowna | Sovereignty Equestrian" description="Beginner-friendly guided rides through orchards, vineyards, and scenic routes—plus Women’s Wine Night." />
     <Section title="Guided Trail Rides & Women’s Wine Night" kicker="Explore Southeast Kelowna">
   <TextWithPhotoRight
     imgSrc="/images/services/trail-rides.jpg"   // <- confirm exact filename + case
@@ -725,239 +767,205 @@ const TrailRides = () => (
 
 const Therapy = () => (
   <main>
+    <SEO title="Equine-Assisted Therapy in Kelowna | Sovereignty Equestrian" description="Ground-based equine-assisted sessions supporting emotional healing, mindfulness, and connection." />
     <Section title="Equine-Assisted Therapy" kicker="Healing Through Connection, One Horse at a Time">
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
-        {/* Text (left) */}
-        <div className="md:col-span-3">
-          <div>
-            <p>
-              At Sovereignty Equestrian, we believe in the powerful, unspoken connection
-              between humans and horses. Our Equine-Assisted Therapy sessions are designed
-              to support emotional healing, mental wellness, and personal growth through
-              meaningful, guided interactions with our horses.
-            </p>
+  <TextWithPhotoRight
+    imgSrc="/images/services/therapy.jpg"   // make sure you have a photo saved here
+    imgAlt="Equine-Assisted Therapy"
+    objPos="center"
+  >
+    <div>
+      <p>
+        At Sovereignty Equestrian, we believe in the powerful, unspoken connection
+        between humans and horses. Our Equine-Assisted Therapy sessions are designed
+        to support emotional healing, mental wellness, and personal growth through
+        meaningful, guided interactions with our horses.
+      </p>
 
-            <p className="mt-4">
-              Led in a calm, supportive environment, this service is ideal for individuals
-              navigating stress, anxiety, grief, trauma, or life transitions. No riding
-              experience is required — these sessions focus on ground-based activities that
-              foster mindfulness, trust, communication, and self-awareness.
-            </p>
+      <p className="mt-4">
+        Led in a calm, supportive environment, this service is ideal for individuals
+        navigating stress, anxiety, grief, trauma, or life transitions. No riding
+        experience is required — these sessions focus on ground-based activities that
+        foster mindfulness, trust, communication, and self-awareness.
+      </p>
 
-            <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
-              What You Can Expect
-            </h5>
-            <ul className="list-disc pl-6 mt-2 space-y-1">
-              <li>30-minute or 60-minute sessions (one-on-one or small group)</li>
-              <li>Groundwork and hands-on interaction with horses</li>
-              <li>A quiet, natural setting for emotional wellness</li>
-              <li>Supportive facilitation (non-clinical)*</li>
-              <li>Safe space for all ages and backgrounds</li>
-            </ul>
+      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+        What You Can Expect
+      </h5>
+      <ul className="list-disc pl-6 mt-2 space-y-1">
+        <li>30-minute or 60-minute sessions (one-on-one or small group)</li>
+        <li>Groundwork and hands-on interaction with horses</li>
+        <li>A quiet, natural setting for emotional wellness</li>
+        <li>Supportive facilitation (non-clinical)*</li>
+        <li>Safe space for all ages and backgrounds</li>
+      </ul>
 
-            <p className="mt-6 font-semibold" style={{ color: brand.gold }}>
-              Sometimes the best healing happens without words — and horses have a way of
-              knowing exactly what you need.
-            </p>
+      {/* Gold highlighted quote */}
+      <p className="mt-6 font-semibold" style={{ color: brand.gold }}>
+        Sometimes the best healing happens without words — and horses have a way of
+        knowing exactly what you need.
+      </p>
 
-            <p className="mt-4 italic text-sm">
-              *Non-clinical program; ask about referrals if you require licensed clinical
-              services.
-            </p>
-          </div>
-        </div>
-
-        {/* Image (right) — bigger/taller */}
-        <aside
-          className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
-          style={{ borderColor: brand.gold }}
-        >
-          <img
-            src="/images/services/therapy.jpg"
-            alt="Equine-Assisted Therapy"
-            className="h-full w-full object-cover"
-          />
-        </aside>
-      </div>
-    </Section>
+      <p className="mt-4 italic text-sm">
+        *Non-clinical program; ask about referrals if you require licensed clinical
+        services.
+      </p>
+    </div>
+  </TextWithPhotoRight>
+</Section>
   </main>
 );
 
 const BirthdayParties = () => (
   <main>
-    <Section title="Birthday Parties" kicker="Celebrate with Horses, Laughter, and Lasting Memories">
-      {/* Custom grid to control image size and position */}
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
-        {/* Text (left) */}
-        <div className="md:col-span-3">
-          <p>
-            Make your special day unforgettable with a barn-side birthday party at Sovereignty Equestrian!
-            Our parties combine hands-on horse experiences with plenty of fun and photo-worthy moments.
-          </p>
+    <SEO title="Horse Birthday Parties | Sovereignty Equestrian Kelowna" description="Barn-side birthday parties with meet-and-greets, grooming demos, leadline/pony rides, picnic area, and photo ops." />
+   <Section title="Birthday Parties" kicker="Celebrate with Horses, Laughter, and Lasting Memories">
+  <TextWithPhotoLeft
+    imgSrc="/images/services/parties.jpg"
+    imgAlt="Birthday Parties at Sovereignty Equestrian"
+    objPos="center"
+    imgClassName="w-full rounded-2xl object-cover md:h-[28rem] h-auto"
+  >
+    <div>
+      <p>
+        Make your special day unforgettable with a barn-side birthday party at Sovereignty Equestrian!
+        Our parties combine hands-on horse experiences with plenty of fun and photo-worthy moments.
+      </p>
 
-          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
-            What’s Included
-          </h5>
-          <ul className="list-disc pl-6 mt-2 space-y-1">
-            <li><strong>Horse Meet-and-Greets</strong> — get up close with our friendly horses and ponies</li>
-            <li><strong>Grooming Demos &amp; Hands-On Fun</strong> — learn how to brush, care for, and bond with our horses</li>
-            <li><strong>Leadline &amp; Pony Rides</strong> — age-appropriate rides for kids, guided safely by our team</li>
-            <li><strong>Reserved Picnic Area</strong> — perfect for cake, presents, and relaxing with friends and family</li>
-            <li><strong>Photo Opportunities</strong> — capture memories with our beautiful horses and rustic backdrop</li>
-          </ul>
+      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+        What’s Included
+      </h5>
+      <ul className="list-disc pl-6 mt-2 space-y-1">
+        <li><strong>Horse Meet-and-Greets</strong> — get up close with our friendly horses and ponies</li>
+        <li><strong>Grooming Demos &amp; Hands-On Fun</strong> — learn how to brush, care for, and bond with our horses</li>
+        <li><strong>Leadline &amp; Pony Rides</strong> — age-appropriate rides for kids, guided safely by our team</li>
+        <li><strong>Reserved Picnic Area</strong> — perfect for cake, presents, and relaxing with friends and family</li>
+        <li><strong>Photo Opportunities</strong> — capture memories with our beautiful horses and rustic backdrop</li>
+      </ul>
 
-          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
-            Add-On Options
-          </h5>
-          <ul className="list-disc pl-6 mt-2 space-y-1">
-            <li>BBQ rental for your group</li>
-            <li>Horse dress-up package (fun costumes &amp; themed photo ops)</li>
-            <li>Themed decorations or party setups</li>
-          </ul>
-        </div>
-
-        {/* Image (right) — taller (about 2× the old h-56) */}
-        <aside
-          className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
-          style={{ borderColor: brand.gold }}
-        >
-          <img
-            src="/images/services/parties.jpg"
-            alt="Birthday Parties at Sovereignty Equestrian"
-            className="h-full w-full object-cover"
-          />
-        </aside>
-      </div>
-    </Section>
+      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+        Add-On Options
+      </h5>
+      <ul className="list-disc pl-6 mt-2 space-y-1">
+        <li>BBQ rental for your group</li>
+        <li>Horse dress-up package (fun costumes &amp; themed photo ops)</li>
+        <li>Themed decorations or party setups</li>
+      </ul>
+    </div>
+  </TextWithPhotoLeft>
+</Section>
   </main>
 );
 
 const LayoverStays = () => (
   <main>
+    <SEO title="Horse Layover Stays in Kelowna | Sovereignty Equestrian" description="Overnight layovers for traveling horses and riders—clean stalls, calm setting, easy trailer access, optional suite, and amenities." />
     <Section title="Layover Stays" kicker="Rest, Recharge, and Ride On">
-      {/* Custom grid: make photo WIDER by giving it 3 columns */}
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
-        {/* Text (left) — now narrower to give image more horizontal room */}
-        <div className="md:col-span-2">
-          <p>
-            Traveling long distances with your horse? We offer overnight layover stays for
-            travelers passing through the Okanagan, providing a safe and comfortable place
-            for both you and your horse to rest and recharge.
-          </p>
-          <p className="mt-4">
-            Our facility is the perfect stopover — with everything you need to feel at home
-            on the road.
-          </p>
+  <TextWithPhotoRight
+    imgSrc="/images/services/layover.jpg"   
+    imgAlt="Layover Stays at Sovereignty Equestrian"
+    objPos="center"
+  >
+    <div>
+      <p>
+        Traveling long distances with your horse? We offer overnight layover stays for
+        travelers passing through the Okanagan, providing a safe and comfortable place
+        for both you and your horse to rest and recharge.
+      </p>
+      <p className="mt-4">
+        Our facility is the perfect stopover — with everything you need to feel at home
+        on the road.
+      </p>
 
-          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
-            For the Horse
-          </h5>
-          <ul className="list-disc pl-6 mt-2 space-y-1">
-            <li>Clean, spacious stalls or turnout paddocks (with fresh bedding available)</li>
-            <li>Fresh water, hay, and calm surroundings</li>
-            <li>Secure, well-maintained facilities with easy trailer access</li>
-          </ul>
+      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+        For the Horse
+      </h5>
+      <ul className="list-disc pl-6 mt-2 space-y-1">
+        <li>Clean, spacious stalls or turnout paddocks (with fresh bedding available)</li>
+        <li>Fresh water, hay, and calm surroundings</li>
+        <li>Secure, well-maintained facilities with easy trailer access</li>
+      </ul>
 
-          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
-            For the Rider
-          </h5>
-          <ul className="list-disc pl-6 mt-2 space-y-1">
-            <li>Trailer parking with optional hook-ups</li>
-            <li>Stay in your own travel trailer, or book our cozy on-site basement suite</li>
-            <li>Access to washrooms, Wi-Fi, and basic amenities</li>
-            <li>Use of arena or space to stretch your horse’s legs (on request)</li>
-          </ul>
+      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+        For the Rider
+      </h5>
+      <ul className="list-disc pl-6 mt-2 space-y-1">
+        <li>Trailer parking with optional hook-ups</li>
+        <li>Stay in your own travel trailer, or book our cozy on-site basement suite</li>
+        <li>Access to washrooms, Wi-Fi, and basic amenities</li>
+        <li>Use of arena or space to stretch your horse’s legs (on request)</li>
+      </ul>
 
-          <p className="mt-6">
-            Whether you’re heading to a show, relocating, or on an adventure — our layover
-            service gives you and your horse the break you deserve, with peace of mind and a
-            welcoming place to rest.
-          </p>
-        </div>
-
-        {/* Image (right) — wider (3 columns) and reasonably tall */}
-        <aside
-          className="md:col-span-3 rounded-2xl border overflow-hidden h-[22rem]"
-          style={{ borderColor: brand.gold }}
-        >
-          <img
-            src="/images/services/layover.jpg"
-            alt="Layover Stays at Sovereignty Equestrian"
-            className="h-full w-full object-cover"
-          />
-        </aside>
-      </div>
-    </Section>
+      <p className="mt-6">
+        Whether you’re heading to a show, relocating, or on an adventure — our layover
+        service gives you and your horse the break you deserve, with peace of mind and a
+        welcoming place to rest.
+      </p>
+    </div>
+  </TextWithPhotoRight>
+</Section>
   </main>
 );
 
 const HorsePurchasing = () => (
   <main>
+    <SEO title="Arabian Horse Purchasing Program | Sovereignty Equestrian" description="Partnered with Gone with the Wind Arabians: competitive prospects, breeding-quality mares, and lifelong companions." />
     <Section title="Horse Purchasing Program" kicker="Sovereignty Equestrian × Gone with the Wind Arabians">
-      {/* Custom grid to move photo right and make it taller */}
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
-        {/* Text (left) */}
-        <div className="md:col-span-3">
-          <p>
-            At Sovereignty Equestrian, we’re proud to partner with Gone with the Wind Arabians,
-            a highly respected and internationally recognized breeding farm based in Fort St.
-            John, BC. This partnership is a cornerstone of our Horse Purchasing Program, giving
-            clients access to some of the finest Egyptian-influenced Arabian bloodlines in
-            North America.
-          </p>
+  <TextWithPhotoLeft
+    imgSrc="/images/services/purchasing.jpg"   
+    imgAlt="Horse Purchasing Program"
+    objPos="center"
+  >
+    <div>
+      <p>
+        At Sovereignty Equestrian, we’re proud to partner with Gone with the Wind Arabians,
+        a highly respected and internationally recognized breeding farm based in Fort St.
+        John, BC. This partnership is a cornerstone of our Horse Purchasing Program, giving
+        clients access to some of the finest Egyptian-influenced Arabian bloodlines in
+        North America.
+      </p>
 
-          <p className="mt-4">
-            Gone with the Wind Arabians has been producing world-class Arabians for over
-            25 years, with more than 100 purebreds sold across Canada, the United States,
-            and Dubai. Their foundation lines are celebrated for elegance, athleticism, and
-            exceptional temperament — qualities that make them equally suited for the show
-            ring, breeding programs, or lifelong companionship.
-          </p>
+      <p className="mt-4">
+        Gone with the Wind Arabians has been producing world-class Arabians for over
+        25 years, with more than 100 purebreds sold across Canada, the United States,
+        and Dubai. Their foundation lines are celebrated for elegance, athleticism, and
+        exceptional temperament — qualities that make them equally suited for the show
+        ring, breeding programs, or lifelong companionship.
+      </p>
 
-          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
-            What We Offer
-          </h5>
-          <ul className="list-disc pl-6 mt-2 space-y-1">
-            <li><strong>Competitive Prospects</strong> — endurance, performance, and show-quality Arabians</li>
-            <li><strong>Breeding-Quality Mares</strong> — exceptional bloodlines for future programs</li>
-            <li><strong>Lifelong Companions</strong> — gentle, versatile partners for riders of all levels</li>
-          </ul>
+      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+        What We Offer
+      </h5>
+      <ul className="list-disc pl-6 mt-2 space-y-1">
+        <li><strong>Competitive Prospects</strong> — endurance, performance, and show-quality Arabians</li>
+        <li><strong>Breeding-Quality Mares</strong> — exceptional bloodlines for future programs</li>
+        <li><strong>Lifelong Companions</strong> — gentle, versatile partners for riders of all levels</li>
+      </ul>
 
-          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
-            Buyer Support
-          </h5>
-          <ul className="list-disc pl-6 mt-2 space-y-1">
-            <li>Access to photos, videos, and pedigrees upon request</li>
-            <li>Guidance in matching the right horse to your goals and lifestyle</li>
-            <li>Viewing opportunities (on-site or virtual)</li>
-            <li>Assistance with transport recommendations and next steps</li>
-          </ul>
+      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+        Buyer Support
+      </h5>
+      <ul className="list-disc pl-6 mt-2 space-y-1">
+        <li>Access to photos, videos, and pedigrees upon request</li>
+        <li>Guidance in matching the right horse to your goals and lifestyle</li>
+        <li>Viewing opportunities (on-site or virtual)</li>
+        <li>Assistance with transport recommendations and next steps</li>
+      </ul>
 
-          <p className="mt-6">
-            Through this collaboration, our clients don’t just purchase a horse — they become
-            part of a trusted community dedicated to the care, development, and celebration of
-            the Arabian breed.
-          </p>
-        </div>
-
-        {/* Image (right) — taller (about 2× old size) */}
-        <aside
-          className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
-          style={{ borderColor: brand.gold }}
-        >
-          <img
-            src="/images/services/purchasing.jpg"
-            alt="Horse Purchasing Program"
-            className="h-full w-full object-cover"
-          />
-        </aside>
-      </div>
-    </Section>
+      <p className="mt-6">
+        Through this collaboration, our clients don’t just purchase a horse — they become
+        part of a trusted community dedicated to the care, development, and celebration of
+        the Arabian breed.
+      </p>
+    </div>
+  </TextWithPhotoLeft>
+</Section>
   </main>
 );
 
 const Contact = () => (
   <main>
+    <SEO title="Contact Sovereignty Equestrian | Kelowna, BC" description="3990 Senger Road, Kelowna, BC V1W 4S8 · 250-793-5191 · sovereigntyequestrian@gmail.com" />
     <Section title="Contact Us">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div>
