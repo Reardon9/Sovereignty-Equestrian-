@@ -838,7 +838,7 @@ const HorsePurchasing = () => (
   <main>
     <Section title="Horse Purchasing Program" kicker="Sovereignty Equestrian × Gone with the Wind Arabians">
   <TextWithPhotoLeft
-    imgSrc="/images/services/horse-purchasing.jpg"   // add your image at /public/images/services/horse-purchasing.jpg
+    imgSrc="/images/services/purchasing.jpg"   
     imgAlt="Horse Purchasing Program"
     objPos="center"
   >
