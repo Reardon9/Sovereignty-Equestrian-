@@ -632,7 +632,7 @@ const Lessons = () => (
           style={{ borderColor: brand.gold }}
         >
           <img
-            src="/images/services/lesson.jpg"
+            src="/images/services/lessons.jpg"
             alt="Riding lessons"
             className="h-full w-full object-cover"
           />
@@ -645,24 +645,37 @@ const Lessons = () => (
 const CampsClinics = () => (
   <main>
     <Section title="Camps & Clinics">
-      <TextWithPhotoRight imgSrc="/images/services/camps-clinics.jpg" imgAlt="Camps and clinics" objPos="center 40%">
-        <div>
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+        {/* Text (left) */}
+        <div className="md:col-span-3">
           <p>
-           Seasonal camps give younger riders hands-on experience in horse care,
-      riding skills, and confidence building—all in a fun, safe, and supportive
-      environment. Our clinics provide focused instruction in areas such as
-      groundwork, riding technique, and equine wellness, often led by our team
-      and guest instructors. Together, these experiences create meaningful
-      opportunities to learn, grow, and connect with both horses and the riding
-      community.
+            Seasonal camps give younger riders hands-on experience in horse care,
+            riding skills, and confidence building—all in a fun, safe, and supportive
+            environment. Our clinics provide focused instruction in areas such as
+            groundwork, riding technique, and equine wellness, often led by our team
+            and guest instructors. Together, these experiences create meaningful
+            opportunities to learn, grow, and connect with both horses and the riding
+            community.
           </p>
           <p className="italic mt-6">
-      *There may also be opportunities for arena rental. Our outdoor arena may be
-      available for private use, group lessons, or hosted events — perfect for
-      trainers, clubs, or independent riders looking for a quality space to work.
-    </p>
+            *There may also be opportunities for arena rental. Our outdoor arena may be
+            available for private use, group lessons, or hosted events — perfect for
+            trainers, clubs, or independent riders looking for a quality space to work.
+          </p>
         </div>
-      </TextWithPhotoRight>
+
+        {/* Image (right) — bigger/taller */}
+        <aside
+          className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
+          style={{ borderColor: brand.gold }}
+        >
+          <img
+            src="/images/services/camps-clinics.jpg"
+            alt="Camps and clinics"
+            className="h-full w-full object-cover"
+          />
+        </aside>
+      </div>
     </Section>
   </main>
 );
@@ -713,50 +726,60 @@ const TrailRides = () => (
 const Therapy = () => (
   <main>
     <Section title="Equine-Assisted Therapy" kicker="Healing Through Connection, One Horse at a Time">
-  <TextWithPhotoRight
-    imgSrc="/images/services/therapy.jpg"   // make sure you have a photo saved here
-    imgAlt="Equine-Assisted Therapy"
-    objPos="center"
-  >
-    <div>
-      <p>
-        At Sovereignty Equestrian, we believe in the powerful, unspoken connection
-        between humans and horses. Our Equine-Assisted Therapy sessions are designed
-        to support emotional healing, mental wellness, and personal growth through
-        meaningful, guided interactions with our horses.
-      </p>
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+        {/* Text (left) */}
+        <div className="md:col-span-3">
+          <div>
+            <p>
+              At Sovereignty Equestrian, we believe in the powerful, unspoken connection
+              between humans and horses. Our Equine-Assisted Therapy sessions are designed
+              to support emotional healing, mental wellness, and personal growth through
+              meaningful, guided interactions with our horses.
+            </p>
 
-      <p className="mt-4">
-        Led in a calm, supportive environment, this service is ideal for individuals
-        navigating stress, anxiety, grief, trauma, or life transitions. No riding
-        experience is required — these sessions focus on ground-based activities that
-        foster mindfulness, trust, communication, and self-awareness.
-      </p>
+            <p className="mt-4">
+              Led in a calm, supportive environment, this service is ideal for individuals
+              navigating stress, anxiety, grief, trauma, or life transitions. No riding
+              experience is required — these sessions focus on ground-based activities that
+              foster mindfulness, trust, communication, and self-awareness.
+            </p>
 
-      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
-        What You Can Expect
-      </h5>
-      <ul className="list-disc pl-6 mt-2 space-y-1">
-        <li>30-minute or 60-minute sessions (one-on-one or small group)</li>
-        <li>Groundwork and hands-on interaction with horses</li>
-        <li>A quiet, natural setting for emotional wellness</li>
-        <li>Supportive facilitation (non-clinical)*</li>
-        <li>Safe space for all ages and backgrounds</li>
-      </ul>
+            <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+              What You Can Expect
+            </h5>
+            <ul className="list-disc pl-6 mt-2 space-y-1">
+              <li>30-minute or 60-minute sessions (one-on-one or small group)</li>
+              <li>Groundwork and hands-on interaction with horses</li>
+              <li>A quiet, natural setting for emotional wellness</li>
+              <li>Supportive facilitation (non-clinical)*</li>
+              <li>Safe space for all ages and backgrounds</li>
+            </ul>
 
-      {/* Gold highlighted quote */}
-      <p className="mt-6 font-semibold" style={{ color: brand.gold }}>
-        Sometimes the best healing happens without words — and horses have a way of
-        knowing exactly what you need.
-      </p>
+            <p className="mt-6 font-semibold" style={{ color: brand.gold }}>
+              Sometimes the best healing happens without words — and horses have a way of
+              knowing exactly what you need.
+            </p>
 
-      <p className="mt-4 italic text-sm">
-        *Non-clinical program; ask about referrals if you require licensed clinical
-        services.
-      </p>
-    </div>
-  </TextWithPhotoRight>
-</Section>
+            <p className="mt-4 italic text-sm">
+              *Non-clinical program; ask about referrals if you require licensed clinical
+              services.
+            </p>
+          </div>
+        </div>
+
+        {/* Image (right) — bigger/taller */}
+        <aside
+          className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
+          style={{ borderColor: brand.gold }}
+        >
+          <img
+            src="/images/services/therapy.jpg"
+            alt="Equine-Assisted Therapy"
+            className="h-full w-full object-cover"
+          />
+        </aside>
+      </div>
+    </Section>
   </main>
 );
 
