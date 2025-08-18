@@ -66,10 +66,10 @@ const Header = ({ onNavigate, current }) => {
             }}
           >
             <img
-              src={LOGO}
-              alt="Sovereignty Equestrian logo"
-              className="h-12 w-12 object-contain"
-            />
+  src={LOGO}
+  alt="Sovereignty Equestrian logo"
+  className="h-14 sm:h-16 md:h-20 lg:h-24 w-auto object-contain"
+/>
             <div className="leading-tight">
               <div
                 className="text-xl sm:text-2xl font-semibold"
