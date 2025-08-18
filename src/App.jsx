@@ -602,11 +602,6 @@ const Lessons = () => (
             <li>Weekly Riding Lessons — consistent 45-minute sessions (billed monthly)</li>
             <li>Private Booked Lesson — focused 60-minute one-on-one coaching</li>
           </ul>
-    <p className="italic mt-6">
-      *There may also be opportunities for arena rental. Our outdoor arena may be
-      available for private use, group lessons, or hosted events — perfect for
-      trainers, clubs, or independent riders looking for a quality space to work.
-    </p>
   </div>
       </TextWithPhotoRight>
     </Section>
@@ -619,9 +614,19 @@ const CampsClinics = () => (
       <TextWithPhotoRight imgSrc="/images/services/camps-clinics.jpg" imgAlt="Camps and clinics" objPos="center 40%">
         <div>
           <p>
-            Seasonal camps for younger riders focus on hands-on horse care and confidence.
-            Clinics target specific skills like groundwork, technique, or wellness — led by our team and guests.
+           Seasonal camps give younger riders hands-on experience in horse care,
+      riding skills, and confidence building—all in a fun, safe, and supportive
+      environment. Our clinics provide focused instruction in areas such as
+      groundwork, riding technique, and equine wellness, often led by our team
+      and guest instructors. Together, these experiences create meaningful
+      opportunities to learn, grow, and connect with both horses and the riding
+      community.
           </p>
+          <p className="italic mt-6">
+      *There may also be opportunities for arena rental. Our outdoor arena may be
+      available for private use, group lessons, or hosted events — perfect for
+      trainers, clubs, or independent riders looking for a quality space to work.
+    </p>
         </div>
       </TextWithPhotoRight>
     </Section>
