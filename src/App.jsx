@@ -536,27 +536,18 @@ const Boarding = () => (
   <main>
     <Section title="Boarding" kicker="Care that’s consistent, safe, and horse-first">
       <div className="space-y-10">
-        <TextWithPhotoLeft
-  imgSrc="/images/services/fullboard.jpg"
-  imgAlt="Full Board"
->
-  <div>
-    <h4
-      className="text-xl font-semibold mb-2"
-      style={{ color: brand.white }}
-    >
-      Full Board
-    </h4>
-    <p>
-      Complete daily care: stall cleaning & fresh bedding, premium hay & custom
-      feed plan, turnout, blanketing/seasonal care, scheduling for farrier & vet,
-      and regular wellness checks.
-    </p>
-    <p className="italic text-sm mt-6">
-      *Priority for clients choosing full board.
-    </p>
-  </div>
-</TextWithPhotoLeft>
+        <TextWithPhotoRight imgSrc="/images/services/boarding-1.jpg" imgAlt="Full board" objPos="center 35%">
+          <div>
+            <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>
+              Full Board — Premium Service, Superior Care
+            </h4>
+            <p>
+              Complete daily care: stall cleaning & fresh bedding, premium hay & custom feed plan,
+              turnout, blanketing/seasonal care, scheduling for farrier & vet, and regular wellness checks.
+              <em> Priority for clients choosing full board.</em>
+            </p>
+          </div>
+        </TextWithPhotoRight>
 
         <TextWithPhotoRight imgSrc="/images/services/boarding-2.jpg" imgAlt="Semi-board" objPos="center 40%">
           <div>
