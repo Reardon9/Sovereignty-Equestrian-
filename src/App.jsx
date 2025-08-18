@@ -747,41 +747,50 @@ const Therapy = () => (
 
 const BirthdayParties = () => (
   <main>
-   <Section title="Birthday Parties" kicker="Celebrate with Horses, Laughter, and Lasting Memories">
-  <TextWithPhotoLeft
-    imgSrc="/images/services/parties.jpg"
-    imgAlt="Birthday Parties at Sovereignty Equestrian"
-    objPos="center"
-    imgClassName="w-full rounded-2xl object-cover md:h-[28rem] h-auto"
-  >
-    <div>
-      <p>
-        Make your special day unforgettable with a barn-side birthday party at Sovereignty Equestrian!
-        Our parties combine hands-on horse experiences with plenty of fun and photo-worthy moments.
-      </p>
+    <Section title="Birthday Parties" kicker="Celebrate with Horses, Laughter, and Lasting Memories">
+      {/* Custom grid to control image size and position */}
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+        {/* Text (left) */}
+        <div className="md:col-span-3">
+          <p>
+            Make your special day unforgettable with a barn-side birthday party at Sovereignty Equestrian!
+            Our parties combine hands-on horse experiences with plenty of fun and photo-worthy moments.
+          </p>
 
-      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
-        What’s Included
-      </h5>
-      <ul className="list-disc pl-6 mt-2 space-y-1">
-        <li><strong>Horse Meet-and-Greets</strong> — get up close with our friendly horses and ponies</li>
-        <li><strong>Grooming Demos &amp; Hands-On Fun</strong> — learn how to brush, care for, and bond with our horses</li>
-        <li><strong>Leadline &amp; Pony Rides</strong> — age-appropriate rides for kids, guided safely by our team</li>
-        <li><strong>Reserved Picnic Area</strong> — perfect for cake, presents, and relaxing with friends and family</li>
-        <li><strong>Photo Opportunities</strong> — capture memories with our beautiful horses and rustic backdrop</li>
-      </ul>
+          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+            What’s Included
+          </h5>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li><strong>Horse Meet-and-Greets</strong> — get up close with our friendly horses and ponies</li>
+            <li><strong>Grooming Demos &amp; Hands-On Fun</strong> — learn how to brush, care for, and bond with our horses</li>
+            <li><strong>Leadline &amp; Pony Rides</strong> — age-appropriate rides for kids, guided safely by our team</li>
+            <li><strong>Reserved Picnic Area</strong> — perfect for cake, presents, and relaxing with friends and family</li>
+            <li><strong>Photo Opportunities</strong> — capture memories with our beautiful horses and rustic backdrop</li>
+          </ul>
 
-      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
-        Add-On Options
-      </h5>
-      <ul className="list-disc pl-6 mt-2 space-y-1">
-        <li>BBQ rental for your group</li>
-        <li>Horse dress-up package (fun costumes &amp; themed photo ops)</li>
-        <li>Themed decorations or party setups</li>
-      </ul>
-    </div>
-  </TextWithPhotoLeft>
-</Section>
+          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+            Add-On Options
+          </h5>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>BBQ rental for your group</li>
+            <li>Horse dress-up package (fun costumes &amp; themed photo ops)</li>
+            <li>Themed decorations or party setups</li>
+          </ul>
+        </div>
+
+        {/* Image (right) — taller (about 2× the old h-56) */}
+        <aside
+          className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
+          style={{ borderColor: brand.gold }}
+        >
+          <img
+            src="/images/services/parties.jpg"
+            alt="Birthday Parties at Sovereignty Equestrian"
+            className="h-full w-full object-cover"
+          />
+        </aside>
+      </div>
+    </Section>
   </main>
 );
 
