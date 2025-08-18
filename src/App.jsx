@@ -656,7 +656,7 @@ const TrailRides = () => (
   <main>
     <Section title="Guided Trail Rides & Women’s Wine Night" kicker="Explore Southeast Kelowna">
   <TextWithPhotoRight
-    imgSrc="/images/services/trail_rides.jpg"   // <- confirm exact filename + case
+    imgSrc="/images/services/trail-rides.jpg"   // <- confirm exact filename + case
     imgAlt="Guided trail rides"
     objPos="center 45%"
   >
