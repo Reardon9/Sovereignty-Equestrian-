@@ -655,20 +655,38 @@ const CampsClinics = () => (
 const TrailRides = () => (
   <main>
     <Section title="Guided Trail Rides & Women’s Wine Night" kicker="Explore Southeast Kelowna">
-      <TextWithPhotoRight imgSrc="/images/services/trail-rides.jpg" imgAlt="Guided trail rides" objPos="center 45%">
-        <div>
-          <p>
-            Ride through orchards, vineyards, rolling hills, and along Mission Creek/Gallagher’s Canyon.
-            Calm, well-trained horses and friendly guides make it beginner-friendly and unforgettable.
-          </p>
-          <ul className="list-disc pl-6 mt-4 space-y-1">
-            <li>Scenic routes and small groups</li>
-            <li>Photo stops and relaxed pacing</li>
-            <li>Beginner-friendly with guidance</li>
-          </ul>
-        </div>
-      </TextWithPhotoRight>
-    </Section>
+  <TextWithPhotoRight imgSrc="/images/services/trail_rides.jpg" imgAlt="Guided trail rides" objPos="center 45%">
+    <div>
+      <p>
+        Ride through orchards, vineyards, rolling hills, and along Mission Creek/Gallagher’s Canyon.
+        Calm, well-trained horses and friendly guides make it beginner-friendly and unforgettable.
+      </p>
+
+      <ul className="list-disc pl-6 mt-4 space-y-1">
+        <li>Scenic routes and small groups</li>
+        <li>Photo stops and relaxed pacing</li>
+        <li>Beginner-friendly with guidance</li>
+      </ul>
+
+      {/* Women’s Wine Night (no extra photo) */}
+      <div className="mt-8">
+        <h5 className="text-lg font-semibold mb-2" style={{ color: brand.white }}>
+          Women’s Wine Night
+        </h5>
+        <p>
+          A special ladies-only guided ride with curated tastings and scenic lookouts, featuring stops
+          at local gems and viewpoints. Perfect for celebrations or an unforgettable evening with friends.
+          No riding experience required.
+        </p>
+        <ul className="list-disc pl-6 mt-2 space-y-1">
+          <li>Guided trail ride with planned winery/viewpoint stops</li>
+          <li>Time to unwind, take photos, and enjoy Okanagan charm</li>
+          <li>Small group atmosphere</li>
+        </ul>
+      </div>
+    </div>
+  </TextWithPhotoRight>
+</Section>
   </main>
 );
 
