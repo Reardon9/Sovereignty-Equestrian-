@@ -789,7 +789,7 @@ const LayoverStays = () => (
   <main>
     <Section title="Layover Stays" kicker="Rest, Recharge, and Ride On">
   <TextWithPhotoRight
-    imgSrc="/images/services/layover-stays.jpg"   // put your photo here
+    imgSrc="/images/services/layover.jpg"   
     imgAlt="Layover Stays at Sovereignty Equestrian"
     objPos="center"
   >
