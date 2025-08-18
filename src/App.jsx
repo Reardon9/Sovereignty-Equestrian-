@@ -506,9 +506,9 @@ const ServicesLanding = () => (
   <main>
     <Section title="Services">
       <p>
-        Explore our dedicated pages using the Services menu: Boarding, Lessons &
-        Arabian Knights Riding Club, Camps & Clinics, and Guided Trail Rides
-        (including Women’s Wine Night).
+        Explore our dedicated pages using the Services menu: Boarding, Lessons & Arabian Knights Riding Club,
+        Camps & Clinics, Guided Trail Rides (including Women’s Wine Night), Equine-Assisted Therapy,
+        Birthday Parties, Layover Stays, and our Horse Purchasing Program.
       </p>
     </Section>
   </main>
@@ -516,67 +516,52 @@ const ServicesLanding = () => (
 
 const Boarding = () => (
   <main>
-    <Section title="Boarding">
+    <Section title="Boarding" kicker="Care that’s consistent, safe, and horse-first">
       <div className="space-y-10">
-        <TextWithPhotoRight imgSrc="/images/services/boarding-1.jpg" imgAlt="Full board">
+        <TextWithPhotoRight imgSrc="/images/services/boarding-1.jpg" imgAlt="Full board" objPos="center 35%">
           <div>
-            <h4
-              className="text-xl font-semibold mb-2"
-              style={{ color: brand.white }}
-            >
+            <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>
               Full Board — Premium Service, Superior Care
             </h4>
             <p>
-              Complete care for busy owners: daily stall cleaning, fresh bedding,
-              premium hay & custom feeding, daily turnout, blanketing and seasonal
-              care, scheduling for farrier/vet, and regular wellness checks.
-              <em> Priority is given to clients interested in full boarding.</em>
+              Complete daily care: stall cleaning & fresh bedding, premium hay & custom feed plan,
+              turnout, blanketing/seasonal care, scheduling for farrier & vet, and regular wellness checks.
+              <em> Priority for clients choosing full board.</em>
             </p>
           </div>
         </TextWithPhotoRight>
 
-        <TextWithPhotoRight imgSrc="/images/services/boarding-2.jpg" imgAlt="Semi-board">
+        <TextWithPhotoRight imgSrc="/images/services/boarding-2.jpg" imgAlt="Semi-board" objPos="center 40%">
           <div>
-            <h4
-              className="text-xl font-semibold mb-2"
-              style={{ color: brand.white }}
-            >
+            <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>
               Semi-Board — Shared Care, Full Support
             </h4>
             <p>
-              For owners who want hands-on involvement with professional support.
-              Includes stall/paddock, 24/7 hay, facility access; owner manages
-              grooming, exercise, and selected care.
+              Hands-on owners with professional backup. Includes stall/paddock, 24/7 hay, and full facility access;
+              you manage grooming, exercise, and selected care tasks.
             </p>
           </div>
         </TextWithPhotoRight>
 
-        <TextWithPhotoRight imgSrc="/images/services/boarding-3.jpg" imgAlt="Self board">
+        <TextWithPhotoRight imgSrc="/images/services/boarding-3.jpg" imgAlt="Self board" objPos="center 50%">
           <div>
-            <h4
-              className="text-xl font-semibold mb-2"
-              style={{ color: brand.white }}
-            >
+            <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>
               Self Board — Independent, On Your Terms
             </h4>
             <p>
-              Ideal for experienced owners who manage all daily care. Access to
-              facilities; feed, bedding, and supplies are owner-provided.
+              Ideal for experienced owners who prefer to manage daily care themselves while enjoying
+              access to arenas, pens, and property amenities.
             </p>
           </div>
         </TextWithPhotoRight>
 
-        <TextWithPhotoRight imgSrc="/images/services/boarding-4.jpg" imgAlt="Pasture board">
+        <TextWithPhotoRight imgSrc="/images/services/boarding-4.jpg" imgAlt="Pasture board" objPos="center 45%">
           <div>
-            <h4
-              className="text-xl font-semibold mb-2"
-              style={{ color: brand.white }}
-            >
+            <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>
               Pasture Board — Outdoor Living, Horse-Approved
             </h4>
             <p>
-              Group pasture (temperament-based), grass access, shelter, daily health
-              & safety checks, and optional supplement/grain feeding add-on.
+              Temperament-matched groups, shelter, daily health/safety checks, and optional supplement/grain add-ons.
             </p>
           </div>
         </TextWithPhotoRight>
@@ -588,28 +573,17 @@ const Boarding = () => (
 const Lessons = () => (
   <main>
     <Section title="Lessons & Arabian Knights Riding Club">
-      <TextWithPhotoRight imgSrc="/images/services/lessons.jpg" imgAlt="Lessons">
+      <TextWithPhotoRight imgSrc="/images/services/lessons.jpg" imgAlt="Riding lessons" objPos="center 35%">
         <div>
           <p>
-            Personalized lessons that build strong foundations, confidence, and a
-            deep rider–horse connection. Beginners to advanced — with the option to
-            choose your horse and grow together.
+            Personalized lessons building strong foundations, confidence, and a deep rider–horse connection.
+            From first ride to advanced, with the option to choose your mount and grow together.
           </p>
           <ul className="list-disc pl-6 mt-4 space-y-1">
-            <li>
-              Discover Riding — introductory 45-minute session for first-timers and kids.
-            </li>
-            <li>
-              Weekly Riding Lessons — consistent, skill-building 45-minute sessions (billed monthly).
-            </li>
-            <li>
-              Private Booked Lesson — focused 60-minute one-on-one coaching, flexible scheduling.
-            </li>
+            <li>Discover Riding — 45-minute intro for first-timers & kids</li>
+            <li>Weekly Riding Lessons — consistent 45-minute sessions (billed monthly)</li>
+            <li>Private Booked Lesson — focused 60-minute one-on-one coaching</li>
           </ul>
-          <p className="mt-4">
-            Every lesson includes horsemanship: grooming & care, tacking, groundwork,
-            and riding fundamentals — scaling up as you progress.
-          </p>
         </div>
       </TextWithPhotoRight>
     </Section>
@@ -619,17 +593,11 @@ const Lessons = () => (
 const CampsClinics = () => (
   <main>
     <Section title="Camps & Clinics">
-      <TextWithPhotoRight imgSrc="/images/services/camps-clinics.jpg" imgAlt="Camps and clinics">
+      <TextWithPhotoRight imgSrc="/images/services/camps-clinics.jpg" imgAlt="Camps and clinics" objPos="center 40%">
         <div>
           <p>
-            Seasonal camps for younger riders and beginners focus on hands-on learning,
-            horse care, riding skills, and building positive relationships with horses.
-            Clinics target specific skills like groundwork, technique, or equine wellness —
-            led by our team and guest instructors.
-          </p>
-          <p className="mt-4">
-            Our outdoor arena may be available for private use, group lessons, or hosted
-            events. Ask about upcoming dates and availability.
+            Seasonal camps for younger riders focus on hands-on horse care and confidence.
+            Clinics target specific skills like groundwork, technique, or wellness — led by our team and guests.
           </p>
         </div>
       </TextWithPhotoRight>
@@ -639,38 +607,17 @@ const CampsClinics = () => (
 
 const TrailRides = () => (
   <main>
-    <Section
-      title="Guided Trail Rides & Women’s Wine Night"
-      kicker="Explore Southeast Kelowna"
-    >
-      <TextWithPhotoRight imgSrc="/images/services/trail-rides.jpg" imgAlt="Guided trail rides">
+    <Section title="Guided Trail Rides & Women’s Wine Night" kicker="Explore Southeast Kelowna">
+      <TextWithPhotoRight imgSrc="/images/services/trail-rides.jpg" imgAlt="Guided trail rides" objPos="center 45%">
         <div>
           <p>
-            Ride through orchards, vineyards, rolling hills, and along Mission
-            Creek/Gallagher’s Canyon. Suitable for beginners to experienced riders,
-            with calm, well-trained horses and friendly guides.
+            Ride through orchards, vineyards, rolling hills, and along Mission Creek/Gallagher’s Canyon.
+            Calm, well-trained horses and friendly guides make it beginner-friendly and unforgettable.
           </p>
           <ul className="list-disc pl-6 mt-4 space-y-1">
-            <li>Scenic routes and small group sizes</li>
-            <li>Beginner-friendly with guidance and photo stops</li>
-            <li>Relaxed, immersive connection with nature</li>
-          </ul>
-          <h4
-            className="text-xl font-semibold mt-8 mb-2"
-            style={{ color: brand.white }}
-          >
-            Women’s Wine Night
-          </h4>
-          <p>
-            A special ladies-only guided ride with curated tastings and scenic
-            lookouts, featuring stops at local gems and viewpoints. Perfect for
-            celebrations or an unforgettable evening with friends. No riding
-            experience required.
-          </p>
-          <ul className="list-disc pl-6 mt-4 space-y-1">
-            <li>Guided trail ride with planned winery/viewpoint stops</li>
-            <li>Time to unwind, take photos, and enjoy Okanagan charm</li>
-            <li>Small-group atmosphere</li>
+            <li>Scenic routes and small groups</li>
+            <li>Photo stops and relaxed pacing</li>
+            <li>Beginner-friendly with guidance</li>
           </ul>
         </div>
       </TextWithPhotoRight>
@@ -680,26 +627,15 @@ const TrailRides = () => (
 
 const Therapy = () => (
   <main>
-    <Section
-      title="Equine-Assisted Therapy"
-      kicker="Healing through connection, one horse at a time"
-    >
-      <TextWithPhotoRight imgSrc="/images/services/therapy.jpg" imgAlt="Equine therapy">
+    <Section title="Equine-Assisted Therapy" kicker="Healing through connection, one horse at a time">
+      <TextWithPhotoRight imgSrc="/images/services/therapy.jpg" imgAlt="Equine therapy" objPos="center 40%">
         <div>
           <p>
-            Ground-based sessions that support emotional healing, mindfulness, trust,
-            and self-awareness in a calm, supportive environment. Ideal for those
-            navigating stress, anxiety, grief, trauma, or life transitions. No riding
-            experience required.
+            Ground-based sessions fostering mindfulness, trust, and self-awareness in a calm, supportive setting.
+            Ideal for those navigating stress, anxiety, grief, trauma, or transition. No riding required.
           </p>
-          <ul className="list-disc pl-6 mt-4 space-y-1">
-            <li>One-on-one or small group sessions</li>
-            <li>Hands-on interaction and groundwork</li>
-            <li>Non-clinical supportive facilitation*</li>
-          </ul>
           <p className="text-sm mt-4" style={{ color: brand.gold }}>
-            *Non-clinical program; ask about referrals if you require licensed clinical
-            services.
+            *Non-clinical program; ask about referrals if you require licensed clinical services.
           </p>
         </div>
       </TextWithPhotoRight>
@@ -710,12 +646,11 @@ const Therapy = () => (
 const BirthdayParties = () => (
   <main>
     <Section title="Birthday Parties">
-      <TextWithPhotoRight imgSrc="/images/services/parties.jpg" imgAlt="Birthday parties">
+      <TextWithPhotoRight imgSrc="/images/services/parties.jpg" imgAlt="Birthday parties" objPos="center 45%">
         <div>
           <p>
-            Celebrate with an unforgettable barn-side experience. Parties can include
-            meet-and-greet with our horses, grooming demos, photo moments, guided
-            pony/leadline rides (age-appropriate), and reserved time in our picnic area.
+            Celebrate barn-side with horse meet-and-greets, grooming demos, photo moments, and optional
+            leadline/pony rides (age-appropriate). Reserved picnic area available.
           </p>
         </div>
       </TextWithPhotoRight>
@@ -726,13 +661,11 @@ const BirthdayParties = () => (
 const LayoverStays = () => (
   <main>
     <Section title="Layover Stays" kicker="Rest, recharge, and ride on">
-      <TextWithPhotoRight imgSrc="/images/services/layover.jpg" imgAlt="Layover stays">
+      <TextWithPhotoRight imgSrc="/images/services/layover.jpg" imgAlt="Layover stays" objPos="center 50%">
         <div>
           <p>
-            Safe, comfortable overnight stays for travelers with horses. Clean stalls
-            or turnout paddocks, fresh water and hay, secure facilities, and options
-            for human accommodations (travel-trailer parking or a cozy onsite suite)
-            plus access to amenities.
+            Safe, comfortable overnights for travelers with horses: stalls or turnout, fresh water & hay,
+            secure facilities, and options for trailer parking or a cozy onsite suite.
           </p>
         </div>
       </TextWithPhotoRight>
@@ -743,18 +676,15 @@ const LayoverStays = () => (
 const HorsePurchasing = () => (
   <main>
     <Section title="Horse Purchasing Program">
-      <TextWithPhotoRight imgSrc="/images/services/purchasing.jpg" imgAlt="Horse purchasing program">
+      <TextWithPhotoRight imgSrc="/images/services/purchasing.jpg" imgAlt="Horse purchasing program" objPos="center 40%">
         <div>
           <p>
-            We partner with Gone with the Wind Arabians (Fort St. John, BC) — a respected
-            breeder with 25+ years producing Egyptian-influenced purebred Arabians renowned
-            for elegance, athleticism, and temperament. Horses placed across Canada, the U.S.,
-            and abroad.
+            In partnership with Gone with the Wind Arabians (Fort St. John, BC) — 25+ years producing
+            Egyptian-influenced purebred Arabians known for elegance, athleticism, and temperament.
           </p>
           <p className="mt-4">
-            This collaboration gives you access to world-class prospects — from competitive
-            partners to breeding-quality mares to lifelong companions. Ask about available
-            horses, photos, pedigrees, and viewing.
+            Access world-class prospects — from competitive partners to breeding-quality mares to lifelong companions.
+            Ask about available horses, photos, pedigrees, and viewing.
           </p>
         </div>
       </TextWithPhotoRight>
