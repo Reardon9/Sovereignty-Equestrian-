@@ -655,7 +655,12 @@ const CampsClinics = () => (
 const TrailRides = () => (
   <main>
     <Section title="Guided Trail Rides & Women’s Wine Night" kicker="Explore Southeast Kelowna">
-  <TextWithPhotoRight imgSrc="/images/services/trail_rides.jpg" imgAlt="Guided trail rides" objPos="center 45%">
+  <TextWithPhotoRight
+    imgSrc="/images/services/trail_rides.jpg"   // <- confirm exact filename + case
+    imgAlt="Guided trail rides"
+    objPos="center 45%"
+  >
+    {/* Keep one root wrapper inside TextWithPhotoRight */}
     <div>
       <p>
         Ride through orchards, vineyards, rolling hills, and along Mission Creek/Gallagher’s Canyon.
