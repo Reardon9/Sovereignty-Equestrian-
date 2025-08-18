@@ -591,38 +591,53 @@ const Boarding = () => (
 const Lessons = () => (
   <main>
     <Section title="Lessons & Arabian Knights Riding Club">
-      <TextWithPhotoRight imgSrc="/images/services/lessons.jpg" imgAlt="Riding lessons" objPos="center 35%">
-        <div>
-  <p className="text-base text-white/80 leading-relaxed">
-    At Sovereignty Equestrian, we offer personalized riding lessons that focus on building strong
-    foundations, rider confidence, and a deep connection between horse and rider. Whether it’s your
-    first ride or you’re refining advanced technique, our experienced instructors provide patient,
-    professional guidance in a supportive environment.
-  </p>
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+        {/* Text (left) */}
+        <div className="md:col-span-3">
+          <div>
+            <p className="text-base text-white/80 leading-relaxed">
+              At Sovereignty Equestrian, we offer personalized riding lessons that focus on building strong
+              foundations, rider confidence, and a deep connection between horse and rider. Whether it’s your
+              first ride or you’re refining advanced technique, our experienced instructors provide patient,
+              professional guidance in a supportive environment.
+            </p>
 
-  <div className="mt-6 space-y-4">
-    <p className="text-base text-white/80 leading-relaxed">
-      <span className="font-semibold">Discover Riding —</span> 45-minute intro for first-timers & kids.
-      Learn the basics of horse safety, grooming, and handling while building comfort and confidence
-      around our gentle Arabian horses.
-    </p>
+            <div className="mt-6 space-y-4">
+              <p className="text-base text-white/80 leading-relaxed">
+                <span className="font-semibold">Discover Riding —</span> 45-minute intro for first-timers & kids.
+                Learn the basics of horse safety, grooming, and handling while building comfort and confidence
+                around our gentle Arabian horses.
+              </p>
 
-    <p className="text-base text-white/80 leading-relaxed">
-      <span className="font-semibold">Weekly Riding Lessons —</span> consistent 45-minute sessions
-      (billed monthly). Regular lessons build skill, confidence, and a lasting bond with your mount.
-    </p>
+              <p className="text-base text-white/80 leading-relaxed">
+                <span className="font-semibold">Weekly Riding Lessons —</span> consistent 45-minute sessions
+                (billed monthly). Regular lessons build skill, confidence, and a lasting bond with your mount.
+              </p>
 
-    <p className="text-base text-white/80 leading-relaxed">
-      <span className="font-semibold">Private Booked Lesson —</span> focused 60-minute one-on-one
-      coaching. Flexible scheduling and tailored instruction help riders meet their personal goals.
-    </p>
-  </div>
+              <p className="text-base text-white/80 leading-relaxed">
+                <span className="font-semibold">Private Booked Lesson —</span> focused 60-minute one-on-one
+                coaching. Flexible scheduling and tailored instruction help riders meet their personal goals.
+              </p>
+            </div>
 
-  <p className="text-base text-white/80 leading-relaxed mt-6 italic">
-    Join our Arabian Knights Riding Club and begin your journey toward confident, connected riding.
-  </p>
-</div>
-      </TextWithPhotoRight>
+            <p className="text-base text-white/80 leading-relaxed mt-6 italic">
+              Join our Arabian Knights Riding Club and begin your journey toward confident, connected riding.
+            </p>
+          </div>
+        </div>
+
+        {/* Image (right) — bigger/taller */}
+        <aside
+          className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
+          style={{ borderColor: brand.gold }}
+        >
+          <img
+            src="/images/services/lesson.jpg"
+            alt="Riding lessons"
+            className="h-full w-full object-cover"
+          />
+        </aside>
+      </div>
     </Section>
   </main>
 );
