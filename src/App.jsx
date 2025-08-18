@@ -699,7 +699,7 @@ const Therapy = () => (
   <main>
     <Section title="Equine-Assisted Therapy" kicker="Healing Through Connection, One Horse at a Time">
   <TextWithPhotoRight
-    imgSrc="/images/services/equine-therapy.jpg"   // make sure you have a photo saved here
+    imgSrc="/images/services/therapy.jpg"   // make sure you have a photo saved here
     imgAlt="Equine-Assisted Therapy"
     objPos="center"
   >
