@@ -307,37 +307,42 @@ const Home = () => (
 
     {/* Our Story */}
     <Section title="Our Story" kicker="Built on Bond, Driven by Purpose">
-      <TextWithPhotoRight imgSrc="/images/home/story.jpg" imgAlt="Our story">
-        <p>
-          Sovereignty Equestrian began with one horse and a shared dream. When we
-          moved to Kelowna, boarding Makayla’s horse, Bee, sparked Jakeb’s first real
-          experience with horses. Curiosity soon turned into passion, and together we
-          saw the chance to create something better—a facility where horses are truly
-          cared for, owners feel confident, and the horse-human bond is at the heart
-          of it all.
-        </p>
-        <p className="mt-4">
-          We purchased 5.5 acres in Southeast Kelowna, combining Makayla’s equestrian
-          expertise with Jakeb’s entrepreneurial drive to build a place that sets a new
-          standard in care, connection, and community. Whether you’re boarding, riding,
-          or joining our programs, our goal is to share the same incredible experiences
-          we’ve had with horses like Bee—and give every rider and horse a place they’re
-          proud to call home.
-        </p>
-      </TextWithPhotoRight>
-    </Section>
+  <TextWithPhotoRight
+    imgSrc="/images/home/story.jpg"
+    imgAlt="Our story at Sovereignty Equestrian"
+    objPos="50% 40%"   // nudge focus a little higher; adjust if needed
+  >
+    <p>
+      Sovereignty Equestrian began with one horse and a shared dream. When we
+      moved to Kelowna, boarding Makayla’s horse, Bee, sparked Jakeb’s first real
+      experience with horses. Curiosity soon turned into passion, and together we
+      saw the chance to create something better—a facility where horses are truly
+      cared for, owners feel confident, and the horse–human bond is at the heart
+      of it all.
+    </p>
+    <p className="mt-4">
+      We purchased 5.5 acres in Southeast Kelowna, combining Makayla’s equestrian
+      expertise with Jakeb’s entrepreneurial drive to build a place that sets a new
+      standard in care, connection, and community.
+    </p>
+  </TextWithPhotoRight>
+</Section>
 
     {/* Philosophy of Care */}
     <Section title="Our Philosophy of Care" kicker="Real Care. Done Right.">
-      <TextWithPhotoRight imgSrc="/images/home/philosophy.jpg" imgAlt="Philosophy of care">
-        <p>
-          We treat every horse as if they were our own — no shortcuts. Every horse is
-          seen, known, and cared for with consistency and intention. From daily routines
-          to one-on-one attention, we create a calm, safe environment where horses thrive
-          and owners feel confident, every single day.
-        </p>
-      </TextWithPhotoRight>
-    </Section>
+  <TextWithPhotoRight
+    imgSrc="/images/home/philosophy.jpg"
+    imgAlt="Philosophy of care"
+    objPos="50% 45%"   // slight downward focus; tweak if your photo needs more sky/ground
+  >
+    <p>
+      We treat every horse as if they were our own—no shortcuts. Every horse is
+      seen, known, and cared for with consistency and intention. From daily routines
+      to one-on-one attention, we create a calm, safe environment where horses thrive
+      and owners feel confident, every single day.
+    </p>
+  </TextWithPhotoRight>
+</Section>
 
     {/* Facilities */}
     <Section
