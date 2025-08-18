@@ -836,20 +836,46 @@ const LayoverStays = () => (
 
 const HorsePurchasing = () => (
   <main>
-    <Section title="Horse Purchasing Program">
-      <TextWithPhotoRight imgSrc="/images/services/purchasing.jpg" imgAlt="Horse purchasing program" objPos="center 40%">
-        <div>
-          <p>
-            In partnership with Gone with the Wind Arabians (Fort St. John, BC) — 25+ years producing
-            Egyptian-influenced purebred Arabians known for elegance, athleticism, and temperament.
-          </p>
-          <p className="mt-4">
-            Access world-class prospects — from competitive partners to breeding-quality mares to lifelong companions.
-            Ask about available horses, photos, pedigrees, and viewing.
-          </p>
-        </div>
-      </TextWithPhotoRight>
-    </Section>
+    <Section title="Horse Purchasing Program" kicker="Sovereignty Equestrian × Gone with the Wind Arabians">
+  <TextWithPhotoLeft
+    imgSrc="/images/services/horse-purchasing.jpg"   // add your image at /public/images/services/horse-purchasing.jpg
+    imgAlt="Horse Purchasing Program"
+    objPos="center"
+  >
+    <div>
+      <p>
+        At Sovereignty Equestrian, we’re proud to partner with Gone with the Wind Arabians,
+        a highly respected and internationally recognized breeding farm based in Fort St.
+        John, BC. This partnership is a cornerstone of our Horse Purchasing Program, giving
+        clients access to some of the finest Egyptian-influenced Arabian bloodlines in
+        North America.
+      </p>
+
+      <p className="mt-4">
+        Gone with the Wind Arabians has been producing world-class Arabians for over
+        25 years, with more than 100 purebreds sold across Canada, the United States,
+        and Dubai. Their foundation lines are celebrated for elegance, athleticism, and
+        exceptional temperament — qualities that make them equally suited for the show
+        ring, breeding programs, or lifelong companionship.
+      </p>
+
+      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+        What We Offer
+      </h5>
+      <ul className="list-disc pl-6 mt-2 space-y-1">
+        <li><strong>Competitive Prospects</strong> — endurance, performance, and show-quality Arabians</li>
+        <li><strong>Breeding-Quality Mares</strong> — exceptional bloodlines for future programs</li>
+        <li><strong>Lifelong Companions</strong> — gentle, versatile partners for riders of all levels</li>
+      </ul>
+
+      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+        Buyer Support
+      </h5>
+      <ul className="list-disc pl-6 mt-2 space-y-1">
+        <li>Access to photos, videos, and pedigrees upon request</li>
+        <li>Guidance in matching the right horse to your goals and lifestyle</li>
+        <li>Viewing opportunities (on-site or virtual)</li>
+        <li>Assistance with tra
   </main>
 );
 
