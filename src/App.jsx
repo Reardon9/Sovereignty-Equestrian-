@@ -697,19 +697,51 @@ const TrailRides = () => (
 
 const Therapy = () => (
   <main>
-    <Section title="Equine-Assisted Therapy" kicker="Healing through connection, one horse at a time">
-      <TextWithPhotoRight imgSrc="/images/services/therapy.jpg" imgAlt="Equine therapy" objPos="center 40%">
-        <div>
-          <p>
-            Ground-based sessions fostering mindfulness, trust, and self-awareness in a calm, supportive setting.
-            Ideal for those navigating stress, anxiety, grief, trauma, or transition. No riding required.
-          </p>
-          <p className="text-sm mt-4" style={{ color: brand.gold }}>
-            *Non-clinical program; ask about referrals if you require licensed clinical services.
-          </p>
-        </div>
-      </TextWithPhotoRight>
-    </Section>
+    <Section title="Equine-Assisted Therapy" kicker="Healing Through Connection, One Horse at a Time">
+  <TextWithPhotoRight
+    imgSrc="/images/services/equine-therapy.jpg"   // make sure you have a photo saved here
+    imgAlt="Equine-Assisted Therapy"
+    objPos="center"
+  >
+    <div>
+      <p>
+        At Sovereignty Equestrian, we believe in the powerful, unspoken connection
+        between humans and horses. Our Equine-Assisted Therapy sessions are designed
+        to support emotional healing, mental wellness, and personal growth through
+        meaningful, guided interactions with our horses.
+      </p>
+
+      <p className="mt-4">
+        Led in a calm, supportive environment, this service is ideal for individuals
+        navigating stress, anxiety, grief, trauma, or life transitions. No riding
+        experience is required — these sessions focus on ground-based activities that
+        foster mindfulness, trust, communication, and self-awareness.
+      </p>
+
+      <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+        What You Can Expect
+      </h5>
+      <ul className="list-disc pl-6 mt-2 space-y-1">
+        <li>30-minute or 60-minute sessions (one-on-one or small group)</li>
+        <li>Groundwork and hands-on interaction with horses</li>
+        <li>A quiet, natural setting for emotional wellness</li>
+        <li>Supportive facilitation (non-clinical)*</li>
+        <li>Safe space for all ages and backgrounds</li>
+      </ul>
+
+      {/* Gold highlighted quote */}
+      <p className="mt-6 font-semibold" style={{ color: brand.gold }}>
+        Sometimes the best healing happens without words — and horses have a way of
+        knowing exactly what you need.
+      </p>
+
+      <p className="mt-4 italic text-sm">
+        *Non-clinical program; ask about referrals if you require licensed clinical
+        services.
+      </p>
+    </div>
+  </TextWithPhotoRight>
+</Section>
   </main>
 );
 
