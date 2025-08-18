@@ -749,10 +749,11 @@ const BirthdayParties = () => (
   <main>
    <Section title="Birthday Parties" kicker="Celebrate with Horses, Laughter, and Lasting Memories">
   <TextWithPhotoLeft
-    imgSrc="/images/services/parties.jpg"   // update if your filename differs
-    imgAlt="Birthday Parties at Sovereignty Equestrian"
-    objPos="center"
-  >
+  imgSrc="/images/services/parties.jpg"
+  imgAlt="Birthday Parties at Sovereignty Equestrian"
+  objPos="center"
+  forceFullHeight   
+>
     <div>
       <p>
         Make your special day unforgettable with a barn-side birthday party at Sovereignty Equestrian!
