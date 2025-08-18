@@ -9,6 +9,68 @@ const brand = {
   white: "#ffffff",
 };
 
+// === SEO helpers (brand search) ===
+const SEO = ({ title, description, canonical = "https://www.sovereigntyequestrian.com/" }) => {
+  // re-use React.useEffect already imported in your file
+  useEffect(() => {
+    // <title>
+    document.title = title;
+
+    // <meta name="description">
+    let desc = document.querySelector('meta[name="description"]');
+    if (!desc) {
+      desc = document.createElement('meta');
+      desc.setAttribute('name', 'description');
+      document.head.appendChild(desc);
+    }
+    desc.setAttribute('content', description);
+
+    // <link rel="canonical">
+    let canon = document.querySelector('link[rel="canonical"]');
+    if (!canon) {
+      canon = document.createElement('link');
+      canon.setAttribute('rel', 'canonical');
+      document.head.appendChild(canon);
+    }
+    canon.setAttribute('href', canonical);
+  }, [title, description, canonical]);
+
+  return null;
+};
+
+// LocalBusiness schema for entity recognition
+const LocalBusinessSchema = () => {
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "Sovereignty Equestrian",
+    "description": "Equine breeding, boarding, lessons, trail rides, and equine-assisted therapy in Kelowna, BC.",
+    "url": "https://www.sovereigntyequestrian.com/",
+    "image": "https://www.sovereigntyequestrian.com/logo.png",
+    "telephone": "+1-250-793-5191",
+    "email": "sovereigntyequestrian@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3990 Senger Road",
+      "addressLocality": "Kelowna",
+      "addressRegion": "BC",
+      "postalCode": "V1W 4S8",
+      "addressCountry": "CA"
+    },
+    "areaServed": "Kelowna"
+  };
+
+  useEffect(() => {
+    const s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.text = JSON.stringify(json);
+    document.head.appendChild(s);
+    return () => document.head.removeChild(s);
+  }, []);
+
+  return null;
+};
+
 const ChevronDown = (props) => (
   <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" {...props}>
     <path
@@ -266,6 +328,7 @@ const TextWithPhotoLeft = ({ children, imgSrc, imgAlt = "" }) => (
 // ===== Pages =====
 const Home = () => (
   <main>
+    <SEO title="Sovereignty Equestrian | Kelowna Horse Boarding, Lessons & Trail Rides" description="Sovereignty Equestrian in Kelowna, BC — equine boarding, riding lessons, trail rides, equine-assisted therapy, birthday parties and more." />
     {/* Hero */}
 <section className="pt-12 sm:pt-20 pb-10" style={{ background: brand.navy }}>
   <div className="max-w-7xl mx-auto px-6 sm:px-8">
@@ -377,6 +440,7 @@ const Home = () => (
 
 const MeetTheTeam = () => (
   <main>
+    <SEO title="Meet the Team | Sovereignty Equestrian Kelowna" description="Meet the people behind Sovereignty Equestrian—care, connection, and community in Kelowna, BC." />
     <Section
       title="People who care, experience that counts"
       kicker="Meet the Owners"
@@ -521,6 +585,7 @@ const MeetTheTeam = () => (
 // ---- Services pages ----
 const ServicesLanding = () => (
   <main>
+    <SEO title="Services | Sovereignty Equestrian Kelowna" description="Explore boarding, lessons, camps & clinics, guided trail rides, equine-assisted therapy, birthday parties, layover stays, and our horse purchasing program." />
     <Section title="Services">
       <p>
         Explore our dedicated pages using the Services menu: Boarding, Lessons & Arabian Knights Riding Club,
@@ -533,6 +598,7 @@ const ServicesLanding = () => (
 
 const Boarding = () => (
   <main>
+    <SEO title="Horse Boarding in Kelowna | Sovereignty Equestrian" description="Full board, semi-board, self board, and pasture board with daily care, premium hay, turnout, and wellness checks." />
     <Section title="Boarding" kicker="Care that’s consistent, safe, and horse-first">
       <div className="space-y-10">
         <TextWithPhotoRight imgSrc="/images/services/boarding-1.jpg" imgAlt="Full board" objPos="center 35%">
@@ -589,6 +655,7 @@ const Boarding = () => (
 
 const Lessons = () => (
   <main>
+    <SEO title="Riding Lessons in Kelowna | Sovereignty Equestrian" description="Personalized lessons that build foundations, confidence, and a deep rider–horse bond, from first ride to advanced." />
     <Section title="Lessons & Arabian Knights Riding Club">
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
         {/* Text (left) */}
@@ -643,6 +710,7 @@ const Lessons = () => (
 
 const CampsClinics = () => (
   <main>
+    <SEO title="Camps & Clinics | Sovereignty Equestrian Kelowna" description="Seasonal youth camps and focused clinics in groundwork, riding technique, and equine wellness." />
     <Section title="Camps & Clinics">
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
         {/* Text (left) */}
@@ -681,6 +749,7 @@ const CampsClinics = () => (
 
 const TrailRides = () => (
   <main>
+    <SEO title="Guided Trail Rides in Kelowna | Sovereignty Equestrian" description="Beginner-friendly guided rides through orchards, vineyards, and scenic routes—plus Women’s Wine Night experiences." />
     <Section title="Guided Trail Rides & Women’s Wine Night" kicker="Explore Southeast Kelowna">
   <TextWithPhotoRight
     imgSrc="/images/services/trail-rides.jpg"   // <- confirm exact filename + case
@@ -724,6 +793,7 @@ const TrailRides = () => (
 
 const Therapy = () => (
   <main>
+    <SEO title="Equine-Assisted Therapy in Kelowna | Sovereignty Equestrian" description="Ground-based equine-assisted sessions for emotional healing, mindfulness, and connection—no riding experience required." />
     <Section title="Equine-Assisted Therapy" kicker="Healing Through Connection, One Horse at a Time">
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
         {/* Text (left) */}
@@ -784,6 +854,7 @@ const Therapy = () => (
 
 const BirthdayParties = () => (
   <main>
+    <SEO title="Horse Birthday Parties | Sovereignty Equestrian Kelowna" description="Barn-side birthday parties with meet-and-greets, grooming demos, leadline/pony rides, picnic area, and photo ops." />
     <Section title="Birthday Parties" kicker="Celebrate with Horses, Laughter, and Lasting Memories">
       {/* Custom grid to control image size and position */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
@@ -833,6 +904,7 @@ const BirthdayParties = () => (
 
 const LayoverStays = () => (
   <main>
+    <SEO title="Horse Layover Stays in Kelowna | Sovereignty Equestrian" description="Overnight layovers for traveling horses and riders—clean stalls, calm setting, easy trailer access, optional suite, and amenities." />
     <Section title="Layover Stays" kicker="Rest, Recharge, and Ride On">
       {/* Custom grid: make photo WIDER by giving it 3 columns */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
@@ -892,6 +964,7 @@ const LayoverStays = () => (
 
 const HorsePurchasing = () => (
   <main>
+    <SEO title="Arabian Horse Purchasing Program | Sovereignty Equestrian" description="Partnered with Gone with the Wind Arabians: competitive prospects, breeding-quality mares, and lifelong companions—with buyer support." />
     <Section title="Horse Purchasing Program" kicker="Sovereignty Equestrian × Gone with the Wind Arabians">
       {/* Custom grid to move photo right and make it taller */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
@@ -957,6 +1030,7 @@ const HorsePurchasing = () => (
 
 const Contact = () => (
   <main>
+    <SEO title="Contact Sovereignty Equestrian | Kelowna, BC" description="3990 Senger Road, Kelowna, BC V1W 4S8 · 250-793-5191 · sovereigntyequestrian@gmail.com" />
     <Section title="Contact Us">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div>
@@ -1064,6 +1138,7 @@ export default function App() {
   }
   return (
     <div>
+      <LocalBusinessSchema />
       <Header onNavigate={navigate} current={path} />
       {page}
       <Footer />
