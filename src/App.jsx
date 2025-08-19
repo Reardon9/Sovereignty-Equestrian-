@@ -1029,7 +1029,6 @@ const HorsePurchasing = () => (
 );
 
 const Contact = () => {
-  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
 
   return (
     <main>
@@ -1051,109 +1050,86 @@ const Contact = () => {
 
           {/* Right column: form + status */}
           <div className="space-y-4">
-            {/* Success / Error banners */}
-            {status === "sent" && (
-              <div
-                role="status"
-                aria-live="polite"
-                className="rounded-lg border px-3 py-2 text-sm"
-                style={{
-                  borderColor: "#22c55e",
-                  color: "#22c55e",
-                  background: "rgba(34,197,94,0.1)"
-                }}
-              >
-                ✅ Your inquiry has been sent. We’ll get back to you shortly.
-              </div>
-            )}
-            {status === "error" && (
-              <div
-                role="alert"
-                aria-live="assertive"
-                className="rounded-lg border px-3 py-2 text-sm"
-                style={{
-                  borderColor: "#ef4444",
-                  color: "#ef4444",
-                  background: "rgba(239,68,68,0.1)"
-                }}
-              >
-                ⚠️ Something went wrong. Please try again, or email us at
-                {" "}sovereigntyequestrian@gmail.com.
-              </div>
-            )}
 
             <form
-              className="space-y-4"
-              onSubmit={async (e) => {
-                e.preventDefault();
-                setStatus("sending");
+  className="space-y-4"
+  onSubmit={async (e) => {
+    e.preventDefault();
 
-                const form = Object.fromEntries(new FormData(e.currentTarget));
-                try {
-                  const res = await fetch("/api/contact", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(form),
-                  });
+    // grab the submit button and lock it
+    const btn = e.currentTarget.querySelector("button[type='submit']");
+    const original = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = "Sending…";
 
-                  if (!res.ok) throw new Error("Failed");
+    // collect the form fields
+    const form = Object.fromEntries(new FormData(e.currentTarget));
 
-                  // SUCCESS: clear the fields, show success for 15s, keep button disabled while “sent”
-                  e.currentTarget.reset();
-                  setStatus("sent");
-                  setTimeout(() => setStatus("idle"), 15000); // keep success visible for ~15s
-                } catch {
-                  // ERROR: show error for a few seconds, then allow retry
-                  setStatus("error");
-                  setTimeout(() => setStatus("idle"), 4000);
-                }
-              }}
-            >
-              <div>
-                <label className="text-sm" style={{ color: brand.gold }}>Name</label>
-                <input
-                  name="name"
-                  required
-                  className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
-                  style={{ borderColor: brand.gold, color: brand.white }}
-                />
-              </div>
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
 
-              <div>
-                <label className="text-sm" style={{ color: brand.gold }}>Email</label>
-                <input
-                  name="email"
-                  type="email"
-                  required
-                  className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
-                  style={{ borderColor: brand.gold, color: brand.white }}
-                />
-              </div>
+      if (!res.ok) throw new Error("Failed");
 
-              <div>
-                <label className="text-sm" style={{ color: brand.gold }}>Message</label>
-                <textarea
-                  name="message"
-                  rows={5}
-                  required
-                  className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
-                  style={{ borderColor: brand.gold, color: brand.white }}
-                />
-              </div>
+      // SUCCESS — clear inputs and hold success message for 15s
+      e.currentTarget.reset();
+      btn.textContent = "Sent ✓ — your inquiry has been sent!";
+      // keep disabled so users don't double-submit during the confirmation window
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.textContent = original;
+      }, 15000);
+    } catch (err) {
+      // ERROR — show a clear retry prompt for a few seconds
+      btn.textContent = "Something went wrong — please try again";
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.textContent = original;
+      }, 4000);
+    }
+  }}
+>
+  <div>
+    <label className="text-sm" style={{ color: brand.gold }}>Name</label>
+    <input
+      name="name"
+      required
+      className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
+      style={{ borderColor: brand.gold, color: brand.white }}
+    />
+  </div>
+  <div>
+    <label className="text-sm" style={{ color: brand.gold }}>Email</label>
+    <input
+      name="email"
+      type="email"
+      required
+      className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
+      style={{ borderColor: brand.gold, color: brand.white }}
+    />
+  </div>
+  <div>
+    <label className="text-sm" style={{ color: brand.gold }}>Message</label>
+    <textarea
+      name="message"
+      rows={5}
+      required
+      className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
+      style={{ borderColor: brand.gold, color: brand.white }}
+    />
+  </div>
 
-              <button
-                type="submit"
-                disabled={status === "sending" || status === "sent"}
-                className="px-5 py-2 rounded-xl border font-medium hover:opacity-90 disabled:opacity-60"
-                style={{ borderColor: brand.gold, color: brand.gold }}
-              >
-                {status === "sending"
-                  ? "Sending…"
-                  : status === "sent"
-                  ? "Sent ✓ — your inquiry has been sent!"
-                  : "Submit"}
-              </button>
-            </form>
+  <button
+    type="submit"
+    className="px-5 py-2 rounded-xl border font-medium hover:opacity-90"
+    style={{ borderColor: brand.gold, color: brand.gold }}
+  >
+    Submit
+  </button>
+</form>
           </div>
         </div>
       </Section>
