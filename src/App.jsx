@@ -1034,7 +1034,10 @@ const Contact = () => {
 
   return (
     <main>
-      <SEO title="Contact Sovereignty Equestrian | Kelowna, BC" description="3990 Senger Road, Kelowna, BC V1W 4S8 · 250-793-5191 · sovereigntyequestrian@gmail.com" />
+      <SEO
+        title="Contact Sovereignty Equestrian | Kelowna, BC"
+        description="3990 Senger Road, Kelowna, BC V1W 4S8 · 250-793-5191 · sovereigntyequestrian@gmail.com"
+      />
       <Section title="Contact Us">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div>
@@ -1053,7 +1056,11 @@ const Contact = () => {
                 role="status"
                 aria-live="polite"
                 className="rounded-lg border px-3 py-2 text-sm"
-                style={{ borderColor: "#22c55e", color: "#22c55e", background: "rgba(34,197,94,0.1)" }}
+                style={{
+                  borderColor: "#22c55e",
+                  color: "#22c55e",
+                  background: "rgba(34,197,94,0.1)",
+                }}
               >
                 ✅ Your inquiry has been sent. We’ll get back to you shortly.
               </div>
@@ -1063,9 +1070,14 @@ const Contact = () => {
                 role="alert"
                 aria-live="assertive"
                 className="rounded-lg border px-3 py-2 text-sm"
-                style={{ borderColor: "#ef4444", color: "#ef4444", background: "rgba(239,68,68,0.1)" }}
+                style={{
+                  borderColor: "#ef4444",
+                  color: "#ef4444",
+                  background: "rgba(239,68,68,0.1)",
+                }}
               >
-                ⚠️ Something went wrong. Please try again, or email us at sovereigntyequestrian@gmail.com.
+                ⚠️ Something went wrong. Please try again, or email us at
+                sovereigntyequestrian@gmail.com.
               </div>
             )}
 
@@ -1085,18 +1097,20 @@ const Contact = () => {
                   if (!res.ok) throw new Error("Failed");
                   e.currentTarget.reset();
                   setStatus("sent");
-                  // after a short delay, let the user submit again
-                  setTimeout(() => setStatus("idle"), 2500);
+                  // keep success visible for 15s before resetting
+                  setTimeout(() => setStatus("idle"), 15000);
                 } catch (err) {
                   setMsg(err?.message || "");
                   setStatus("error");
-                  // allow immediate retry
-                  setTimeout(() => setStatus("idle"), 2500);
+                  // allow retry after 3s
+                  setTimeout(() => setStatus("idle"), 3000);
                 }
               }}
             >
               <div>
-                <label className="text-sm" style={{ color: brand.gold }}>Name</label>
+                <label className="text-sm" style={{ color: brand.gold }}>
+                  Name
+                </label>
                 <input
                   name="name"
                   required
@@ -1105,7 +1119,9 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <label className="text-sm" style={{ color: brand.gold }}>Email</label>
+                <label className="text-sm" style={{ color: brand.gold }}>
+                  Email
+                </label>
                 <input
                   name="email"
                   type="email"
@@ -1115,7 +1131,9 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <label className="text-sm" style={{ color: brand.gold }}>Message</label>
+                <label className="text-sm" style={{ color: brand.gold }}>
+                  Message
+                </label>
                 <textarea
                   name="message"
                   rows={5}
@@ -1131,7 +1149,11 @@ const Contact = () => {
                 className="px-5 py-2 rounded-xl border font-medium hover:opacity-90 disabled:opacity-60"
                 style={{ borderColor: brand.gold, color: brand.gold }}
               >
-                {status === "sending" ? "Sending…" : status === "sent" ? "Sent ✓" : "Submit"}
+                {status === "sending"
+                  ? "Sending…"
+                  : status === "sent"
+                  ? "Sent ✓ — your inquiry has been sent!"
+                  : "Submit"}
               </button>
             </form>
           </div>
