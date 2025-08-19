@@ -1,39 +1,29 @@
-// api/contact.js
-import { Resend } from "resend";
+import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
-  if (req.method !== "POST") return res.status(405).end();
+  if (req.method === 'POST') {
+    const { name, email, message } = req.body;
 
-  try {
-    // Read raw body (works even if req.body is empty)
-    let raw = "";
-    for await (const chunk of req) raw += chunk;
-    const { name, email, message } = JSON.parse(raw || "{}");
+    try {
+      await resend.emails.send({
+        from: 'onboarding@resend.dev',   // ✅ hard-coded for now
+        to: 'sovereigntyequestrian@gmail.com',     // change this to your own email
+        subject: `New message from ${name}`,
+        html: `
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Message:</strong> ${message}</p>
+        `,
+      });
 
-    if (!name || !email || !message) {
-      console.log("Missing fields", { name, email, message });
-      return res.status(400).json({ error: "Missing fields" });
+      res.status(200).json({ success: true });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ success: false, error });
     }
-
-    const { data, error } = await resend.emails.send({
-      from: process.env.CONTACT_FROM || "Sovereignty Equestrian <onboarding@resend.dev>",
-      to: [process.env.CONTACT_TO || "sovereigntyequestrian@gmail.com"],
-      reply_to: email,
-      subject: `New inquiry from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
-    });
-
-    if (error) {
-      console.error("Resend error:", error);
-      return res.status(500).json({ error: "Email failed to send" });
-    }
-
-    console.log("Resend id:", data?.id);
-    return res.status(200).json({ ok: true });
-  } catch (err) {
-    console.error("API error:", err);
-    return res.status(500).json({ error: "Server error" });
+  } else {
+    res.status(405).json({ error: 'Method not allowed' });
   }
 }
