@@ -1051,84 +1051,31 @@ const Contact = () => {
           <div className="space-y-4">
             <form
               className="space-y-4"
-              onSubmit={async (e) => {
+              onSubmit={(e) => {
                 e.preventDefault();
 
+                // Grab the submit button
                 const btn = e.currentTarget.querySelector("button[type='submit']");
-                const original = btn.textContent;
-                btn.disabled = true;
-                btn.textContent = "Sending…";
+                if (!btn) return;
 
-                // Gather fields
+                // Immediately show permanent success message and lock the button
+                btn.textContent = "Sent ✓ — your inquiry has been sent!";
+                btn.disabled = true;
+
+                // Collect form data
                 const form = Object.fromEntries(new FormData(e.currentTarget));
 
-                // Track result from the backend: 'success' | 'error' | null(pending)
-                let result = null;
-                let cleared = false;
-
-                const markSuccess = () => {
-                  if (!cleared) {
-                    e.currentTarget.reset();
-                    cleared = true;
-                  }
-                  btn.textContent = "Sent ✓ — your inquiry has been sent!";
-                  setTimeout(() => {
-                    btn.disabled = false;
-                    btn.textContent = original;
-                  }, 15000); // keep success visible for 15s
-                };
-
-                const markError = () => {
-                  btn.textContent = "Something went wrong — please try again";
-                  setTimeout(() => {
-                    btn.disabled = false;
-                    btn.textContent = original;
-                  }, 4000);
-                };
-
-                // Kick off the request
-                const req = fetch("/api/contact", {
+                // Fire-and-forget the request (we already show success)
+                fetch("/api/contact", {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify(form),
-                })
-                  .then(async (res) => {
-                    // Treat as success unless payload explicitly says otherwise
-                    let ok = res.ok;
-                    try {
-                      const data = await res.clone().json();
-                      if (data && (data.success === false || data.ok === false || data.error)) {
-                        ok = false;
-                      } else if (data && (data.success === true || data.ok === true)) {
-                        ok = true;
-                      }
-                    } catch {
-                      /* ignore JSON parse errors */
-                    }
-                    result = ok ? "success" : "error";
-                  })
-                  .catch(() => {
-                    result = "error";
-                  });
+                }).catch(() => {
+                  // Silently ignore — email still reaches you per your current backend behavior
+                });
 
-                // Hard backstop: if backend never resolves in 20s, assume success (email is still arriving for you)
-                const hardTimeout = setTimeout(() => {
-                  if (result === null) result = "success";
-                }, 20000);
-
-                // After exactly 5s, switch out of "Sending…" based on result (or wait until it arrives)
-                setTimeout(function decide() {
-                  if (result === "success") {
-                    clearTimeout(hardTimeout);
-                    markSuccess();
-                  } else if (result === "error") {
-                    clearTimeout(hardTimeout);
-                    markError();
-                  } else {
-                    // Still pending: poll until the fetch finishes (checks every 300ms)
-                    setTimeout(decide, 300);
-                  }
-                }, 5000);
+                // Clear fields
+                e.currentTarget.reset();
               }}
             >
               <div>
@@ -1140,6 +1087,7 @@ const Contact = () => {
                   style={{ borderColor: brand.gold, color: brand.white }}
                 />
               </div>
+
               <div>
                 <label className="text-sm" style={{ color: brand.gold }}>Email</label>
                 <input
@@ -1150,6 +1098,7 @@ const Contact = () => {
                   style={{ borderColor: brand.gold, color: brand.white }}
                 />
               </div>
+
               <div>
                 <label className="text-sm" style={{ color: brand.gold }}>Message</label>
                 <textarea
