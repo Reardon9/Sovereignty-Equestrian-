@@ -1028,87 +1028,118 @@ const HorsePurchasing = () => (
   </main>
 );
 
-const Contact = () => (
-  <main>
-    <SEO title="Contact Sovereignty Equestrian | Kelowna, BC" description="3990 Senger Road, Kelowna, BC V1W 4S8 · 250-793-5191 · sovereigntyequestrian@gmail.com" />
-    <Section title="Contact Us">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div>
-          <h4
-            className="text-xl font-semibold mb-3"
-            style={{ color: brand.white }}
-          >
-            Reach Out
-          </h4>
-          <p>3990 Senger Road, Kelowna, BC V1W 4S8</p>
-          <p className="mt-2">250-793-5191 | 604-855-1483</p>
-          <p className="mt-2">sovereigntyequestrian@gmail.com</p>
+const Contact = () => {
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const [msg, setMsg] = useState("");
+
+  return (
+    <main>
+      <SEO title="Contact Sovereignty Equestrian | Kelowna, BC" description="3990 Senger Road, Kelowna, BC V1W 4S8 · 250-793-5191 · sovereigntyequestrian@gmail.com" />
+      <Section title="Contact Us">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div>
+            <h4 className="text-xl font-semibold mb-3" style={{ color: brand.white }}>
+              Reach Out
+            </h4>
+            <p>3990 Senger Road, Kelowna, BC V1W 4S8</p>
+            <p className="mt-2">250-793-5191 | 604-855-1483</p>
+            <p className="mt-2">sovereigntyequestrian@gmail.com</p>
+          </div>
+
+          {/* Status banner */}
+          <div className="space-y-4">
+            {status === "sent" && (
+              <div
+                role="status"
+                aria-live="polite"
+                className="rounded-lg border px-3 py-2 text-sm"
+                style={{ borderColor: "#22c55e", color: "#22c55e", background: "rgba(34,197,94,0.1)" }}
+              >
+                ✅ Your inquiry has been sent. We’ll get back to you shortly.
+              </div>
+            )}
+            {status === "error" && (
+              <div
+                role="alert"
+                aria-live="assertive"
+                className="rounded-lg border px-3 py-2 text-sm"
+                style={{ borderColor: "#ef4444", color: "#ef4444", background: "rgba(239,68,68,0.1)" }}
+              >
+                ⚠️ Something went wrong. Please try again, or email us at sovereigntyequestrian@gmail.com.
+              </div>
+            )}
+
+            <form
+              className="space-y-4"
+              onSubmit={async (e) => {
+                e.preventDefault();
+                setStatus("sending");
+                setMsg("");
+                const form = Object.fromEntries(new FormData(e.currentTarget));
+                try {
+                  const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(form),
+                  });
+                  if (!res.ok) throw new Error("Failed");
+                  e.currentTarget.reset();
+                  setStatus("sent");
+                  // after a short delay, let the user submit again
+                  setTimeout(() => setStatus("idle"), 2500);
+                } catch (err) {
+                  setMsg(err?.message || "");
+                  setStatus("error");
+                  // allow immediate retry
+                  setTimeout(() => setStatus("idle"), 2500);
+                }
+              }}
+            >
+              <div>
+                <label className="text-sm" style={{ color: brand.gold }}>Name</label>
+                <input
+                  name="name"
+                  required
+                  className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
+                  style={{ borderColor: brand.gold, color: brand.white }}
+                />
+              </div>
+              <div>
+                <label className="text-sm" style={{ color: brand.gold }}>Email</label>
+                <input
+                  name="email"
+                  type="email"
+                  required
+                  className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
+                  style={{ borderColor: brand.gold, color: brand.white }}
+                />
+              </div>
+              <div>
+                <label className="text-sm" style={{ color: brand.gold }}>Message</label>
+                <textarea
+                  name="message"
+                  rows={5}
+                  required
+                  className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
+                  style={{ borderColor: brand.gold, color: brand.white }}
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={status === "sending" || status === "sent"}
+                className="px-5 py-2 rounded-xl border font-medium hover:opacity-90 disabled:opacity-60"
+                style={{ borderColor: brand.gold, color: brand.gold }}
+              >
+                {status === "sending" ? "Sending…" : status === "sent" ? "Sent ✓" : "Submit"}
+              </button>
+            </form>
+          </div>
         </div>
-        <form
-  className="space-y-4"
-  onSubmit={async (e) => {
-    e.preventDefault();
-    const form = Object.fromEntries(new FormData(e.currentTarget));
-    const btn = e.currentTarget.querySelector("button[type=submit]");
-    const original = btn.textContent;
-    btn.disabled = true; btn.textContent = "Sending…";
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (!res.ok) throw new Error("Failed");
-      e.currentTarget.reset();
-      btn.textContent = "Sent ✓";
-      setTimeout(() => { btn.disabled = false; btn.textContent = original; }, 1800);
-    } catch {
-      btn.textContent = "Try again";
-      setTimeout(() => { btn.disabled = false; btn.textContent = original; }, 1800);
-    }
-  }}
->
-  <div>
-    <label className="text-sm" style={{ color: brand.gold }}>Name</label>
-    <input
-      name="name"
-      required
-      className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
-      style={{ borderColor: brand.gold, color: brand.white }}
-    />
-  </div>
-  <div>
-    <label className="text-sm" style={{ color: brand.gold }}>Email</label>
-    <input
-      name="email"
-      type="email"
-      required
-      className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
-      style={{ borderColor: brand.gold, color: brand.white }}
-    />
-  </div>
-  <div>
-    <label className="text-sm" style={{ color: brand.gold }}>Message</label>
-    <textarea
-      name="message"
-      rows={5}
-      required
-      className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
-      style={{ borderColor: brand.gold, color: brand.white }}
-    />
-  </div>
-  <button
-    type="submit"
-    className="px-5 py-2 rounded-xl border font-medium hover:opacity-90"
-    style={{ borderColor: brand.gold, color: brand.gold }}
-  >
-    Submit
-  </button>
-</form>
-      </div>
-    </Section>
-  </main>
-);
+      </Section>
+    </main>
+  );
+};
 
 // ===== App =====
 export default function App() {
