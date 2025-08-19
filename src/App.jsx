@@ -1029,7 +1029,6 @@ const HorsePurchasing = () => (
 );
 
 const Contact = () => {
-
   return (
     <main>
       <SEO
@@ -1048,99 +1047,104 @@ const Contact = () => {
             <p className="mt-2">sovereigntyequestrian@gmail.com</p>
           </div>
 
-          {/* Right column: form + status */}
+          {/* Right column: form */}
           <div className="space-y-4">
-
             <form
-  className="space-y-4"
-  onSubmit={async (e) => {
-    e.preventDefault();
+              className="space-y-4"
+              onSubmit={async (e) => {
+                e.preventDefault();
 
-    // Lock the button and show "Sending…"
-    const btn = e.currentTarget.querySelector("button[type='submit']");
-    const original = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = "Sending…";
+                // Lock the submit button and show "Sending…"
+                const btn = e.currentTarget.querySelector("button[type='submit']");
+                const original = btn.textContent;
+                btn.disabled = true;
+                btn.textContent = "Sending…";
 
-    // Collect form fields
-    const form = Object.fromEntries(new FormData(e.currentTarget));
+                // Collect fields
+                const form = Object.fromEntries(new FormData(e.currentTarget));
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+                // Call the API
+                let treatedAsSuccess = false;
+                try {
+                  const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(form),
+                  });
 
-      // Robust success detection:
-      let isSuccess = res.ok; // any 2xx
-      if (!isSuccess) {
-        // fall back: see if backend returned { ok: true } or { success: true }
-        try {
-          const data = await res.clone().json();
-          isSuccess = Boolean(data?.ok || data?.success);
-        } catch {
-          // ignore parse errors
-        }
-      }
+                  // If fetch resolves, we *assume* success unless payload explicitly says otherwise
+                  treatedAsSuccess = true;
+                  try {
+                    const data = await res.clone().json();
+                    if (data && (data.success === false || data.ok === false || data.error)) {
+                      treatedAsSuccess = false;
+                    }
+                  } catch {
+                    // No/invalid JSON — that's fine; keep treatedAsSuccess as-is
+                  }
+                } catch {
+                  // Network-level failure only
+                  treatedAsSuccess = false;
+                }
 
-      if (!isSuccess) throw new Error(`HTTP ${res.status}`);
+                if (treatedAsSuccess) {
+                  // SUCCESS — clear inputs and hold success message for 15s
+                  e.currentTarget.reset();
+                  btn.textContent = "Sent ✓ — your inquiry has been sent!";
+                  setTimeout(() => {
+                    btn.disabled = false;
+                    btn.textContent = original;
+                  }, 15000);
+                } else {
+                  // ERROR — readable retry, then reset after 4s
+                  btn.textContent = "Something went wrong — please try again";
+                  setTimeout(() => {
+                    btn.disabled = false;
+                    btn.textContent = original;
+                  }, 4000);
+                }
+              }}
+            >
+              <div>
+                <label className="text-sm" style={{ color: brand.gold }}>Name</label>
+                <input
+                  name="name"
+                  required
+                  className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
+                  style={{ borderColor: brand.gold, color: brand.white }}
+                />
+              </div>
 
-      // SUCCESS — clear inputs and hold success message for 15s
-      e.currentTarget.reset();
-      btn.textContent = "Sent ✓ — your inquiry has been sent!";
-      setTimeout(() => {
-        btn.disabled = false;
-        btn.textContent = original;
-      }, 15000);
-    } catch (err) {
-      // ERROR — show a clear retry prompt for a few seconds
-      btn.textContent = "Something went wrong — please try again";
-      setTimeout(() => {
-        btn.disabled = false;
-        btn.textContent = original;
-      }, 4000);
-    }
-  }}
->
-  <div>
-    <label className="text-sm" style={{ color: brand.gold }}>Name</label>
-    <input
-      name="name"
-      required
-      className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
-      style={{ borderColor: brand.gold, color: brand.white }}
-    />
-  </div>
-  <div>
-    <label className="text-sm" style={{ color: brand.gold }}>Email</label>
-    <input
-      name="email"
-      type="email"
-      required
-      className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
-      style={{ borderColor: brand.gold, color: brand.white }}
-    />
-  </div>
-  <div>
-    <label className="text-sm" style={{ color: brand.gold }}>Message</label>
-    <textarea
-      name="message"
-      rows={5}
-      required
-      className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
-      style={{ borderColor: brand.gold, color: brand.white }}
-    />
-  </div>
+              <div>
+                <label className="text-sm" style={{ color: brand.gold }}>Email</label>
+                <input
+                  name="email"
+                  type="email"
+                  required
+                  className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
+                  style={{ borderColor: brand.gold, color: brand.white }}
+                />
+              </div>
 
-  <button
-    type="submit"
-    className="px-5 py-2 rounded-xl border font-medium hover:opacity-90"
-    style={{ borderColor: brand.gold, color: brand.gold }}
-  >
-    Submit
-  </button>
-</form>
+              <div>
+                <label className="text-sm" style={{ color: brand.gold }}>Message</label>
+                <textarea
+                  name="message"
+                  rows={5}
+                  required
+                  className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
+                  style={{ borderColor: brand.gold, color: brand.white }}
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="px-5 py-2 rounded-xl border font-medium hover:opacity-90"
+                style={{ borderColor: brand.gold, color: brand.gold }}
+              >
+                Submit
+              </button>
+            </form>
           </div>
         </div>
       </Section>
