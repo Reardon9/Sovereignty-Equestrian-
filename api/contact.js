@@ -1,4 +1,4 @@
-// api/contact.js (ESM)
+// api/contact.js (Resend v4 response handling)
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).end();
 
   try {
-    // Parse JSON body safely (works even if req.body is empty)
+    // Safely read raw JSON body (works even if req.body is empty)
     let raw = "";
     for await (const chunk of req) raw += chunk;
     const { name, email, message } = JSON.parse(raw || "{}");
@@ -17,7 +17,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Missing fields" });
     }
 
-    const result = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from:
         process.env.CONTACT_FROM ||
         "Sovereignty Equestrian <onboarding@resend.dev>",
@@ -27,10 +27,15 @@ export default async function handler(req, res) {
       text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
     });
 
-    console.log("Resend send() OK. id:", result?.id || result);
+    if (error) {
+      console.error("Resend error:", error);
+      return res.status(500).json({ error: "Email failed to send" });
+    }
+
+    console.log("Resend id:", data?.id);
     return res.status(200).json({ ok: true });
   } catch (err) {
-    console.error("Email error:", err);
-    return res.status(500).json({ error: "Email failed" });
+    console.error("API error:", err);
+    return res.status(500).json({ error: "Server error" });
   }
 }
