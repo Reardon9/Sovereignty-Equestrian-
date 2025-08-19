@@ -8,9 +8,13 @@ export default async function handler(req, res) {
 
     try {
       await resend.emails.send({
-        from: 'onboarding@resend.dev',   // ✅ hard-coded for now
-        to: 'sovereigntyequestrian@gmail.com',     // change this to your own email
+        // ✅ send from your verified domain on Resend
+        from: 'Sovereignty Equestrian <no-reply@sovereigntyequestrian.com>',
+        // ✅ send to your company inbox
+        to: 'sovereigntyequestrian@gmail.com',
         subject: `New message from ${name}`,
+        // ✅ so “Reply” goes to the person who filled out the form
+        reply_to: email,
         html: `
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
@@ -20,8 +24,8 @@ export default async function handler(req, res) {
 
       res.status(200).json({ success: true });
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ success: false, error });
+      console.error('Resend send() error:', error);
+      res.status(500).json({ success: false, error: String(error) });
     }
   } else {
     res.status(405).json({ error: 'Method not allowed' });
