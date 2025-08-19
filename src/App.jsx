@@ -1056,13 +1056,13 @@ const Contact = () => {
   onSubmit={async (e) => {
     e.preventDefault();
 
-    // grab the submit button and lock it
+    // Lock the button and show "Sending…"
     const btn = e.currentTarget.querySelector("button[type='submit']");
     const original = btn.textContent;
     btn.disabled = true;
     btn.textContent = "Sending…";
 
-    // collect the form fields
+    // Collect form fields
     const form = Object.fromEntries(new FormData(e.currentTarget));
 
     try {
@@ -1072,12 +1072,23 @@ const Contact = () => {
         body: JSON.stringify(form),
       });
 
-      if (!res.ok) throw new Error("Failed");
+      // Robust success detection:
+      let isSuccess = res.ok; // any 2xx
+      if (!isSuccess) {
+        // fall back: see if backend returned { ok: true } or { success: true }
+        try {
+          const data = await res.clone().json();
+          isSuccess = Boolean(data?.ok || data?.success);
+        } catch {
+          // ignore parse errors
+        }
+      }
+
+      if (!isSuccess) throw new Error(`HTTP ${res.status}`);
 
       // SUCCESS — clear inputs and hold success message for 15s
       e.currentTarget.reset();
       btn.textContent = "Sent ✓ — your inquiry has been sent!";
-      // keep disabled so users don't double-submit during the confirmation window
       setTimeout(() => {
         btn.disabled = false;
         btn.textContent = original;
