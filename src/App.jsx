@@ -1028,85 +1028,135 @@ const HorsePurchasing = () => (
   </main>
 );
 
-{/* Contact Us Section */}
-<section id="contact" className="py-20 bg-gray-100">
-  <div className="container mx-auto px-6">
-    <h2 className="text-3xl font-bold text-center mb-12">Contact Us</h2>
-    <form
-      className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md"
-      action="https://api.resend.com/forms/your-endpoint" 
-      method="POST"
-      onSubmit={async (e) => {
-        e.preventDefault();
-        const btn = e.currentTarget.querySelector("button[type='submit']");
-        const original = btn.textContent;
-        btn.disabled = true;
-        btn.textContent = "Sending...";
+const Contact = () => {
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
 
-        try {
-          const formData = new FormData(e.currentTarget);
-          const response = await fetch("/api/send", {
-            method: "POST",
-            body: formData,
-          });
+  return (
+    <main>
+      <SEO
+        title="Contact Sovereignty Equestrian | Kelowna, BC"
+        description="3990 Senger Road, Kelowna, BC V1W 4S8 · 250-793-5191 · sovereigntyequestrian@gmail.com"
+      />
+      <Section title="Contact Us">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {/* Left column: static details */}
+          <div>
+            <h4 className="text-xl font-semibold mb-3" style={{ color: brand.white }}>
+              Reach Out
+            </h4>
+            <p>3990 Senger Road, Kelowna, BC V1W 4S8</p>
+            <p className="mt-2">250-793-5191 | 604-855-1483</p>
+            <p className="mt-2">sovereigntyequestrian@gmail.com</p>
+          </div>
 
-          if (response.ok) {
-            // SUCCESS
-            e.currentTarget.reset();
-            btn.textContent = "Sent ✓ — your inquiry has been sent!";
-            setTimeout(() => {
-              btn.disabled = false;
-              btn.textContent = original;
-            }, 15000); // keep success visible 15s
-          } else {
-            throw new Error("Network response was not ok");
-          }
-        } catch (error) {
-          // ERROR
-          console.error(error);
-          btn.textContent = "Try again";
-          setTimeout(() => {
-            btn.disabled = false;
-            btn.textContent = original;
-          }, 3000);
-        }
-      }}
-    >
-      <div className="mb-4">
-        <label className="block text-gray-700">Name</label>
-        <input
-          type="text"
-          name="name"
-          required
-          className="w-full px-3 py-2 border rounded-lg"
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-gray-700">Email</label>
-        <input
-          type="email"
-          name="email"
-          required
-          className="w-full px-3 py-2 border rounded-lg"
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-gray-700">Message</label>
-        <textarea
-          name="message"
-          required
-          className="w-full px-3 py-2 border rounded-lg"
-        ></textarea>
-      </div>
-      <button
-        type="submit"
-        className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
-      >
-        Submit
-      </button>
-    </form>
-  </div>
-</section>
+          {/* Right column: form + status */}
+          <div className="space-y-4">
+            {/* Success / Error banners */}
+            {status === "sent" && (
+              <div
+                role="status"
+                aria-live="polite"
+                className="rounded-lg border px-3 py-2 text-sm"
+                style={{
+                  borderColor: "#22c55e",
+                  color: "#22c55e",
+                  background: "rgba(34,197,94,0.1)"
+                }}
+              >
+                ✅ Your inquiry has been sent. We’ll get back to you shortly.
+              </div>
+            )}
+            {status === "error" && (
+              <div
+                role="alert"
+                aria-live="assertive"
+                className="rounded-lg border px-3 py-2 text-sm"
+                style={{
+                  borderColor: "#ef4444",
+                  color: "#ef4444",
+                  background: "rgba(239,68,68,0.1)"
+                }}
+              >
+                ⚠️ Something went wrong. Please try again, or email us at
+                {" "}sovereigntyequestrian@gmail.com.
+              </div>
+            )}
+
+            <form
+              className="space-y-4"
+              onSubmit={async (e) => {
+                e.preventDefault();
+                setStatus("sending");
+
+                const form = Object.fromEntries(new FormData(e.currentTarget));
+                try {
+                  const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(form),
+                  });
+
+                  if (!res.ok) throw new Error("Failed");
+
+                  // SUCCESS: clear the fields, show success for 15s, keep button disabled while “sent”
+                  e.currentTarget.reset();
+                  setStatus("sent");
+                  setTimeout(() => setStatus("idle"), 15000); // keep success visible for ~15s
+                } catch {
+                  // ERROR: show error for a few seconds, then allow retry
+                  setStatus("error");
+                  setTimeout(() => setStatus("idle"), 4000);
+                }
+              }}
+            >
+              <div>
+                <label className="text-sm" style={{ color: brand.gold }}>Name</label>
+                <input
+                  name="name"
+                  required
+                  className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
+                  style={{ borderColor: brand.gold, color: brand.white }}
+                />
+              </div>
+
+              <div>
+                <label className="text-sm" style={{ color: brand.gold }}>Email</label>
+                <input
+                  name="email"
+                  type="email"
+                  required
+                  className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
+                  style={{ borderColor: brand.gold, color: brand.white }}
+                />
+              </div>
+
+              <div>
+                <label className="text-sm" style={{ color: brand.gold }}>Message</label>
+                <textarea
+                  name="message"
+                  rows={5}
+                  required
+                  className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
+                  style={{ borderColor: brand.gold, color: brand.white }}
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={status === "sending" || status === "sent"}
+                className="px-5 py-2 rounded-xl border font-medium hover:opacity-90 disabled:opacity-60"
+                style={{ borderColor: brand.gold, color: brand.gold }}
+              >
+                {status === "sending"
+                  ? "Sending…"
+                  : status === "sent"
+                  ? "Sent ✓ — your inquiry has been sent!"
+                  : "Submit"}
+              </button>
+            </form>
+          </div>
+        </div>
+      </Section>
     </main>
   );
 };
