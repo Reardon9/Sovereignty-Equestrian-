@@ -1,4 +1,4 @@
-// api/contact.js (Resend v4 response handling)
+// api/contact.js
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).end();
 
   try {
-    // Safely read raw JSON body (works even if req.body is empty)
+    // Read raw body (works even if req.body is empty)
     let raw = "";
     for await (const chunk of req) raw += chunk;
     const { name, email, message } = JSON.parse(raw || "{}");
@@ -18,9 +18,7 @@ export default async function handler(req, res) {
     }
 
     const { data, error } = await resend.emails.send({
-      from:
-        process.env.CONTACT_FROM ||
-        "Sovereignty Equestrian <onboarding@resend.dev>",
+      from: process.env.CONTACT_FROM || "Sovereignty Equestrian <onboarding@resend.dev>",
       to: [process.env.CONTACT_TO || "sovereigntyequestrian@gmail.com"],
       reply_to: email,
       subject: `New inquiry from ${name}`,
