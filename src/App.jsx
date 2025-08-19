@@ -365,11 +365,22 @@ const Home = () => (
 
     {/* Video placeholder before Our Story */}
     <Section title="Facilities Video">
-      <video controls className="w-full aspect-video rounded-2xl">
-        <source src="/video/facility-tour.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </Section>
+  <div
+    className="rounded-2xl overflow-hidden border"
+    style={{ borderColor: brand.gold }}
+  >
+    <video
+      controls
+      playsInline
+      className="w-full h-[260px] sm:h-[360px] md:h-[420px] lg:h-[500px] object-cover"
+      // optional: add a poster image for nicer loading
+      // poster="/images/home/facilities-1.jpg"
+    >
+      <source src="/video/facility-tour.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</Section>
 
     {/* Our Story */}
     <Section title="Our Story" kicker="Built on Bond, Driven by Purpose">
