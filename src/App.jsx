@@ -1044,43 +1044,67 @@ const Contact = () => (
           <p className="mt-2">250-793-5191 | 604-855-1483</p>
           <p className="mt-2">sovereigntyequestrian@gmail.com</p>
         </div>
-        <form className="space-y-4">
-          <div>
-            <label className="text-sm" style={{ color: brand.gold }}>
-              Name
-            </label>
-            <input
-              className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
-              style={{ borderColor: brand.gold, color: brand.white }}
-            />
-          </div>
-          <div>
-            <label className="text-sm" style={{ color: brand.gold }}>
-              Email
-            </label>
-            <input
-              className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
-              style={{ borderColor: brand.gold, color: brand.white }}
-            />
-          </div>
-          <div>
-            <label className="text-sm" style={{ color: brand.gold }}>
-              Message
-            </label>
-            <textarea
-              rows={5}
-              className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
-              style={{ borderColor: brand.gold, color: brand.white }}
-            />
-          </div>
-          <button
-            type="button"
-            className="px-5 py-2 rounded-xl border font-medium hover:opacity-90"
-            style={{ borderColor: brand.gold, color: brand.gold }}
-          >
-            Submit
-          </button>
-        </form>
+        <form
+  className="space-y-4"
+  onSubmit={async (e) => {
+    e.preventDefault();
+    const form = Object.fromEntries(new FormData(e.currentTarget));
+    const btn = e.currentTarget.querySelector("button[type=submit]");
+    const original = btn.textContent;
+    btn.disabled = true; btn.textContent = "Sending…";
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Failed");
+      e.currentTarget.reset();
+      btn.textContent = "Sent ✓";
+      setTimeout(() => { btn.disabled = false; btn.textContent = original; }, 1800);
+    } catch {
+      btn.textContent = "Try again";
+      setTimeout(() => { btn.disabled = false; btn.textContent = original; }, 1800);
+    }
+  }}
+>
+  <div>
+    <label className="text-sm" style={{ color: brand.gold }}>Name</label>
+    <input
+      name="name"
+      required
+      className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
+      style={{ borderColor: brand.gold, color: brand.white }}
+    />
+  </div>
+  <div>
+    <label className="text-sm" style={{ color: brand.gold }}>Email</label>
+    <input
+      name="email"
+      type="email"
+      required
+      className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
+      style={{ borderColor: brand.gold, color: brand.white }}
+    />
+  </div>
+  <div>
+    <label className="text-sm" style={{ color: brand.gold }}>Message</label>
+    <textarea
+      name="message"
+      rows={5}
+      required
+      className="w-full mt-1 rounded-xl px-3 py-2 bg-transparent border"
+      style={{ borderColor: brand.gold, color: brand.white }}
+    />
+  </div>
+  <button
+    type="submit"
+    className="px-5 py-2 rounded-xl border font-medium hover:opacity-90"
+    style={{ borderColor: brand.gold, color: brand.gold }}
+  >
+    Submit
+  </button>
+</form>
       </div>
     </Section>
   </main>
