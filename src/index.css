@@ -1,0 +1,27 @@
+/* Phone-only spacing adjustment for header "Home" link */
+@media (max-width: 480px) {
+  /* Give the right edge a bit of breathing room */
+  header, .header, .site-header {
+    padding-right: 10px;
+  }
+
+  /* Keep the brand/name+tagline from hogging the whole row */
+  header .brand, header .logo-title, header .branding,
+  .header .brand, .header .logo-title, .header .branding,
+  .site-header .brand, .site-header .logo-title, .site-header .branding {
+    max-width: 75%;
+  }
+
+  /* Slightly tighten the motto/tagline only on phones */
+  header .motto, .header .motto, .site-header .motto {
+    font-size: 0.95rem;
+    line-height: 1.2;
+  }
+
+  /* Add a little space before the first nav link (e.g., "Home") */
+  header nav a:first-child,
+  .header nav a:first-child,
+  .site-header nav a:first-child {
+    margin-left: 10px;
+  }
+}
