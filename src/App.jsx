@@ -822,7 +822,7 @@ const TrailRides = () => (
         objPos="center 45%"
       >
         <div>
-          {/* Trail Rides */}
+          {/* --- Guided Trail Rides --- */}
           <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>
             Guided Trail Rides
           </h4>
@@ -830,10 +830,12 @@ const TrailRides = () => (
             Ride through orchards, vineyards, rolling hills, and along Mission Creek/Gallagher’s Canyon.
             Calm, well-trained horses and friendly guides make it beginner-friendly and unforgettable.
           </p>
+
           {/* PRICE directly under paragraph */}
           <p className="mt-3 font-semibold" style={{ color: brand.gold }}>
             $150/person + tax
           </p>
+
           <a
             href="#/contact"
             className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90"
@@ -848,7 +850,12 @@ const TrailRides = () => (
             <li>Beginner-friendly with guidance</li>
           </ul>
 
-          {/* Women’s Wine Night */}
+          {/* PRICE again under the dot points */}
+          <p className="mt-3 font-semibold" style={{ color: brand.gold }}>
+            $150/person + tax
+          </p>
+
+          {/* --- Women’s Wine Night --- */}
           <div className="mt-8">
             <h5 className="text-lg font-semibold mb-2" style={{ color: brand.white }}>
               Women’s Wine Night
@@ -858,10 +865,12 @@ const TrailRides = () => (
               at local gems and viewpoints. Perfect for celebrations or an unforgettable evening with friends.
               No riding experience required.
             </p>
+
             {/* PRICE directly under paragraph */}
             <p className="mt-3 font-semibold" style={{ color: brand.gold }}>
               $150/person + tax
             </p>
+
             <a
               href="#/contact"
               className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90"
@@ -875,6 +884,11 @@ const TrailRides = () => (
               <li>Time to unwind, take photos, and enjoy Okanagan charm</li>
               <li>Small group atmosphere</li>
             </ul>
+
+            {/* PRICE again under the dot points */}
+            <p className="mt-3 font-semibold" style={{ color: brand.gold }}>
+              $150/person + tax
+            </p>
           </div>
         </div>
       </TextWithPhotoRight>
@@ -1043,7 +1057,7 @@ const LayoverStays = () => (
     />
     <Section title="Layover Stays" kicker="Rest, Recharge, and Ride On">
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
-        {/* TEXT FIRST */}
+        {/* TEXT */}
         <div className="md:col-span-2">
           <p>
             Traveling long distances with your horse? We offer overnight layover stays for
@@ -1055,28 +1069,7 @@ const LayoverStays = () => (
             on the road.
           </p>
 
-          {/* PRICES AT THE BOTTOM OF THE PARAGRAPHS */}
-          <div className="mt-6">
-            <p className="font-semibold" style={{ color: brand.gold }}>
-              Trailer Stay — $80/night + tax
-            </p>
-            <p className="font-semibold" style={{ color: brand.gold }}>
-              Suite Stay — $125/night + tax
-            </p>
-            <p className="font-semibold" style={{ color: brand.gold }}>
-              Extra Horse Fee — $30/horse + tax
-            </p>
-            <a
-              href="#/contact"
-              className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90"
-              style={{ borderColor: brand.gold, color: brand.gold }}
-            >
-              Plan Your Stay
-            </a>
-          </div>
-
-          {/* DETAILS BELOW PRICING */}
-          <h5 className="text-lg font-semibold mt-8" style={{ color: brand.white }}>
+          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
             For the Horse
           </h5>
           <ul className="list-disc pl-6 mt-2 space-y-1">
@@ -1096,14 +1089,35 @@ const LayoverStays = () => (
             <li>Use of arena or space to stretch your horse’s legs (on request)</li>
           </ul>
 
+          {/* Closing paragraph (your anchor for pricing) */}
           <p className="mt-6">
             Whether you’re heading to a show, relocating, or on an adventure — our layover
             service gives you and your horse the break you deserve, with peace of mind and a
             welcoming place to rest.
           </p>
+
+          {/* PRICES — placed directly under the closing paragraph */}
+          <div className="mt-6">
+            <p className="font-semibold" style={{ color: brand.gold }}>
+              Trailer Stay — $80/night + tax
+            </p>
+            <p className="font-semibold" style={{ color: brand.gold }}>
+              Suite Stay — $125/night + tax
+            </p>
+            <p className="font-semibold" style={{ color: brand.gold }}>
+              Extra Horse Fee — $30/horse + tax
+            </p>
+            <a
+              href="#/contact"
+              className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90"
+              style={{ borderColor: brand.gold, color: brand.gold }}
+            >
+              Plan Your Stay
+            </a>
+          </div>
         </div>
 
-        {/* IMAGE SIDE (keep your existing path if different) */}
+        {/* IMAGE (keep your existing path if different) */}
         <aside
           className="md:col-span-3 rounded-2xl border overflow-hidden h-[22rem]"
           style={{ borderColor: brand.gold }}
@@ -1146,25 +1160,7 @@ const HorsePurchasing = () => (
             the show ring, breeding programs, or lifelong companionship.
           </p>
 
-          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
-            What We Offer
-          </h5>
-          <ul className="list-disc pl-6 mt-2 space-y-1">
-            <li><strong>Competitive Prospects</strong> — endurance, performance, and show-quality Arabians</li>
-            <li><strong>Breeding-Quality Mares</strong> — exceptional bloodlines for future programs</li>
-            <li><strong>Lifelong Companions</strong> — gentle, versatile partners for riders of all levels</li>
-          </ul>
-
-          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
-            Buyer Support
-          </h5>
-          <ul className="list-disc pl-6 mt-2 space-y-1">
-            <li>Access to photos, videos, and pedigrees upon request</li>
-            <li>Guidance in matching the right horse to your goals and budget</li>
-            <li>Logistics support (transport options & best practices)</li>
-          </ul>
-
-          {/* PRICE + CTA */}
+          {/* PRICE + CTA moved directly under the paragraph */}
           <p className="mt-6 font-semibold" style={{ color: brand.gold }}>
             Custom Quote + tax
           </p>
@@ -1180,9 +1176,28 @@ const HorsePurchasing = () => (
             We’ll help you navigate options with honesty and care, so you can find the right partner
             and become part of a trusted community dedicated to the Arabian breed.
           </p>
+
+          {/* Details */}
+          <h5 className="text-lg font-semibold mt-8" style={{ color: brand.white }}>
+            What We Offer
+          </h5>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li><strong>Competitive Prospects</strong> — endurance, performance, and show-quality Arabians</li>
+            <li><strong>Breeding-Quality Mares</strong> — exceptional bloodlines for future programs</li>
+            <li><strong>Lifelong Companions</strong> — gentle, versatile partners for riders of all levels</li>
+          </ul>
+
+          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+            Buyer Support
+          </h5>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>Access to photos, videos, and pedigrees upon request</li>
+            <li>Guidance in matching the right horse to your goals and budget</li>
+            <li>Logistics support (transport options &amp; best practices)</li>
+          </ul>
         </div>
 
-        {/* IMAGE (right) — ORIGINAL PATH KEPT */}
+        {/* IMAGE (right) — original path kept */}
         <aside
           className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
           style={{ borderColor: brand.gold }}
