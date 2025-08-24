@@ -149,8 +149,8 @@ const Header = ({ onNavigate, current }) => {
           </a>
 
           {/* NAV — one-line list; long labels wrap inside their own tab */}
-          {/* nudge the group slightly left on phones so 'Meet the Team' centers nicer */}
-          <nav className="ml-auto pl-2 sm:pl-0">
+          {/* mobile tweak: move the group one step LEFT so 'Meet the Team' looks centered */}
+          <nav className="ml-auto pl-1 sm:pl-0">
             <ul className="flex flex-nowrap items-stretch gap-x-1 sm:gap-x-3 md:gap-x-4 text-sm sm:text-base">
               {/* Left tabs */}
               {[
