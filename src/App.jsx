@@ -756,28 +756,53 @@ const Lessons = () => (
 
 const CampsClinics = () => (
   <main>
-    <SEO title="Camps & Clinics | Sovereignty Equestrian Kelowna" description="Seasonal camps and focused clinics in groundwork, riding technique, and equine wellness." />
+    <SEO
+      title="Camps & Clinics | Sovereignty Equestrian Kelowna"
+      description="Seasonal camps and focused clinics in groundwork, riding technique, and equine wellness."
+    />
     <Section title="Camps & Clinics">
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+        {/* Text (left) */}
         <div className="md:col-span-3">
           <p>
             Seasonal camps give younger riders hands-on experience in horse care,
             riding skills, and confidence building—all in a fun, safe, and supportive
             environment. Our clinics provide focused instruction in areas such as
             groundwork, riding technique, and equine wellness, often led by our team
-            and guest instructors.
+            and guest instructors. Together, these experiences create meaningful
+            opportunities to learn, grow, and connect with both horses and the riding
+            community.
           </p>
 
-          <p className="mt-3 font-semibold" style={{ color: brand.gold }}>
-            TBA
+          <p className="italic mt-6">
+            *There may also be opportunities for arena rental. Our outdoor arena may be
+            available for private use, group lessons, or hosted events — perfect for
+            trainers, clubs, or independent riders looking for a quality space to work.
           </p>
-          <a href="#/contact" className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90" style={{ borderColor: brand.gold, color: brand.gold }}>
+
+          {/* Price + CTA at bottom */}
+          <p className="mt-6 font-semibold" style={{ color: brand.gold }}>
+            TBA + tax
+          </p>
+          <a
+            href="#/contact"
+            className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90"
+            style={{ borderColor: brand.gold, color: brand.gold }}
+          >
             Join the Waitlist
           </a>
         </div>
 
-        <aside className="md:col-span-2 rounded-2xl border overflow-hidden h-[22rem]" style={{ borderColor: brand.gold }}>
-          <img src="/images/services/camps-clinics.jpg" alt="Camps and clinics" className="h-full w-full object-cover" />
+        {/* Image (right) — original path preserved */}
+        <aside
+          className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
+          style={{ borderColor: brand.gold }}
+        >
+          <img
+            src="/images/services/camps-clinics.jpg"
+            alt="Camps and clinics"
+            className="h-full w-full object-cover"
+          />
         </aside>
       </div>
     </Section>
@@ -786,45 +811,74 @@ const CampsClinics = () => (
 
 const TrailRides = () => (
   <main>
-    <SEO title="Guided Trail Rides in Kelowna | Sovereignty Equestrian" description="Beginner-friendly guided rides through orchards, vineyards, and scenic routes—plus Women’s Wine Night experiences." />
+    <SEO
+      title="Guided Trail Rides in Kelowna | Sovereignty Equestrian"
+      description="Beginner-friendly guided trail rides through scenic routes—plus Women’s Wine Night experiences."
+    />
     <Section title="Guided Trail Rides & Women’s Wine Night" kicker="Explore Southeast Kelowna">
-  <TextWithPhotoRight
-    imgSrc="/images/services/trail-rides.jpg"   // <- confirm exact filename + case
-    imgAlt="Guided trail rides"
-    objPos="center 45%"
-  >
-    {/* Keep one root wrapper inside TextWithPhotoRight */}
-    <div>
-      <p>
-        Ride through orchards, vineyards, rolling hills, and along Mission Creek/Gallagher’s Canyon.
-        Calm, well-trained horses and friendly guides make it beginner-friendly and unforgettable.
-      </p>
+      <TextWithPhotoRight
+        imgSrc="/images/services/trail-rides.jpg"   // keep your original image path
+        imgAlt="Guided trail rides"
+        objPos="center 45%"
+      >
+        <div>
+          {/* Trail Rides */}
+          <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>
+            Guided Trail Rides
+          </h4>
+          <p>
+            Ride through orchards, vineyards, rolling hills, and along Mission Creek/Gallagher’s Canyon.
+            Calm, well-trained horses and friendly guides make it beginner-friendly and unforgettable.
+          </p>
+          {/* PRICE directly under paragraph */}
+          <p className="mt-3 font-semibold" style={{ color: brand.gold }}>
+            $150/person + tax
+          </p>
+          <a
+            href="#/contact"
+            className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90"
+            style={{ borderColor: brand.gold, color: brand.gold }}
+          >
+            Book Your Ride
+          </a>
 
-      <ul className="list-disc pl-6 mt-4 space-y-1">
-        <li>Scenic routes and small groups</li>
-        <li>Photo stops and relaxed pacing</li>
-        <li>Beginner-friendly with guidance</li>
-      </ul>
+          <ul className="list-disc pl-6 mt-4 space-y-1">
+            <li>Scenic routes and small groups</li>
+            <li>Photo stops and relaxed pacing</li>
+            <li>Beginner-friendly with guidance</li>
+          </ul>
 
-      {/* Women’s Wine Night (no extra photo) */}
-      <div className="mt-8">
-        <h5 className="text-lg font-semibold mb-2" style={{ color: brand.white }}>
-          Women’s Wine Night
-        </h5>
-        <p>
-          A special ladies-only guided ride with curated tastings and scenic lookouts, featuring stops
-          at local gems and viewpoints. Perfect for celebrations or an unforgettable evening with friends.
-          No riding experience required.
-        </p>
-        <ul className="list-disc pl-6 mt-2 space-y-1">
-          <li>Guided trail ride with planned winery/viewpoint stops</li>
-          <li>Time to unwind, take photos, and enjoy Okanagan charm</li>
-          <li>Small group atmosphere</li>
-        </ul>
-      </div>
-    </div>
-  </TextWithPhotoRight>
-</Section>
+          {/* Women’s Wine Night */}
+          <div className="mt-8">
+            <h5 className="text-lg font-semibold mb-2" style={{ color: brand.white }}>
+              Women’s Wine Night
+            </h5>
+            <p>
+              A special ladies-only guided ride with curated tastings and scenic lookouts, featuring stops
+              at local gems and viewpoints. Perfect for celebrations or an unforgettable evening with friends.
+              No riding experience required.
+            </p>
+            {/* PRICE directly under paragraph */}
+            <p className="mt-3 font-semibold" style={{ color: brand.gold }}>
+              $150/person + tax
+            </p>
+            <a
+              href="#/contact"
+              className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90"
+              style={{ borderColor: brand.gold, color: brand.gold }}
+            >
+              Book Your Evening
+            </a>
+
+            <ul className="list-disc pl-6 mt-2 space-y-1">
+              <li>Guided trail ride with planned winery/viewpoint stops</li>
+              <li>Time to unwind, take photos, and enjoy Okanagan charm</li>
+              <li>Small group atmosphere</li>
+            </ul>
+          </div>
+        </div>
+      </TextWithPhotoRight>
+    </Section>
   </main>
 );
 
@@ -918,7 +972,7 @@ const BirthdayParties = () => (
       description="Celebrate with horses, laughter, and lasting memories. Hands-on horse experiences, pony rides, and fun party add-ons."
     />
     <Section title="Birthday Parties" kicker="Celebrate with Horses, Laughter, and Lasting Memories">
-      {/* Custom grid to control image size and position */}
+      {/* Layout */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
         {/* Text (left) */}
         <div className="md:col-span-3">
@@ -950,7 +1004,7 @@ const BirthdayParties = () => (
           {/* === PRICING AT BOTTOM === */}
           <div className="mt-8">
             <p className="font-semibold" style={{ color: brand.gold }}>
-              Base Package — $350 + tax
+              Base Package — $350 for 8 kids + tax
             </p>
             <p className="font-semibold" style={{ color: brand.gold }}>
               Additional Guests — $25/child + tax
@@ -965,7 +1019,7 @@ const BirthdayParties = () => (
           </div>
         </div>
 
-        {/* Image (right) — unchanged to preserve your original photo */}
+        {/* Image (right) — unchanged */}
         <aside
           className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
           style={{ borderColor: brand.gold }}
@@ -983,9 +1037,13 @@ const BirthdayParties = () => (
 
 const LayoverStays = () => (
   <main>
-    <SEO title="Horse Layover Stays in Kelowna | Sovereignty Equestrian" description="Safe overnight layovers with stalls, turnout, and optional on-site suite. Easy trailer access and amenities." />
+    <SEO
+      title="Horse Layover Stays in Kelowna | Sovereignty Equestrian"
+      description="Safe overnight layovers with stalls, turnout, and optional on-site suite. Easy trailer access and amenities."
+    />
     <Section title="Layover Stays" kicker="Rest, Recharge, and Ride On">
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+        {/* TEXT FIRST */}
         <div className="md:col-span-2">
           <p>
             Traveling long distances with your horse? We offer overnight layover stays for
@@ -997,7 +1055,28 @@ const LayoverStays = () => (
             on the road.
           </p>
 
-          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+          {/* PRICES AT THE BOTTOM OF THE PARAGRAPHS */}
+          <div className="mt-6">
+            <p className="font-semibold" style={{ color: brand.gold }}>
+              Trailer Stay — $80/night + tax
+            </p>
+            <p className="font-semibold" style={{ color: brand.gold }}>
+              Suite Stay — $125/night + tax
+            </p>
+            <p className="font-semibold" style={{ color: brand.gold }}>
+              Extra Horse Fee — $30/horse + tax
+            </p>
+            <a
+              href="#/contact"
+              className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90"
+              style={{ borderColor: brand.gold, color: brand.gold }}
+            >
+              Plan Your Stay
+            </a>
+          </div>
+
+          {/* DETAILS BELOW PRICING */}
+          <h5 className="text-lg font-semibold mt-8" style={{ color: brand.white }}>
             For the Horse
           </h5>
           <ul className="list-disc pl-6 mt-2 space-y-1">
@@ -1017,22 +1096,6 @@ const LayoverStays = () => (
             <li>Use of arena or space to stretch your horse’s legs (on request)</li>
           </ul>
 
-          {/* Prices */}
-          <div className="mt-6 space-y-2">
-            <p className="font-semibold" style={{ color: brand.gold }}>
-              Trailer Stay: $80/night + tax
-            </p>
-            <p className="font-semibold" style={{ color: brand.gold }}>
-              Suite Stay: $125/night + tax
-            </p>
-            <p className="font-semibold" style={{ color: brand.gold }}>
-              Extra Horse Fee: $30/horse + tax
-            </p>
-            <a href="#/contact" className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90" style={{ borderColor: brand.gold, color: brand.gold }}>
-              Plan Your Stay
-            </a>
-          </div>
-
           <p className="mt-6">
             Whether you’re heading to a show, relocating, or on an adventure — our layover
             service gives you and your horse the break you deserve, with peace of mind and a
@@ -1040,8 +1103,16 @@ const LayoverStays = () => (
           </p>
         </div>
 
-        <aside className="md:col-span-3 rounded-2xl border overflow-hidden h-[22rem]" style={{ borderColor: brand.gold }}>
-          <img src="/images/services/layover.jpg" alt="Layover Stays at Sovereignty Equestrian" className="h-full w-full object-cover" />
+        {/* IMAGE SIDE (keep your existing path if different) */}
+        <aside
+          className="md:col-span-3 rounded-2xl border overflow-hidden h-[22rem]"
+          style={{ borderColor: brand.gold }}
+        >
+          <img
+            src="/images/services/layover.jpg"
+            alt="Layover Stays at Sovereignty Equestrian"
+            className="h-full w-full object-cover"
+          />
         </aside>
       </div>
     </Section>
@@ -1050,13 +1121,16 @@ const LayoverStays = () => (
 
 const HorsePurchasing = () => (
   <main>
-    <SEO title="Arabian Horse Purchasing Program | Sovereignty Equestrian" description="Access to world-class prospects, breeding-quality mares, and companions — with full buyer support." />
-    <Section title="Horse Purchasing Program" kicker="Sovereignty Equestrian × Gone with the Wind Arabians">
+    <SEO
+      title="Arabian Horse Purchasing Program | Sovereignty Equestrian"
+      description="Access to world-class prospects, breeding-quality mares, and lifelong companions — with full buyer support."
+    />
+    <Section
+      title="Horse Purchasing Program"
+      kicker="Sovereignty Equestrian × Gone with the Wind Arabians"
+    >
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
-        <div className="md:col-span-2 rounded-2xl border overflow-hidden h-[26rem]" style={{ borderColor: brand.gold }}>
-          <img src="/images/services/horse-purchasing.jpg" alt="Horse Purchasing Program" className="h-full w-full object-cover" />
-        </div>
-
+        {/* TEXT (left) */}
         <div className="md:col-span-3">
           <p>
             At Sovereignty Equestrian, we’re proud to partner with Gone with the Wind Arabians,
@@ -1066,10 +1140,10 @@ const HorsePurchasing = () => (
           </p>
 
           <p className="mt-4">
-            Gone with the Wind Arabians has been producing world-class Arabians for over 25 years, with
-            more than 100 purebreds sold across Canada, the United States, and Dubai. Their foundation lines
-            are celebrated for elegance, athleticism, and exceptional temperament — equally suited for the
-            show ring, breeding programs, or lifelong companionship.
+            Gone with the Wind Arabians has been producing world-class Arabians for over 25 years,
+            with more than 100 purebreds sold across Canada, the United States, and Dubai. Their foundation
+            lines are celebrated for elegance, athleticism, and exceptional temperament — equally suited for
+            the show ring, breeding programs, or lifelong companionship.
           </p>
 
           <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
@@ -1078,17 +1152,47 @@ const HorsePurchasing = () => (
           <ul className="list-disc pl-6 mt-2 space-y-1">
             <li><strong>Competitive Prospects</strong> — endurance, performance, and show-quality Arabians</li>
             <li><strong>Breeding-Quality Mares</strong> — exceptional bloodlines for future programs</li>
-            <li><strong>Lifelong Companions</strong> — trusted partners with superb temperaments</li>
-            <li><strong>Buyer Support</strong> — photos/videos, pedigrees, transport guidance, and more</li>
+            <li><strong>Lifelong Companions</strong> — gentle, versatile partners for riders of all levels</li>
           </ul>
 
+          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
+            Buyer Support
+          </h5>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>Access to photos, videos, and pedigrees upon request</li>
+            <li>Guidance in matching the right horse to your goals and budget</li>
+            <li>Logistics support (transport options & best practices)</li>
+          </ul>
+
+          {/* PRICE + CTA */}
           <p className="mt-6 font-semibold" style={{ color: brand.gold }}>
-            Custom Quote
+            Custom Quote + tax
           </p>
-          <a href="#/contact" className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90" style={{ borderColor: brand.gold, color: brand.gold }}>
+          <a
+            href="#/contact"
+            className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90"
+            style={{ borderColor: brand.gold, color: brand.gold }}
+          >
             Request a Quote
           </a>
+
+          <p className="mt-6">
+            We’ll help you navigate options with honesty and care, so you can find the right partner
+            and become part of a trusted community dedicated to the Arabian breed.
+          </p>
         </div>
+
+        {/* IMAGE (right) — ORIGINAL PATH KEPT */}
+        <aside
+          className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
+          style={{ borderColor: brand.gold }}
+        >
+          <img
+            src="/images/services/purchasing.jpg"
+            alt="Horse Purchasing Program"
+            className="h-full w-full object-cover"
+          />
+        </aside>
       </div>
     </Section>
   </main>
