@@ -146,8 +146,8 @@ const Header = ({ onNavigate, current }) => {
           </a>
 
           {/* small extra padding on phones so 'Home' isn't too close to the logo */}
-          <nav className="ml-auto pl-2 sm:pl-0">
-            <ul className="flex items-center gap-3 sm:gap-4 text-sm sm:text-base">
+          <nav className="ml-auto pl-3 sm:pl-0">
+            <ul className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-sm sm:text-base">
               {[
                 { label: "Home", to: "#/" },
                 { label: "Meet the Team", to: "#/meet-the-team" },
@@ -180,12 +180,10 @@ const Header = ({ onNavigate, current }) => {
                 </button>
                 {open && (
                   <div
-                    className="absolute mt-2 w-56 rounded-xl shadow-lg p-2 flex flex-col space-y-1"
-                    style={{
-                      background: brand.black,
-                      border: `1px solid ${brand.gold}`,
-                    }}
-                  >
+                    <div
+  className="absolute mt-2 w-56 rounded-xl shadow-lg p-2 flex flex-col space-y-1"
+  style={{ background: brand.black, border: `1px solid ${brand.gold}` }}
+>
                     {[
                       { label: "Boarding", to: "#/services/boarding" },
                       { label: "Lessons", to: "#/services/lessons" },
