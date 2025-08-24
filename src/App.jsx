@@ -899,62 +899,41 @@ const TrailRides = () => (
 const Therapy = () => (
   <main>
     <SEO
-      title="Equine Assisted Therapy | Sovereignty Equestrian"
-      description="Healing through connection, one horse at a time. Guided, ground-based sessions to support emotional healing, mental wellness, and personal growth."
+      title="Equine-Assisted Therapy in Kelowna | Sovereignty Equestrian"
+      description="Guided, ground-based sessions supporting emotional healing, mental wellness, and personal growth—no riding experience required."
     />
-    <Section title="Equine Assisted Therapy" kicker="Healing Through Connection, One Horse at a Time">
+    <Section title="Equine-Assisted Therapy" kicker="Healing Through Connection, One Horse at a Time">
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
-        
-        {/* Image */}
-        <aside
-          className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
-          style={{ borderColor: brand.gold }}
-        >
-          <img
-            src="/images/services/equine-therapy.jpg"
-            alt="Equine Assisted Therapy"
-            className="h-full w-full object-cover"
-          />
-        </aside>
-
-        {/* Text */}
+        {/* TEXT (left) */}
         <div className="md:col-span-3">
-          <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>
-            Equine-Assisted Therapy
-          </h4>
-
           <p>
-            At Sovereignty Equestrian, we believe in the powerful, unspoken connection between
-            humans and horses. Our Equine-Assisted Therapy sessions are designed to support
-            emotional healing, mental wellness, and personal growth through meaningful, guided
-            interactions with our horses.
+            At Sovereignty Equestrian, we believe in the powerful, unspoken connection between humans and
+            horses. Our Equine-Assisted Therapy sessions are designed to support emotional healing, mental
+            wellness, and personal growth through meaningful, guided interactions with our horses.
           </p>
 
           <p className="mt-4">
-            Led in a calm, supportive environment, this service is ideal for individuals navigating
-            stress, anxiety, grief, trauma, or life transitions. No riding experience is required —
-            these sessions focus on ground-based activities that foster mindfulness, trust,
-            communication, and self-awareness.
+            Led in a calm, supportive environment, this service is ideal for individuals navigating stress,
+            anxiety, grief, trauma, or life transitions. No riding experience is required — these sessions
+            focus on ground-based activities that foster mindfulness, trust, communication, and self-awareness.
           </p>
 
-          {/* Prices */}
-          <div className="mt-6">
-            <p className="font-semibold" style={{ color: brand.gold }}>
-              30 min — $45/session + tax
-            </p>
-            <p className="font-semibold" style={{ color: brand.gold }}>
-              60 min — $75/session + tax
-            </p>
-            <a
-              href="#/contact"
-              className="inline-block mt-3 px-5 py-2 rounded-xl border font-medium hover:opacity-90"
-              style={{ borderColor: brand.gold, color: brand.gold }}
-            >
-              Start Your Journey
-            </a>
-          </div>
+          {/* PRICING */}
+          <p className="mt-6 font-semibold" style={{ color: brand.gold }}>
+            30 min — $45/session + tax
+          </p>
+          <p className="font-semibold" style={{ color: brand.gold }}>
+            60 min — $75/session + tax
+          </p>
+          <a
+            href="#/contact"
+            className="inline-block mt-3 px-5 py-2 rounded-xl border font-medium hover:opacity-90"
+            style={{ borderColor: brand.gold, color: brand.gold }}
+          >
+            Start Your Journey
+          </a>
 
-          {/* What You Can Expect */}
+          {/* WHAT TO EXPECT */}
           <h5 className="text-lg font-semibold mt-8" style={{ color: brand.white }}>
             What You Can Expect
           </h5>
@@ -966,14 +945,24 @@ const Therapy = () => (
           </ul>
 
           <p className="mt-4 italic">
-            Sometimes the best healing happens without words — and horses have a way of knowing
-            exactly what you need.
+            Sometimes the best healing happens without words — and horses have a way of knowing exactly what you need.
           </p>
-
           <p className="mt-2 text-sm italic">
             *Non-clinical program; ask about referrals if you require licensed clinical services.
           </p>
         </div>
+
+        {/* IMAGE (right) — keep your original path */}
+        <aside
+          className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
+          style={{ borderColor: brand.gold }}
+        >
+          <img
+            src="/images/services/therapy.jpg"
+            alt="Equine-Assisted Therapy"
+            className="h-full w-full object-cover"
+          />
+        </aside>
       </div>
     </Section>
   </main>
