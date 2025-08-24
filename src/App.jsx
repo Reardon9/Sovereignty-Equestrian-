@@ -907,52 +907,58 @@ const Therapy = () => (
         {/* TEXT (left) */}
         <div className="md:col-span-3">
           <p>
-            At Sovereignty Equestrian, we believe in the powerful, unspoken connection between humans and
-            horses. Our Equine-Assisted Therapy sessions are designed to support emotional healing, mental
-            wellness, and personal growth through meaningful, guided interactions with our horses.
+            At Sovereignty Equestrian, we believe in the powerful, unspoken connection
+            between humans and horses. Our Equine-Assisted Therapy sessions are designed
+            to support emotional healing, mental wellness, and personal growth through
+            meaningful, guided interactions with our horses.
           </p>
 
           <p className="mt-4">
-            Led in a calm, supportive environment, this service is ideal for individuals navigating stress,
-            anxiety, grief, trauma, or life transitions. No riding experience is required — these sessions
-            focus on ground-based activities that foster mindfulness, trust, communication, and self-awareness.
+            Led in a calm, supportive environment, this service is ideal for individuals
+            navigating stress, anxiety, grief, trauma, or life transitions. No riding
+            experience is required — these sessions focus on ground-based activities that
+            foster mindfulness, trust, communication, and self-awareness.
           </p>
 
-          {/* PRICING */}
-          <p className="mt-6 font-semibold" style={{ color: brand.gold }}>
-            30 min — $45/session + tax
-          </p>
-          <p className="font-semibold" style={{ color: brand.gold }}>
-            60 min — $75/session + tax
-          </p>
-          <a
-            href="#/contact"
-            className="inline-block mt-3 px-5 py-2 rounded-xl border font-medium hover:opacity-90"
-            style={{ borderColor: brand.gold, color: brand.gold }}
-          >
-            Start Your Journey
-          </a>
-
-          {/* WHAT TO EXPECT */}
-          <h5 className="text-lg font-semibold mt-8" style={{ color: brand.white }}>
+          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
             What You Can Expect
           </h5>
           <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>30-minute or 60-minute sessions (one-on-one or small group)</li>
             <li>Groundwork and hands-on interaction with horses</li>
             <li>A quiet, natural setting for emotional wellness</li>
             <li>Supportive facilitation (non-clinical)*</li>
             <li>Safe space for all ages and backgrounds</li>
           </ul>
 
-          <p className="mt-4 italic">
-            Sometimes the best healing happens without words — and horses have a way of knowing exactly what you need.
+          <p className="mt-6 italic">
+            Sometimes the best healing happens without words — and horses have a way of
+            knowing exactly what you need.
           </p>
+
           <p className="mt-2 text-sm italic">
             *Non-clinical program; ask about referrals if you require licensed clinical services.
           </p>
+
+          {/* === PRICES AT VERY BOTTOM === */}
+          <div className="mt-8">
+            <p className="font-semibold" style={{ color: brand.gold }}>
+              30 min — $45/session + tax
+            </p>
+            <p className="font-semibold" style={{ color: brand.gold }}>
+              60 min — $75/session + tax
+            </p>
+            <a
+              href="#/contact"
+              className="inline-block mt-3 px-5 py-2 rounded-xl border font-medium hover:opacity-90"
+              style={{ borderColor: brand.gold, color: brand.gold }}
+            >
+              Start Your Journey
+            </a>
+          </div>
         </div>
 
-        {/* IMAGE (right) — keep your original path */}
+        {/* IMAGE (right) — original path preserved */}
         <aside
           className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
           style={{ borderColor: brand.gold }}
