@@ -817,7 +817,7 @@ const TrailRides = () => (
     />
     <Section title="Guided Trail Rides & Women’s Wine Night" kicker="Explore Southeast Kelowna">
       <TextWithPhotoRight
-        imgSrc="/images/services/trail-rides.jpg"   // keep your original image path
+        imgSrc="/images/services/trail-rides.jpg"  // keep your original image path
         imgAlt="Guided trail rides"
         objPos="center 45%"
       >
@@ -831,11 +831,16 @@ const TrailRides = () => (
             Calm, well-trained horses and friendly guides make it beginner-friendly and unforgettable.
           </p>
 
-          {/* PRICE directly under paragraph */}
+          <ul className="list-disc pl-6 mt-4 space-y-1">
+            <li>Scenic routes and small groups</li>
+            <li>Photo stops and relaxed pacing</li>
+            <li>Beginner-friendly with guidance</li>
+          </ul>
+
+          {/* Price + CTA ONLY here (under dot points) */}
           <p className="mt-3 font-semibold" style={{ color: brand.gold }}>
             $150/person + tax
           </p>
-
           <a
             href="#/contact"
             className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90"
@@ -844,19 +849,8 @@ const TrailRides = () => (
             Book Your Ride
           </a>
 
-          <ul className="list-disc pl-6 mt-4 space-y-1">
-            <li>Scenic routes and small groups</li>
-            <li>Photo stops and relaxed pacing</li>
-            <li>Beginner-friendly with guidance</li>
-          </ul>
-
-          {/* PRICE again under the dot points */}
-          <p className="mt-3 font-semibold" style={{ color: brand.gold }}>
-            $150/person + tax
-          </p>
-
           {/* --- Women’s Wine Night --- */}
-          <div className="mt-8">
+          <div className="mt-10">
             <h5 className="text-lg font-semibold mb-2" style={{ color: brand.white }}>
               Women’s Wine Night
             </h5>
@@ -866,11 +860,16 @@ const TrailRides = () => (
               No riding experience required.
             </p>
 
-            {/* PRICE directly under paragraph */}
+            <ul className="list-disc pl-6 mt-2 space-y-1">
+              <li>Guided trail ride with planned winery/viewpoint stops</li>
+              <li>Time to unwind, take photos, and enjoy Okanagan charm</li>
+              <li>Small group atmosphere</li>
+            </ul>
+
+            {/* Price + CTA ONLY here (under dot points) */}
             <p className="mt-3 font-semibold" style={{ color: brand.gold }}>
               $150/person + tax
             </p>
-
             <a
               href="#/contact"
               className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90"
@@ -878,17 +877,6 @@ const TrailRides = () => (
             >
               Book Your Evening
             </a>
-
-            <ul className="list-disc pl-6 mt-2 space-y-1">
-              <li>Guided trail ride with planned winery/viewpoint stops</li>
-              <li>Time to unwind, take photos, and enjoy Okanagan charm</li>
-              <li>Small group atmosphere</li>
-            </ul>
-
-            {/* PRICE again under the dot points */}
-            <p className="mt-3 font-semibold" style={{ color: brand.gold }}>
-              $150/person + tax
-            </p>
           </div>
         </div>
       </TextWithPhotoRight>
