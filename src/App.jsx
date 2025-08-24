@@ -1160,25 +1160,7 @@ const HorsePurchasing = () => (
             the show ring, breeding programs, or lifelong companionship.
           </p>
 
-          {/* PRICE + CTA moved directly under the paragraph */}
-          <p className="mt-6 font-semibold" style={{ color: brand.gold }}>
-            Custom Quote + tax
-          </p>
-          <a
-            href="#/contact"
-            className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90"
-            style={{ borderColor: brand.gold, color: brand.gold }}
-          >
-            Request a Quote
-          </a>
-
-          <p className="mt-6">
-            We’ll help you navigate options with honesty and care, so you can find the right partner
-            and become part of a trusted community dedicated to the Arabian breed.
-          </p>
-
-          {/* Details */}
-          <h5 className="text-lg font-semibold mt-8" style={{ color: brand.white }}>
+          <h5 className="text-lg font-semibold mt-6" style={{ color: brand.white }}>
             What We Offer
           </h5>
           <ul className="list-disc pl-6 mt-2 space-y-1">
@@ -1195,9 +1177,26 @@ const HorsePurchasing = () => (
             <li>Guidance in matching the right horse to your goals and budget</li>
             <li>Logistics support (transport options &amp; best practices)</li>
           </ul>
+
+          <p className="mt-6">
+            We’ll help you navigate options with honesty and care, so you can find the right partner
+            and become part of a trusted community dedicated to the Arabian breed.
+          </p>
+
+          {/* PRICE + CTA AT VERY BOTTOM */}
+          <p className="mt-8 font-semibold" style={{ color: brand.gold }}>
+            Custom Quote + tax
+          </p>
+          <a
+            href="#/contact"
+            className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90"
+            style={{ borderColor: brand.gold, color: brand.gold }}
+          >
+            Request a Quote
+          </a>
         </div>
 
-        {/* IMAGE (right) — original path kept */}
+        {/* IMAGE (right) — original path preserved */}
         <aside
           className="md:col-span-2 rounded-2xl border overflow-hidden h-[28rem]"
           style={{ borderColor: brand.gold }}
