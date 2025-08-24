@@ -148,10 +148,11 @@ const Header = ({ onNavigate, current }) => {
             </div>
           </a>
 
-          {/* NAV — keep one row; let labels wrap inside each tab (not the whole list) */}
+          {/* NAV — one-line list; long labels wrap inside their own tab */}
+          {/* nudge the group right on phones so 'Home' isn't under the logo */}
           <nav className="ml-auto pl-4 sm:pl-0">
-            <ul className="flex flex-nowrap items-stretch gap-2 sm:gap-3 md:gap-4 text-sm sm:text-base">
-              {/* helper to render a single tab with internal wrap */}
+            <ul className="flex flex-nowrap items-stretch gap-x-1 sm:gap-x-3 md:gap-x-4 text-sm sm:text-base">
+              {/* Left tabs */}
               {[
                 { label: "Home", to: "#/" },
                 { label: "Meet the Team", to: "#/meet-the-team" },
@@ -163,7 +164,7 @@ const Header = ({ onNavigate, current }) => {
                       e.preventDefault();
                       onNavigate(item.to);
                     }}
-                    className={`px-3 py-2 rounded-md inline-flex items-center justify-center text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[11ch] sm:max-w-[14ch] ${
+                    className={`px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[12ch] sm:max-w-[15ch] ${
                       current === item.to.replace("#", "") ? "ring-1" : ""
                     }`}
                     style={{ color: brand.white }}
@@ -173,18 +174,19 @@ const Header = ({ onNavigate, current }) => {
                 </li>
               ))}
 
-              {/* Services dropdown trigger — same treatment so it can wrap internally if needed */}
+              {/* Services dropdown trigger (can wrap internally if ever needed) */}
               <li className="relative flex" onClick={(e) => e.stopPropagation()}>
                 <button
-                  className="px-3 py-2 rounded-md inline-flex items-center justify-center gap-1 text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[11ch] sm:max-w-[14ch]"
+                  className="px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center gap-1 text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[12ch] sm:max-w-[15ch]"
                   style={{ color: brand.white }}
                   onClick={() => setOpen((v) => !v)}
                 >
                   Services <ChevronDown className="h-4 w-4" />
                 </button>
+
                 {open && (
                   <div
-                    className="absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-xl shadow-lg p-2"
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 w-56 rounded-xl shadow-lg p-2"
                     style={{
                       background: brand.black,
                       border: `1px solid ${brand.gold}`,
@@ -217,7 +219,7 @@ const Header = ({ onNavigate, current }) => {
                 )}
               </li>
 
-              {/* Right-side tabs — same internal wrap so long labels go to 2 lines within the tab */}
+              {/* Right tabs (long labels will wrap inside each tab, not the row) */}
               {[
                 { label: "Equine Assisted Therapy", to: "#/equine-assisted-therapy" },
                 { label: "Birthday Parties", to: "#/birthday-parties" },
@@ -232,7 +234,7 @@ const Header = ({ onNavigate, current }) => {
                       e.preventDefault();
                       onNavigate(item.to);
                     }}
-                    className={`px-3 py-2 rounded-md inline-flex items-center justify-center text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[11ch] sm:max-w-[14ch] ${
+                    className={`px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[12ch] sm:max-w-[15ch] ${
                       current === item.to.replace("#", "") ? "ring-1" : ""
                     }`}
                     style={{ color: brand.white }}
