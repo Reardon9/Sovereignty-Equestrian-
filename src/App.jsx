@@ -118,7 +118,8 @@ const Header = ({ onNavigate, current }) => {
       style={{ background: brand.navy, borderColor: "rgba(212,175,55,0.25)" }}
     >
       <Container>
-        <div className="flex items-center gap-6 py-3">
+        {/* increase small-screen gap between brand and nav */}
+        <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 py-3">
           <a
             href="#/"
             className="flex items-center gap-3 no-underline"
@@ -128,10 +129,10 @@ const Header = ({ onNavigate, current }) => {
             }}
           >
             <img
-  src={LOGO}
-  alt="Sovereignty Equestrian logo"
-  className="h-14 sm:h-16 md:h-20 lg:h-24 w-auto object-contain"
-/>
+              src={LOGO}
+              alt="Sovereignty Equestrian logo"
+              className="h-14 sm:h-16 md:h-20 lg:h-24 w-auto object-contain"
+            />
             <div className="leading-tight">
               <div
                 className="text-xl sm:text-2xl font-semibold"
@@ -144,8 +145,11 @@ const Header = ({ onNavigate, current }) => {
               </div>
             </div>
           </a>
-          <nav className="ml-auto">
-            <ul className="flex items-center gap-2 sm:gap-4 text-sm sm:text-base">
+
+          {/* add a little padding-left on phones so 'Home' isn't tight against the logo */}
+          <nav className="ml-auto pl-2 sm:pl-0">
+            {/* keep everything on one line, with consistent gaps; prevent label wraps */}
+            <ul className="flex flex-nowrap items-center gap-2 sm:gap-4 text-sm sm:text-base">
               {[
                 { label: "Home", to: "#/" },
                 { label: "Meet the Team", to: "#/meet-the-team" },
@@ -157,7 +161,7 @@ const Header = ({ onNavigate, current }) => {
                       e.preventDefault();
                       onNavigate(item.to);
                     }}
-                    className={`px-3 py-2 rounded-md inline-block hover:opacity-90 ${
+                    className={`px-3 py-2 rounded-md inline-block hover:opacity-90 whitespace-nowrap ${
                       current === item.to.replace("#", "") ? "ring-1" : ""
                     }`}
                     style={{ color: brand.white }}
@@ -166,10 +170,11 @@ const Header = ({ onNavigate, current }) => {
                   </a>
                 </li>
               ))}
-              {/* Services with dropdown */}
+
+              {/* Services with dropdown, centered under the trigger */}
               <li className="relative" onClick={(e) => e.stopPropagation()}>
                 <button
-                  className="px-3 py-2 rounded-md inline-flex items-center gap-1"
+                  className="px-3 py-2 rounded-md inline-flex items-center gap-1 whitespace-nowrap hover:opacity-90"
                   style={{ color: brand.white }}
                   onClick={() => setOpen((v) => !v)}
                 >
@@ -177,7 +182,7 @@ const Header = ({ onNavigate, current }) => {
                 </button>
                 {open && (
                   <div
-                    className="absolute mt-2 w-56 rounded-xl shadow-lg p-2"
+                    className="absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-xl shadow-lg p-2"
                     style={{
                       background: brand.black,
                       border: `1px solid ${brand.gold}`,
@@ -200,7 +205,7 @@ const Header = ({ onNavigate, current }) => {
                           onNavigate(s.to);
                           setOpen(false);
                         }}
-                        className="block px-3 py-2 rounded-lg hover:opacity-90"
+                        className="block px-3 py-2 rounded-lg hover:opacity-90 text-center whitespace-nowrap"
                         style={{ color: brand.white }}
                       >
                         {s.label}
@@ -209,6 +214,8 @@ const Header = ({ onNavigate, current }) => {
                   </div>
                 )}
               </li>
+
+              {/* right-side tabs (now non-wrapping for even spacing) */}
               {[
                 { label: "Equine Assisted Therapy", to: "#/equine-assisted-therapy" },
                 { label: "Birthday Parties", to: "#/birthday-parties" },
@@ -223,7 +230,7 @@ const Header = ({ onNavigate, current }) => {
                       e.preventDefault();
                       onNavigate(item.to);
                     }}
-                    className={`px-3 py-2 rounded-md inline-block hover:opacity-90 ${
+                    className={`px-3 py-2 rounded-md inline-block hover:opacity-90 whitespace-nowrap ${
                       current === item.to.replace("#", "") ? "ring-1" : ""
                     }`}
                     style={{ color: brand.white }}
