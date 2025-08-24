@@ -149,8 +149,8 @@ const Header = ({ onNavigate, current }) => {
           </a>
 
           {/* NAV — one-line list; long labels wrap inside their own tab */}
-          {/* nudge the group right on phones so 'Home' isn't under the logo */}
-          <nav className="ml-auto pl-4 sm:pl-0">
+          {/* nudge the group slightly left on phones so 'Meet the Team' centers nicer */}
+          <nav className="ml-auto pl-3 sm:pl-0">
             <ul className="flex flex-nowrap items-stretch gap-x-1 sm:gap-x-3 md:gap-x-4 text-sm sm:text-base">
               {/* Left tabs */}
               {[
@@ -174,7 +174,7 @@ const Header = ({ onNavigate, current }) => {
                 </li>
               ))}
 
-              {/* Services dropdown trigger (can wrap internally if ever needed) */}
+              {/* Services dropdown trigger */}
               <li className="relative flex" onClick={(e) => e.stopPropagation()}>
                 <button
                   className="px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center gap-1 text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[12ch] sm:max-w-[15ch]"
@@ -219,7 +219,7 @@ const Header = ({ onNavigate, current }) => {
                 )}
               </li>
 
-              {/* Right tabs (long labels will wrap inside each tab, not the row) */}
+              {/* Right tabs */}
               {[
                 { label: "Equine Assisted Therapy", to: "#/equine-assisted-therapy" },
                 { label: "Birthday Parties", to: "#/birthday-parties" },
