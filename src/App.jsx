@@ -609,7 +609,7 @@ const ServicesLanding = () => (
 
 const Boarding = () => (
   <main>
-    <SEO title="Horse Boarding in Kelowna | Sovereignty Equestrian" description="Full board, semi-board, self board, and pasture board with daily care, premium hay, turnout, and wellness checks." />
+    <SEO title="Boarding | Sovereignty Equestrian Kelowna" description="Care that’s consistent, safe, and horse-first. Full board, semi-board, self board, and pasture board options." />
     <Section title="Boarding" kicker="Care that’s consistent, safe, and horse-first">
       <div className="space-y-10">
         <TextWithPhotoRight imgSrc="/images/services/boarding-1.jpg" imgAlt="Full board" objPos="center 35%">
@@ -620,9 +620,16 @@ const Boarding = () => (
             <p>
               Complete daily care: stall cleaning & fresh bedding, premium hay & custom feed plan,
               turnout, blanketing/seasonal care, scheduling for farrier & vet, and regular wellness checks.
-              <em> 
-              *Priority is given to clients choosing full board.*</em>
             </p>
+            <p className="mt-2 italic" style={{ color: brand.white }}>
+              Priority is given to clients choosing full board.
+            </p>
+            <p className="mt-3 font-semibold" style={{ color: brand.gold }}>
+              $750/month + tax
+            </p>
+            <a href="#/contact" className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90" style={{ borderColor: brand.gold, color: brand.gold }}>
+              Reserve Your Spot
+            </a>
           </div>
         </TextWithPhotoRight>
 
@@ -635,22 +642,34 @@ const Boarding = () => (
               Hands-on owners with professional backup. Includes stall, 24/7 hay, and full facility access;
               you manage grooming, exercise, and selected care tasks.
             </p>
+            <p className="mt-3 font-semibold" style={{ color: brand.gold }}>
+              $575/month + tax
+            </p>
+            <a href="#/contact" className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90" style={{ borderColor: brand.gold, color: brand.gold }}>
+              Reserve Your Spot
+            </a>
           </div>
         </TextWithPhotoRight>
 
-        <TextWithPhotoRight imgSrc="/images/services/boarding-3.jpg" imgAlt="Self board" objPos="center 50%">
+        <TextWithPhotoRight imgSrc="/images/services/boarding-3.jpg" imgAlt="Self board" objPos="center 40%">
           <div>
             <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>
               Self Board — Independent, On Your Terms
             </h4>
             <p>
-              Ideal for experienced owners who prefer to manage daily care themselves while enjoying
-              access to arenas, pens, and property amenities.
+              Ideal for experienced owners who prefer to manage daily care themselves while enjoying access
+              to arenas, pens, and property amenities.
             </p>
+            <p className="mt-3 font-semibold" style={{ color: brand.gold }}>
+              $375/month + tax
+            </p>
+            <a href="#/contact" className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90" style={{ borderColor: brand.gold, color: brand.gold }}>
+              Reserve Your Spot
+            </a>
           </div>
         </TextWithPhotoRight>
 
-        <TextWithPhotoRight imgSrc="/images/services/boarding-4.jpg" imgAlt="Pasture board" objPos="center 45%">
+        <TextWithPhotoRight imgSrc="/images/services/boarding-4.jpg" imgAlt="Pasture board" objPos="center 40%">
           <div>
             <h4 className="text-xl font-semibold mb-2" style={{ color: brand.white }}>
               Pasture Board — Outdoor Living, Horse-Approved
@@ -658,6 +677,12 @@ const Boarding = () => (
             <p>
               Temperament-matched groups, shelter, daily health/safety checks, and optional supplement/grain add-ons.
             </p>
+            <p className="mt-3 font-semibold" style={{ color: brand.gold }}>
+              $475/month + tax
+            </p>
+            <a href="#/contact" className="inline-block mt-2 px-5 py-2 rounded-xl border font-medium hover:opacity-90" style={{ borderColor: brand.gold, color: brand.gold }}>
+              Reserve Your Spot
+            </a>
           </div>
         </TextWithPhotoRight>
       </div>
