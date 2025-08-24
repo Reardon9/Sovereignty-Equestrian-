@@ -118,8 +118,7 @@ const Header = ({ onNavigate, current }) => {
       style={{ background: brand.navy, borderColor: "rgba(212,175,55,0.25)" }}
     >
       <Container>
-        {/* increase small-screen gap between brand and nav */}
-        <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 py-3">
+        <div className="flex items-center gap-6 py-3">
           <a
             href="#/"
             className="flex items-center gap-3 no-underline"
@@ -146,10 +145,9 @@ const Header = ({ onNavigate, current }) => {
             </div>
           </a>
 
-          {/* add a little padding-left on phones so 'Home' isn't tight against the logo */}
+          {/* small extra padding on phones so 'Home' isn't too close to the logo */}
           <nav className="ml-auto pl-2 sm:pl-0">
-            {/* keep everything on one line, with consistent gaps; prevent label wraps */}
-            <ul className="flex flex-nowrap items-center gap-2 sm:gap-4 text-sm sm:text-base">
+            <ul className="flex items-center gap-3 sm:gap-4 text-sm sm:text-base">
               {[
                 { label: "Home", to: "#/" },
                 { label: "Meet the Team", to: "#/meet-the-team" },
@@ -171,7 +169,7 @@ const Header = ({ onNavigate, current }) => {
                 </li>
               ))}
 
-              {/* Services with dropdown, centered under the trigger */}
+              {/* Services with dropdown (kept original design, just tightened spacing) */}
               <li className="relative" onClick={(e) => e.stopPropagation()}>
                 <button
                   className="px-3 py-2 rounded-md inline-flex items-center gap-1 whitespace-nowrap hover:opacity-90"
@@ -182,7 +180,7 @@ const Header = ({ onNavigate, current }) => {
                 </button>
                 {open && (
                   <div
-                    className="absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-xl shadow-lg p-2"
+                    className="absolute mt-2 w-56 rounded-xl shadow-lg p-2 flex flex-col space-y-1"
                     style={{
                       background: brand.black,
                       border: `1px solid ${brand.gold}`,
@@ -205,7 +203,7 @@ const Header = ({ onNavigate, current }) => {
                           onNavigate(s.to);
                           setOpen(false);
                         }}
-                        className="block px-3 py-2 rounded-lg hover:opacity-90 text-center whitespace-nowrap"
+                        className="block w-full px-3 py-2 rounded-lg hover:opacity-90 text-left whitespace-nowrap"
                         style={{ color: brand.white }}
                       >
                         {s.label}
@@ -215,7 +213,7 @@ const Header = ({ onNavigate, current }) => {
                 )}
               </li>
 
-              {/* right-side tabs (now non-wrapping for even spacing) */}
+              {/* Right-side tabs (unchanged content; now non-wrapping for even spacing) */}
               {[
                 { label: "Equine Assisted Therapy", to: "#/equine-assisted-therapy" },
                 { label: "Birthday Parties", to: "#/birthday-parties" },
