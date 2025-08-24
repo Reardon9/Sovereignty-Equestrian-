@@ -896,7 +896,7 @@ const TrailRides = () => (
   </main>
 );
 
-const EquineTherapy = () => (
+const Therapy = () => (
   <main>
     <SEO
       title="Equine Assisted Therapy | Sovereignty Equestrian"
