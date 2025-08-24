@@ -148,24 +148,22 @@ const Header = ({ onNavigate, current }) => {
             </div>
           </a>
 
-          {/* NAV — minimal tweaks only */}
-          {/* 1) pl-4 on mobile so "Home" isn't tucked under the logo; unchanged on sm+ */}
+          {/* NAV — keep one row; let labels wrap inside each tab (not the whole list) */}
           <nav className="ml-auto pl-4 sm:pl-0">
-            {/* 2) allow wrapping + even spacing horizontally & vertically; keep your original look */}
-            <ul className="flex flex-wrap items-center gap-x-2 sm:gap-x-4 gap-y-2 text-sm sm:text-base">
-              {/* Left tabs */}
+            <ul className="flex flex-nowrap items-stretch gap-2 sm:gap-3 md:gap-4 text-sm sm:text-base">
+              {/* helper to render a single tab with internal wrap */}
               {[
                 { label: "Home", to: "#/" },
                 { label: "Meet the Team", to: "#/meet-the-team" },
               ].map((item) => (
-                <li key={item.to}>
+                <li key={item.to} className="flex">
                   <a
                     href={item.to}
                     onClick={(e) => {
                       e.preventDefault();
                       onNavigate(item.to);
                     }}
-                    className={`px-3 py-2 rounded-md inline-block hover:opacity-90 ${
+                    className={`px-3 py-2 rounded-md inline-flex items-center justify-center text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[11ch] sm:max-w-[14ch] ${
                       current === item.to.replace("#", "") ? "ring-1" : ""
                     }`}
                     style={{ color: brand.white }}
@@ -175,10 +173,10 @@ const Header = ({ onNavigate, current }) => {
                 </li>
               ))}
 
-              {/* Services dropdown (kept as-is; no visual changes besides global spacing above) */}
-              <li className="relative" onClick={(e) => e.stopPropagation()}>
+              {/* Services dropdown trigger — same treatment so it can wrap internally if needed */}
+              <li className="relative flex" onClick={(e) => e.stopPropagation()}>
                 <button
-                  className="px-3 py-2 rounded-md inline-flex items-center gap-1 hover:opacity-90"
+                  className="px-3 py-2 rounded-md inline-flex items-center justify-center gap-1 text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[11ch] sm:max-w-[14ch]"
                   style={{ color: brand.white }}
                   onClick={() => setOpen((v) => !v)}
                 >
@@ -186,7 +184,7 @@ const Header = ({ onNavigate, current }) => {
                 </button>
                 {open && (
                   <div
-                    className="absolute mt-2 w-56 rounded-xl shadow-lg p-2"
+                    className="absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-xl shadow-lg p-2"
                     style={{
                       background: brand.black,
                       border: `1px solid ${brand.gold}`,
@@ -209,7 +207,7 @@ const Header = ({ onNavigate, current }) => {
                           onNavigate(s.to);
                           setOpen(false);
                         }}
-                        className="block px-3 py-2 rounded-lg hover:opacity-90"
+                        className="block px-3 py-2 rounded-lg hover:opacity-90 text-center"
                         style={{ color: brand.white }}
                       >
                         {s.label}
@@ -219,7 +217,7 @@ const Header = ({ onNavigate, current }) => {
                 )}
               </li>
 
-              {/* Right tabs */}
+              {/* Right-side tabs — same internal wrap so long labels go to 2 lines within the tab */}
               {[
                 { label: "Equine Assisted Therapy", to: "#/equine-assisted-therapy" },
                 { label: "Birthday Parties", to: "#/birthday-parties" },
@@ -227,14 +225,14 @@ const Header = ({ onNavigate, current }) => {
                 { label: "Horse Purchasing Program", to: "#/horse-purchasing-program" },
                 { label: "Contact Us", to: "#/contact" },
               ].map((item) => (
-                <li key={item.to}>
+                <li key={item.to} className="flex">
                   <a
                     href={item.to}
                     onClick={(e) => {
                       e.preventDefault();
                       onNavigate(item.to);
                     }}
-                    className={`px-3 py-2 rounded-md inline-block hover:opacity-90 ${
+                    className={`px-3 py-2 rounded-md inline-flex items-center justify-center text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[11ch] sm:max-w-[14ch] ${
                       current === item.to.replace("#", "") ? "ring-1" : ""
                     }`}
                     style={{ color: brand.white }}
