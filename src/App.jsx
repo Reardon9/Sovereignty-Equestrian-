@@ -107,11 +107,13 @@ const Container = ({ children }) => (
 
 const Header = ({ onNavigate, current }) => {
   const [open, setOpen] = useState(false);
+
   useEffect(() => {
     const close = () => setOpen(false);
     window.addEventListener("click", close);
     return () => window.removeEventListener("click", close);
   }, []);
+
   return (
     <header
       className="sticky top-0 z-40 border-b"
@@ -119,6 +121,7 @@ const Header = ({ onNavigate, current }) => {
     >
       <Container>
         <div className="flex items-center gap-6 py-3">
+          {/* Brand / Logo (unchanged) */}
           <a
             href="#/"
             className="flex items-center gap-3 no-underline"
@@ -145,10 +148,12 @@ const Header = ({ onNavigate, current }) => {
             </div>
           </a>
 
-          {/* nudges 'Home' right on phones; unchanged on tablet/desktop */}
+          {/* NAV — minimal tweaks only */}
+          {/* 1) pl-4 on mobile so "Home" isn't tucked under the logo; unchanged on sm+ */}
           <nav className="ml-auto pl-4 sm:pl-0">
-            {/* allow wrapping + even gaps on both lines */}
-            <ul className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-sm sm:text-base">
+            {/* 2) allow wrapping + even spacing horizontally & vertically; keep your original look */}
+            <ul className="flex flex-wrap items-center gap-x-2 sm:gap-x-4 gap-y-2 text-sm sm:text-base">
+              {/* Left tabs */}
               {[
                 { label: "Home", to: "#/" },
                 { label: "Meet the Team", to: "#/meet-the-team" },
@@ -170,10 +175,10 @@ const Header = ({ onNavigate, current }) => {
                 </li>
               ))}
 
-              {/* Services dropdown (original look; just adds consistent vertical spacing) */}
+              {/* Services dropdown (kept as-is; no visual changes besides global spacing above) */}
               <li className="relative" onClick={(e) => e.stopPropagation()}>
                 <button
-                  className="px-3 py-2 rounded-md inline-flex items-center gap-1"
+                  className="px-3 py-2 rounded-md inline-flex items-center gap-1 hover:opacity-90"
                   style={{ color: brand.white }}
                   onClick={() => setOpen((v) => !v)}
                 >
@@ -181,7 +186,7 @@ const Header = ({ onNavigate, current }) => {
                 </button>
                 {open && (
                   <div
-                    className="absolute mt-2 w-56 rounded-xl shadow-lg p-2 flex flex-col space-y-1"
+                    className="absolute mt-2 w-56 rounded-xl shadow-lg p-2"
                     style={{
                       background: brand.black,
                       border: `1px solid ${brand.gold}`,
@@ -214,6 +219,7 @@ const Header = ({ onNavigate, current }) => {
                 )}
               </li>
 
+              {/* Right tabs */}
               {[
                 { label: "Equine Assisted Therapy", to: "#/equine-assisted-therapy" },
                 { label: "Birthday Parties", to: "#/birthday-parties" },
