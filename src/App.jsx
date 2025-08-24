@@ -620,7 +620,8 @@ const Boarding = () => (
             <p>
               Complete daily care: stall cleaning & fresh bedding, premium hay & custom feed plan,
               turnout, blanketing/seasonal care, scheduling for farrier & vet, and regular wellness checks.
-              <em> *Priority is given to clients choosing full board.*</em>
+              <em> 
+              *Priority is given to clients choosing full board.*</em>
             </p>
           </div>
         </TextWithPhotoRight>
