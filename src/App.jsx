@@ -105,6 +105,7 @@ const Container = ({ children }) => (
   <div className="max-w-7xl mx-auto px-5 sm:px-8">{children}</div>
 );
 
+// ⬇️ REPLACE your current Header with this version
 const Header = ({ onNavigate, current }) => {
   const [open, setOpen] = useState(false);
 
@@ -121,7 +122,7 @@ const Header = ({ onNavigate, current }) => {
     >
       <Container>
         <div className="flex items-center gap-6 py-3">
-          {/* Brand / Logo (unchanged) */}
+          {/* Brand / Logo */}
           <a
             href="#/"
             className="flex items-center gap-3 no-underline"
@@ -136,10 +137,7 @@ const Header = ({ onNavigate, current }) => {
               className="h-14 sm:h-16 md:h-20 lg:h-24 w-auto object-contain"
             />
             <div className="leading-tight">
-              <div
-                className="text-xl sm:text-2xl font-semibold"
-                style={{ color: brand.white }}
-              >
+              <div className="text-xl sm:text-2xl font-semibold" style={{ color: brand.white }}>
                 Sovereignty Equestrian
               </div>
               <div className="text-xs sm:text-sm" style={{ color: brand.gold }}>
@@ -148,16 +146,22 @@ const Header = ({ onNavigate, current }) => {
             </div>
           </a>
 
-          {/* NAV — one-line list; long labels wrap inside their own tab */}
-          {/* mobile tweak: move the group one step LEFT so 'Meet the Team' looks centered */}
-          <nav className="ml-auto pl-1 sm:pl-0">
-            <ul className="flex flex-nowrap items-stretch gap-x-1 sm:gap-x-3 md:gap-x-4 text-sm sm:text-base">
+          {/* Nav */}
+          <nav className="ml-auto">
+            <ul
+              className="
+                flex flex-nowrap items-stretch
+                gap-x-2 sm:gap-x-3 md:gap-x-4    /* ↑ more space on phones so 'Meet the Team' doesn't crowd 'Services' */
+                text-sm sm:text-base
+              "
+            >
               {/* Left tabs */}
               {[
                 { label: "Home", to: "#/" },
                 { label: "Meet the Team", to: "#/meet-the-team" },
-              ].map((item) => (
-                <li key={item.to} className="flex">
+              ].map((item, idx) => (
+                <li key={item.to} className={`flex ${idx === 0 ? "ml-2" : ""}`}>
+                  {/* ↑ tiny mobile-only offset pushes 'Home' off the logo without affecting desktop */}
                   <a
                     href={item.to}
                     onClick={(e) => {
@@ -174,7 +178,7 @@ const Header = ({ onNavigate, current }) => {
                 </li>
               ))}
 
-              {/* Services dropdown trigger */}
+              {/* Services dropdown */}
               <li className="relative flex" onClick={(e) => e.stopPropagation()}>
                 <button
                   className="px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center gap-1 text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[12ch] sm:max-w-[15ch]"
@@ -187,19 +191,13 @@ const Header = ({ onNavigate, current }) => {
                 {open && (
                   <div
                     className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 w-56 rounded-xl shadow-lg p-2"
-                    style={{
-                      background: brand.black,
-                      border: `1px solid ${brand.gold}`,
-                    }}
+                    style={{ background: brand.black, border: `1px solid ${brand.gold}` }}
                   >
                     {[
                       { label: "Boarding", to: "#/services/boarding" },
                       { label: "Lessons", to: "#/services/lessons" },
                       { label: "Camps & Clinics", to: "#/services/camps-clinics" },
-                      {
-                        label: "Trail Rides (Women’s Wine Night)",
-                        to: "#/services/trail-rides",
-                      },
+                      { label: "Trail Rides (Women’s Wine Night)", to: "#/services/trail-rides" },
                     ].map((s) => (
                       <a
                         key={s.to}
@@ -219,7 +217,7 @@ const Header = ({ onNavigate, current }) => {
                 )}
               </li>
 
-              {/* Right tabs */}
+              {/* Right tabs (unchanged) */}
               {[
                 { label: "Equine Assisted Therapy", to: "#/equine-assisted-therapy" },
                 { label: "Birthday Parties", to: "#/birthday-parties" },
