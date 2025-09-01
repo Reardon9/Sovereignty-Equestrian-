@@ -137,7 +137,10 @@ const Header = ({ onNavigate, current }) => {
               className="h-14 sm:h-16 md:h-20 lg:h-24 w-auto object-contain"
             />
             <div className="leading-tight">
-              <div className="text-xl sm:text-2xl font-semibold" style={{ color: brand.white }}>
+              <div
+                className="text-xl sm:text-2xl font-semibold"
+                style={{ color: brand.white }}
+              >
                 Sovereignty Equestrian
               </div>
               <div className="text-xs sm:text-sm" style={{ color: brand.gold }}>
@@ -146,108 +149,114 @@ const Header = ({ onNavigate, current }) => {
             </div>
           </a>
 
-          {/* Nav */}
+          {/* NAV */}
           <nav className="ml-auto pl-1 sm:pl-0">
-  <ul className="flex flex-nowrap items-stretch gap-x-2 sm:gap-x-3 md:gap-x-4 text-sm sm:text-base">
-    {/* Home (unchanged) */}
-    <li className="flex">
-      <a
-        href="#/"
-        onClick={(e) => {
-          e.preventDefault();
-          onNavigate("#/");
-        }}
-        className={`px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[12ch] sm:max-w-[15ch] ${
-          current === "/" ? "ring-1" : ""
-        }`}
-        style={{ color: brand.white }}
-      >
-        Home
-      </a>
-    </li>
+            <ul className="flex flex-nowrap items-stretch gap-x-2 sm:gap-x-3 md:gap-x-4 text-sm sm:text-base">
+              {/* Home */}
+              <li className="flex">
+                <a
+                  href="#/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate("#/");
+                  }}
+                  className={`px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[12ch] sm:max-w-[15ch] ${
+                    current === "/" ? "ring-1" : ""
+                  }`}
+                  style={{ color: brand.white }}
+                >
+                  Home
+                </a>
+              </li>
 
-    {/* Meet the Team — centered on phones */}
-    <li className="flex w-full sm:w-auto justify-center">
-      <a
-        href="#/meet-the-team"
-        onClick={(e) => {
-          e.preventDefault();
-          onNavigate("#/meet-the-team");
-        }}
-        className={`px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[15ch] ${
-          current === "/meet-the-team" ? "ring-1" : ""
-        }`}
-        style={{ color: brand.white }}
-      >
-        Meet the Team
-      </a>
-    </li>
+              {/* Meet the Team — centered & wraps on phones */}
+              <li className="flex w-full sm:w-auto justify-center">
+                <a
+                  href="#/meet-the-team"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate("#/meet-the-team");
+                  }}
+                  className={`px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[8ch] sm:max-w-[15ch] ${
+                    current === "/meet-the-team" ? "ring-1" : ""
+                  }`}
+                  style={{ color: brand.white }}
+                >
+                  Meet the Team
+                </a>
+              </li>
 
-    {/* Services dropdown trigger (unchanged) */}
-    <li className="relative flex" onClick={(e) => e.stopPropagation()}>
-      <button
-        className="px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center gap-1 text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[12ch] sm:max-w-[15ch]"
-        style={{ color: brand.white }}
-        onClick={() => setOpen((v) => !v)}
-      >
-        Services <ChevronDown className="h-4 w-4" />
-      </button>
+              {/* Services dropdown */}
+              <li className="relative flex" onClick={(e) => e.stopPropagation()}>
+                <button
+                  className="px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center gap-1 text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[12ch] sm:max-w-[15ch]"
+                  style={{ color: brand.white }}
+                  onClick={() => setOpen((v) => !v)}
+                >
+                  Services <ChevronDown className="h-4 w-4" />
+                </button>
 
-      {open && (
-        <div
-          className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 w-56 rounded-xl shadow-lg p-2"
-          style={{ background: brand.black, border: `1px solid ${brand.gold}` }}
-        >
-          {[
-            { label: "Boarding", to: "#/services/boarding" },
-            { label: "Lessons", to: "#/services/lessons" },
-            { label: "Camps & Clinics", to: "#/services/camps-clinics" },
-            { label: "Trail Rides (Women’s Wine Night)", to: "#/services/trail-rides" },
-          ].map((s) => (
-            <a
-              key={s.to}
-              href={s.to}
-              onClick={(e) => {
-                e.preventDefault();
-                onNavigate(s.to);
-                setOpen(false);
-              }}
-              className="block px-3 py-2 rounded-lg hover:opacity-90 text-center"
-              style={{ color: brand.white }}
-            >
-              {s.label}
-            </a>
-          ))}
-        </div>
-      )}
-    </li>
+                {open && (
+                  <div
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 w-56 rounded-xl shadow-lg p-2"
+                    style={{
+                      background: brand.black,
+                      border: `1px solid ${brand.gold}`,
+                    }}
+                  >
+                    {[
+                      { label: "Boarding", to: "#/services/boarding" },
+                      { label: "Lessons", to: "#/services/lessons" },
+                      { label: "Camps & Clinics", to: "#/services/camps-clinics" },
+                      {
+                        label: "Trail Rides (Women’s Wine Night)",
+                        to: "#/services/trail-rides",
+                      },
+                    ].map((s) => (
+                      <a
+                        key={s.to}
+                        href={s.to}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          onNavigate(s.to);
+                          setOpen(false);
+                        }}
+                        className="block px-3 py-2 rounded-lg hover:opacity-90 text-center"
+                        style={{ color: brand.white }}
+                      >
+                        {s.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </li>
 
-    {/* Right tabs (unchanged) */}
-    {[
-      { label: "Equine Assisted Therapy", to: "#/equine-assisted-therapy" },
-      { label: "Birthday Parties", to: "#/birthday-parties" },
-      { label: "Layover Stays", to: "#/layover-stays" },
-      { label: "Horse Purchasing Program", to: "#/horse-purchasing-program" },
-      { label: "Contact Us", to: "#/contact" },
-    ].map((item) => (
-      <li key={item.to} className="flex">
-        <a
-          href={item.to}
-          onClick={(e) => {
-            e.preventDefault();
-            onNavigate(item.to);
-          }}
-          className={`px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[12ch] sm:max-w-[15ch] ${
-            current === item.to.replace("#", "") ? "ring-1" : ""
-          }`}
-          style={{ color: brand.white }}
-        >
-          {item.label}
-        </a>
-      </li>
-    ))}
-  </ul>
-</nav>
+              {/* Right tabs */}
+              {[
+                { label: "Equine Assisted Therapy", to: "#/equine-assisted-therapy" },
+                { label: "Birthday Parties", to: "#/birthday-parties" },
+                { label: "Layover Stays", to: "#/layover-stays" },
+                { label: "Horse Purchasing Program", to: "#/horse-purchasing-program" },
+                { label: "Contact Us", to: "#/contact" },
+              ].map((item) => (
+                <li key={item.to} className="flex">
+                  <a
+                    href={item.to}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigate(item.to);
+                    }}
+                    className={`px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[12ch] sm:max-w-[15ch] ${
+                      current === item.to.replace("#", "") ? "ring-1" : ""
+                    }`}
+                    style={{ color: brand.white }}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </Container>
     </header>
