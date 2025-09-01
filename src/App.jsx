@@ -136,10 +136,7 @@ const Header = ({ onNavigate, current }) => {
               className="h-14 sm:h-16 md:h-20 lg:h-24 w-auto object-contain"
             />
             <div className="leading-tight">
-              <div
-                className="text-xl sm:text-2xl font-semibold"
-                style={{ color: brand.white }}
-              >
+              <div className="text-xl sm:text-2xl font-semibold" style={{ color: brand.white }}>
                 Sovereignty Equestrian
               </div>
               <div className="text-xs sm:text-sm" style={{ color: brand.gold }}>
@@ -148,18 +145,18 @@ const Header = ({ onNavigate, current }) => {
             </div>
           </a>
 
-          {/* NAV */}
+          {/* NAV — one-line list; long labels wrap inside their own tab */}
           <nav className="ml-auto pl-1 sm:pl-0">
             <ul className="flex flex-nowrap items-stretch gap-x-2 sm:gap-x-3 md:gap-x-4 text-sm sm:text-base">
-              {/* Home */}
-              <li className="flex">
+              {/* Home — centered & wraps on phones */}
+              <li className="flex w-full sm:w-auto justify-center">
                 <a
                   href="#/"
                   onClick={(e) => {
                     e.preventDefault();
                     onNavigate("#/");
                   }}
-                  className={`px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[12ch] sm:max-w-[15ch] ${
+                  className={`px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[8ch] sm:max-w-[15ch] ${
                     current === "/" ? "ring-1" : ""
                   }`}
                   style={{ color: brand.white }}
@@ -185,7 +182,7 @@ const Header = ({ onNavigate, current }) => {
                 </a>
               </li>
 
-              {/* Services dropdown */}
+              {/* Services dropdown trigger */}
               <li className="relative flex" onClick={(e) => e.stopPropagation()}>
                 <button
                   className="px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center gap-1 text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[12ch] sm:max-w-[15ch]"
@@ -198,19 +195,13 @@ const Header = ({ onNavigate, current }) => {
                 {open && (
                   <div
                     className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 w-56 rounded-xl shadow-lg p-2"
-                    style={{
-                      background: brand.black,
-                      border: `1px solid ${brand.gold}`,
-                    }}
+                    style={{ background: brand.black, border: `1px solid ${brand.gold}` }}
                   >
                     {[
                       { label: "Boarding", to: "#/services/boarding" },
                       { label: "Lessons", to: "#/services/lessons" },
                       { label: "Camps & Clinics", to: "#/services/camps-clinics" },
-                      {
-                        label: "Trail Rides (Women’s Wine Night)",
-                        to: "#/services/trail-rides",
-                      },
+                      { label: "Trail Rides (Women’s Wine Night)", to: "#/services/trail-rides" },
                     ].map((s) => (
                       <a
                         key={s.to}
