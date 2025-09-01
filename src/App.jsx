@@ -101,10 +101,6 @@ const useHashRoute = () => {
 };
 
 // ===== Layout & Chrome =====
-const Container = ({ children }) => (
-  <div className="max-w-7xl mx-auto px-5 sm:px-8">{children}</div>
-);
-
 const Header = ({ onNavigate, current }) => {
   const [open, setOpen] = useState(false);
 
@@ -120,7 +116,8 @@ const Header = ({ onNavigate, current }) => {
       style={{ background: brand.navy, borderColor: "rgba(212,175,55,0.25)" }}
     >
       <Container>
-        <div className="flex items-center gap-6 py-3">
+        {/* Switch to 3-col grid on mobile so nav can truly center */}
+        <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 sm:gap-6 py-3">
           {/* Brand / Logo (unchanged) */}
           <a
             href="#/"
@@ -148,10 +145,9 @@ const Header = ({ onNavigate, current }) => {
             </div>
           </a>
 
-          {/* NAV — one-line list; long labels wrap inside their own tab */}
-          {/* mobile tweak: move the group one step LEFT so 'Meet the Team' looks centered */}
-          <nav className="ml-auto pl-1 sm:pl-0">
-            <ul className="flex flex-nowrap items-stretch gap-x-1 sm:gap-x-3 md:gap-x-4 text-sm sm:text-base">
+          {/* NAV: centered on mobile, right-aligned on desktop */}
+          <nav className="justify-self-center sm:justify-self-end pl-1 sm:pl-0">
+            <ul className="flex flex-wrap sm:flex-nowrap items-stretch justify-center sm:justify-start gap-x-1 sm:gap-x-3 md:gap-x-4 text-sm sm:text-base">
               {/* Left tabs */}
               {[
                 { label: "Home", to: "#/" },
@@ -174,7 +170,7 @@ const Header = ({ onNavigate, current }) => {
                 </li>
               ))}
 
-              {/* Services dropdown trigger */}
+              {/* Services dropdown */}
               <li className="relative flex" onClick={(e) => e.stopPropagation()}>
                 <button
                   className="px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center gap-1 text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[12ch] sm:max-w-[15ch]"
@@ -245,6 +241,9 @@ const Header = ({ onNavigate, current }) => {
               ))}
             </ul>
           </nav>
+
+          {/* Spacer balances logo width so the nav truly centers on mobile */}
+          <div className="w-14 sm:w-0 h-0" aria-hidden="true" />
         </div>
       </Container>
     </header>
