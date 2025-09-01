@@ -147,15 +147,15 @@ const Header = ({ onNavigate, current }) => {
           {/* NAV */}
           <nav className="ml-auto pl-1 sm:pl-0">
             <ul className="flex flex-nowrap items-stretch gap-x-2 sm:gap-x-3 md:gap-x-4 text-sm sm:text-base">
-              {/* Home — centered on phones */}
-              <li className="flex w-full sm:w-auto justify-center">
+              {/* Home */}
+              <li className="flex">
                 <a
                   href="#/"
                   onClick={(e) => {
                     e.preventDefault();
                     onNavigate("#/");
                   }}
-                  className={`px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[8ch] sm:max-w-[15ch] ${
+                  className={`px-2 sm:px-3 py-2 rounded-md inline-flex items-center justify-center text-center leading-tight hover:opacity-90 whitespace-normal break-words shrink-0 max-w-[12ch] sm:max-w-[15ch] ${
                     current === "/" ? "ring-1" : ""
                   }`}
                   style={{ color: brand.white }}
